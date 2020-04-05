@@ -1,7 +1,8 @@
 import React from 'react';
-import Card from './Card';
+import CardList from './CardList';
 
 import './App.css';
+import './star-animation.css';
 
 class App extends React.Component {
   constructor() {
@@ -23,10 +24,19 @@ class App extends React.Component {
   // }
 
   render() {
-    return !Object.keys(this.state.people).length ? (
+    return Object.keys(this.state.people).length ? (
       <h1 className="green">loading</h1>
     ) : (
-      <Card>This is a Name</Card>
+      <div>
+        <div className="bg-animation">
+          <div id="stars"></div>
+          <div id="stars2"></div>
+          <div id="stars3"></div>
+          <div id="stars4"></div>
+          <h1 className="yellow">People</h1>
+          <CardList people={true} />
+        </div>
+      </div>
     );
   }
 }
