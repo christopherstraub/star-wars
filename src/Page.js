@@ -6,7 +6,11 @@ const Page = ({ resourceTitle, resourceData, visibleCards }) => {
   return (
     <div className="vh-100 ba red">
       <Heading resourceTitle={resourceTitle} />
-      <CardList resourceData={resourceData} visibleCards={visibleCards} />
+      <CardList
+        resourceData={resourceData}
+        visibleCards={visibleCards}
+        resourceTitle={resourceTitle}
+      />
     </div>
   );
 };

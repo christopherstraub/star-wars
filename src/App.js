@@ -14,9 +14,9 @@ class App extends React.Component {
       people: {},
       planets: {},
       species: {},
-      peopleVisible: [1, 2, 3, 4, 5],
-      planetsVisible: [1, 2, 3, 4, 5],
-      speciesVisible: [1, 2, 3, 4, 5],
+      peopleVisible: [1, 2, 3],
+      planetsVisible: [1, 2, 3],
+      speciesVisible: [1, 2, 3],
       urlsToFetch: [
         'https://swapi.co/api/people/',
         'https://swapi.co/api/planets/',

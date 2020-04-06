@@ -1,14 +1,30 @@
 import React from 'react';
 import Card from './Card';
 
-const CardList = ({ resourceData, visibleCards }) => {
+const CardList = ({ resourceData, visibleCards, resourceTitle }) => {
   return (
-    <div className="flex justify-between flex-wrap">
-      {visibleCards.map((card, index) => {
-        return (
-          <Card key={index} resource={resourceData} num={visibleCards[index]} />
-        );
-      })}
+    <div className="flex justify-center items-center content-start flex-wrap w-100 h-75">
+      <Card
+        key={visibleCards[0]}
+        resource={resourceData}
+        num={visibleCards[0]}
+        position="side"
+        resourceTitle={resourceTitle}
+      />
+      <Card
+        key={visibleCards[1]}
+        resource={resourceData}
+        num={visibleCards[1]}
+        position="center"
+        resourceTitle={resourceTitle}
+      />
+      <Card
+        key={visibleCards[2]}
+        resource={resourceData}
+        num={visibleCards[2]}
+        position="side"
+        resourceTitle={resourceTitle}
+      />
     </div>
   );
 };
