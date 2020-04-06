@@ -19,11 +19,11 @@ const getCardPosition = (position) => {
   return position;
 };
 
-const Card = ({ resource, num, position, resourceTitle }) => {
+const Card = ({ resourceData, num, position, resourceTitle }) => {
   if (isPeople(resourceTitle) && getCardPosition(position) === 'side') {
     return (
       <SideCardWrapper>
-        <h1>{resource.results[num - 1].name}</h1>
+        <h1>{resourceData[0].results[num - 1].name}</h1>
         <h4>{num}</h4>
       </SideCardWrapper>
     );
@@ -31,14 +31,14 @@ const Card = ({ resource, num, position, resourceTitle }) => {
   if (isPeople(resourceTitle) && getCardPosition(position) === 'center') {
     return (
       <CenterCardWrapper>
-        <People resource={resource} num={num} />
+        <People resourceData={resourceData} num={num} />
       </CenterCardWrapper>
     );
   }
   if (isPlanets(resourceTitle) && getCardPosition(position) === 'side') {
     return (
       <SideCardWrapper>
-        <h1>{resource.results[num - 1].name}</h1>
+        <h1>{resourceData[1].results[num - 1].name}</h1>
         <h4>{num}</h4>
       </SideCardWrapper>
     );
@@ -46,14 +46,14 @@ const Card = ({ resource, num, position, resourceTitle }) => {
   if (isPlanets(resourceTitle) && getCardPosition(position) === 'center') {
     return (
       <CenterCardWrapper>
-        <Planets resource={resource} num={num} />
+        <Planets resourceData={resourceData} num={num} />
       </CenterCardWrapper>
     );
   }
   if (isSpecies(resourceTitle) && getCardPosition(position) === 'side') {
     return (
       <SideCardWrapper>
-        <h1>{resource.results[num - 1].name}</h1>
+        <h1>{resourceData[2].results[num - 1].name}</h1>
         <h4>{num}</h4>
       </SideCardWrapper>
     );
@@ -61,7 +61,7 @@ const Card = ({ resource, num, position, resourceTitle }) => {
   if (isSpecies(resourceTitle) && getCardPosition(position) === 'center') {
     return (
       <CenterCardWrapper>
-        <Species resource={resource} num={num} />
+        <Species resourceData={resourceData} num={num} />
       </CenterCardWrapper>
     );
   }

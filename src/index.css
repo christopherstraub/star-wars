@@ -12,6 +12,9 @@ code {
     monospace;
 }
 
+* {
+  text-transform: uppercase;
+}
 /* h1,
 h4 {
   margin: 0;

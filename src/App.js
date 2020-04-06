@@ -14,9 +14,9 @@ class App extends React.Component {
       people: {},
       planets: {},
       species: {},
-      peopleVisible: [1, 2, 3],
-      planetsVisible: [1, 2, 3],
-      speciesVisible: [1, 2, 3],
+      peopleVisible: [1, 3, 3],
+      planetsVisible: [1, 5, 3],
+      speciesVisible: [1, 5, 3],
       urlsToFetch: [
         'https://swapi.co/api/people/',
         'https://swapi.co/api/planets/',
@@ -60,17 +60,17 @@ class App extends React.Component {
         <TitleScreen />
         <Page
           resourceTitle="People"
-          resourceData={people}
+          resourceData={[people, planets, species]}
           visibleCards={peopleVisible}
         />
         <Page
           resourceTitle="Planets"
-          resourceData={planets}
+          resourceData={[people, planets, species]}
           visibleCards={planetsVisible}
         />
         <Page
           resourceTitle="Species"
-          resourceData={species}
+          resourceData={[people, planets, species]}
           visibleCards={speciesVisible}
         />
       </BackgroundAnimation>
