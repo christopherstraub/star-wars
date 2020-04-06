@@ -19,49 +19,67 @@ const getCardPosition = (position) => {
   return position;
 };
 
-const Card = ({ num, position, visibleResourceData, resourceTitle }) => {
+const Card = ({
+  number,
+  visibleIndex,
+  position,
+  visibleResourceData,
+  resourceTitle,
+}) => {
   if (isPeople(resourceTitle) && getCardPosition(position) === 'side') {
     return (
       <SideCardWrapper>
-        <h1>{visibleResourceData[0][num].name}</h1>
-        <h4>{num}</h4>
+        <h1>{visibleResourceData[0][visibleIndex].name}</h1>
+        <h4>{number}</h4>
       </SideCardWrapper>
     );
   }
   if (isPeople(resourceTitle) && getCardPosition(position) === 'center') {
     return (
       <CenterCardWrapper>
-        <People visibleResourceData={visibleResourceData} num={num} />
+        <People
+          number={number}
+          visibleIndex={visibleIndex}
+          visibleResourceData={visibleResourceData}
+        />
       </CenterCardWrapper>
     );
   }
   if (isPlanets(resourceTitle) && getCardPosition(position) === 'side') {
     return (
       <SideCardWrapper>
-        <h1>{visibleResourceData[1][num].name}</h1>
-        <h4>{num}</h4>
+        <h1>{visibleResourceData[1][visibleIndex].name}</h1>
+        <h4>{number}</h4>
       </SideCardWrapper>
     );
   }
   if (isPlanets(resourceTitle) && getCardPosition(position) === 'center') {
     return (
       <CenterCardWrapper>
-        <Planets visibleResourceData={visibleResourceData} num={num} />
+        <Planets
+          number={number}
+          visibleIndex={visibleIndex}
+          visibleResourceData={visibleResourceData}
+        />
       </CenterCardWrapper>
     );
   }
   if (isSpecies(resourceTitle) && getCardPosition(position) === 'side') {
     return (
       <SideCardWrapper>
-        <h1>{visibleResourceData[2][num].name}</h1>
-        <h4>{num}</h4>
+        <h1>{visibleResourceData[2][visibleIndex].name}</h1>
+        <h4>{number}</h4>
       </SideCardWrapper>
     );
   }
   if (isSpecies(resourceTitle) && getCardPosition(position) === 'center') {
     return (
       <CenterCardWrapper>
-        <Species visibleResourceData={visibleResourceData} num={num} />
+        <Species
+          number={number}
+          visibleIndex={visibleIndex}
+          visibleResourceData={visibleResourceData}
+        />
       </CenterCardWrapper>
     );
   }

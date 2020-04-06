@@ -17,7 +17,7 @@ class App extends React.Component {
       peopleInstances: null,
       planetsInstances: null,
       speciesInstances: null,
-      peopleInstancesIndex: [1, 2, 4],
+      peopleInstancesIndex: [1, 2, 3],
       planetsInstancesIndex: [1, 2, 3],
       speciesInstancesIndex: [1, 2, 3],
       urlsToFetch: [
