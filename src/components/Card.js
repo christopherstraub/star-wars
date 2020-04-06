@@ -1,9 +1,9 @@
 import React from 'react';
 import SideCardWrapper from '../wrappers/SideCardWrapper';
 import CenterCardWrapper from '../wrappers/CenterCardWrapper';
-import People from '../containers/People';
-import Planets from '../containers/Planets';
-import Species from './Species';
+import ResourcePeople from '../containers/ResourcePeople';
+import ResourcePlanets from './ResourcePlanets';
+import ResourceSpecies from '../containers/ResourceSpecies';
 
 const isPeople = (resourceTitle) => {
   if (resourceTitle === 'People') return true;
@@ -37,7 +37,7 @@ const Card = ({
   if (isPeople(resourceTitle) && getCardPosition(position) === 'center') {
     return (
       <CenterCardWrapper>
-        <People
+        <ResourcePeople
           number={number}
           visibleIndex={visibleIndex}
           visibleResourceData={visibleResourceData}
@@ -56,7 +56,7 @@ const Card = ({
   if (isPlanets(resourceTitle) && getCardPosition(position) === 'center') {
     return (
       <CenterCardWrapper>
-        <Planets
+        <ResourcePlanets
           number={number}
           visibleIndex={visibleIndex}
           visibleResourceData={visibleResourceData}
@@ -75,7 +75,7 @@ const Card = ({
   if (isSpecies(resourceTitle) && getCardPosition(position) === 'center') {
     return (
       <CenterCardWrapper>
-        <Species
+        <ResourceSpecies
           number={number}
           visibleIndex={visibleIndex}
           visibleResourceData={visibleResourceData}

@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import BackgroundAnimation from '../wrappers/BackgroundAnimation';
 import Loading from '../components/Loading';
 import TitleScreen from '../components/TitleScreen';
 import Page from '../components/Page';
 
-import './App.scss';
-
-class App extends React.Component {
+class App extends Component {
   constructor() {
     super();
     this.state = {

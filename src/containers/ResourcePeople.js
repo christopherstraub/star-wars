@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const getHomeWorldUrl = (visibleResourceData, visibleIndex) => {
-  const homeWorldUrl = visibleResourceData[0][visibleIndex].homeworld;
-  return homeWorldUrl;
+const getHomeworldUrl = (visibleResourceData, visibleIndex) => {
+  const homeworldUrl = visibleResourceData[0][visibleIndex].homeworld;
+  return homeworldUrl;
 };
 
-const fetchHomeWorldData = (url) => {
+const fetchHomeworldData = (url) => {
   return fetch(url)
     .then((response) => response.json())
     .then((data) => data);
@@ -22,20 +22,20 @@ const fetchSpeciesData = (url) => {
     .then((data) => data);
 };
 
-class People extends React.Component {
+class ResourcePeople extends Component {
   constructor() {
     super();
     this.state = {
-      homeWorld: null,
+      homeworld: null,
       species: null,
     };
   }
 
   componentDidMount() {
-    fetchHomeWorldData(
-      getHomeWorldUrl(this.props.visibleResourceData, this.props.visibleIndex)
+    fetchHomeworldData(
+      getHomeworldUrl(this.props.visibleResourceData, this.props.visibleIndex)
     ).then((data) => {
-      this.setState({ homeWorld: data.name });
+      this.setState({ homeworld: data.name });
     });
 
     fetchSpeciesData(
@@ -47,7 +47,7 @@ class People extends React.Component {
 
   render() {
     const { number, visibleIndex, visibleResourceData } = this.props;
-    const { homeWorld, species } = this.state;
+    const { homeworld, species } = this.state;
     return (
       <div>
         <h1>{visibleResourceData[0][visibleIndex].name}</h1>
@@ -58,10 +58,10 @@ class People extends React.Component {
         <h1>Born {visibleResourceData[0][visibleIndex].birth_year}</h1>
         <h1>Gender {visibleResourceData[0][visibleIndex].gender}</h1>
         <h4>{number}</h4>
-        <h4>Homeworld {homeWorld}</h4>
+        <h4>homeworld {homeworld}</h4>
         <h4>{species}</h4>
       </div>
     );
   }
 }
-export default People;
+export default ResourcePeople;
