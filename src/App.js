@@ -14,12 +14,12 @@ class App extends React.Component {
       peopleCount: null,
       planetsCount: null,
       speciesCount: null,
-      people: null,
-      planets: null,
-      species: null,
-      peopleVisible: [1, 2, 3],
-      planetsVisible: [1, 2, 3],
-      speciesVisible: [1, 2, 3],
+      peopleInstances: null,
+      planetsInstances: null,
+      speciesInstances: null,
+      peopleInstancesIndexes: [1, 2, 3],
+      planetsInstancesIndexes: [1, 2, 3],
+      speciesInstancesIndexes: [1, 2, 3],
       urlsToFetch: [
         'https://swapi.co/api/people/',
         'https://swapi.co/api/planets/',
@@ -29,7 +29,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    Promise.all(
+    // These promises resolve with the resource count values.
+    const countPromise = Promise.all(
       this.state.urlsToFetch.map((url) => {
         return fetch(url).then((response) => response.json());
       })
@@ -39,25 +40,62 @@ class App extends React.Component {
         this.setState({ peopleCount: data[0].count });
         this.setState({ planetsCount: data[1].count });
         this.setState({ speciesCount: data[2].count });
-        this.setState({ dataFetched: false });
       })
       .catch((error) => {
         console.log('Error, ', error);
       });
-  }
 
-  handleVisibleChange(event) {}
+    // These promises resolve with the data of the current resource instances
+    const peoplePromise = Promise.all(
+      this.state.peopleInstancesIndexes.map((num) => {
+        return fetch(
+          this.state.urlsToFetch[0].concat(num, '/')
+        ).then((response) => response.json());
+      })
+    ).then((data) => {
+      this.setState({ peopleInstances: [].concat(data[0], data[1], data[2]) });
+    });
+
+    const planetsPromise = Promise.all(
+      this.state.planetsInstancesIndexes.map((num) => {
+        return fetch(
+          this.state.urlsToFetch[1].concat(num, '/')
+        ).then((response) => response.json());
+      })
+    ).then((data) => {
+      this.setState({ planetsInstances: [].concat(data[0], data[1], data[2]) });
+    });
+
+    const speciesPromise = Promise.all(
+      this.state.speciesInstancesIndexes.map((num) => {
+        return fetch(
+          this.state.urlsToFetch[2].concat(num, '/')
+        ).then((response) => response.json());
+      })
+    ).then((data) => {
+      this.setState({ speciesInstances: [].concat(data[0], data[1], data[2]) });
+    });
+
+    Promise.all([
+      countPromise,
+      peoplePromise,
+      planetsPromise,
+      speciesPromise,
+    ]).then(() => this.setState({ dataFetched: false }));
+
+    // }
+  }
 
   render() {
     // Deconstruct state
     const {
       dataFetched,
-      people,
-      planets,
-      species,
-      peopleVisible,
-      planetsVisible,
-      speciesVisible,
+      peopleInstances,
+      planetsInstances,
+      speciesInstances,
+      peopleInstancesIndexes,
+      planetsInstancesIndexes,
+      speciesInstancesIndexes,
     } = this.state;
 
     // If data has not been fetched, show loading component
@@ -68,18 +106,18 @@ class App extends React.Component {
         <TitleScreen />
         <Page
           resourceTitle="People"
-          resourceData={[people, planets, species]}
-          visibleCards={peopleVisible}
+          resourceData={(peopleInstances, planetsInstances)}
+          InstancesIndexesCards={peopleInstancesIndexes}
         />
         <Page
           resourceTitle="Planets"
-          resourceData={[people, planets, species]}
-          visibleCards={planetsVisible}
+          resourceData={[peopleInstances, planetsInstances, speciesInstances]}
+          InstancesIndexesCards={planetsInstancesIndexes}
         />
         <Page
           resourceTitle="Species"
-          resourceData={[people, planets, species]}
-          visibleCards={speciesVisible}
+          resourceData={[peopleInstances, planetsInstances, speciesInstances]}
+          InstancesIndexesCards={speciesInstancesIndexes}
         />
       </BackgroundAnimation>
     );
