@@ -17,9 +17,9 @@ class App extends React.Component {
       peopleInstances: null,
       planetsInstances: null,
       speciesInstances: null,
-      peopleInstancesIndexes: [1, 2, 3],
-      planetsInstancesIndexes: [1, 2, 3],
-      speciesInstancesIndexes: [1, 2, 3],
+      peopleInstancesIndex: [1, 2, 4],
+      planetsInstancesIndex: [1, 2, 3],
+      speciesInstancesIndex: [1, 2, 3],
       urlsToFetch: [
         'https://swapi.co/api/people/',
         'https://swapi.co/api/planets/',
@@ -47,7 +47,7 @@ class App extends React.Component {
 
     // These promises resolve with the data of the current resource instances
     const peoplePromise = Promise.all(
-      this.state.peopleInstancesIndexes.map((num) => {
+      this.state.peopleInstancesIndex.map((num) => {
         return fetch(
           this.state.urlsToFetch[0].concat(num, '/')
         ).then((response) => response.json());
@@ -57,7 +57,7 @@ class App extends React.Component {
     });
 
     const planetsPromise = Promise.all(
-      this.state.planetsInstancesIndexes.map((num) => {
+      this.state.planetsInstancesIndex.map((num) => {
         return fetch(
           this.state.urlsToFetch[1].concat(num, '/')
         ).then((response) => response.json());
@@ -67,7 +67,7 @@ class App extends React.Component {
     });
 
     const speciesPromise = Promise.all(
-      this.state.speciesInstancesIndexes.map((num) => {
+      this.state.speciesInstancesIndex.map((num) => {
         return fetch(
           this.state.urlsToFetch[2].concat(num, '/')
         ).then((response) => response.json());
@@ -81,9 +81,7 @@ class App extends React.Component {
       peoplePromise,
       planetsPromise,
       speciesPromise,
-    ]).then(() => this.setState({ dataFetched: false }));
-
-    // }
+    ]).then(() => this.setState({ dataFetched: true }));
   }
 
   render() {
@@ -93,10 +91,12 @@ class App extends React.Component {
       peopleInstances,
       planetsInstances,
       speciesInstances,
-      peopleInstancesIndexes,
-      planetsInstancesIndexes,
-      speciesInstancesIndexes,
+      peopleInstancesIndex,
+      planetsInstancesIndex,
+      speciesInstancesIndex,
     } = this.state;
+
+    console.log(peopleInstances);
 
     // If data has not been fetched, show loading component
     return !dataFetched ? (
@@ -106,18 +106,30 @@ class App extends React.Component {
         <TitleScreen />
         <Page
           resourceTitle="People"
-          resourceData={(peopleInstances, planetsInstances)}
-          InstancesIndexesCards={peopleInstancesIndexes}
+          visibleResourceData={[
+            peopleInstances,
+            planetsInstances,
+            speciesInstances,
+          ]}
+          instancesIndex={peopleInstancesIndex}
         />
         <Page
           resourceTitle="Planets"
-          resourceData={[peopleInstances, planetsInstances, speciesInstances]}
-          InstancesIndexesCards={planetsInstancesIndexes}
+          visibleResourceData={[
+            peopleInstances,
+            planetsInstances,
+            speciesInstances,
+          ]}
+          instancesIndex={planetsInstancesIndex}
         />
         <Page
           resourceTitle="Species"
-          resourceData={[peopleInstances, planetsInstances, speciesInstances]}
-          InstancesIndexesCards={speciesInstancesIndexes}
+          visibleResourceData={[
+            peopleInstances,
+            planetsInstances,
+            speciesInstances,
+          ]}
+          instancesIndex={speciesInstancesIndex}
         />
       </BackgroundAnimation>
     );

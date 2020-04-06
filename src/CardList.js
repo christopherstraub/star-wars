@@ -1,28 +1,28 @@
 import React from 'react';
 import Card from './Card';
 
-const CardList = ({ resourceData, visibleCards, resourceTitle }) => {
+const CardList = ({ visibleResourceData, instancesIndex, resourceTitle }) => {
   return (
     <div className="flex justify-center items-center content-start flex-wrap w-100 h-75">
       <Card
-        key={visibleCards[0]}
-        resourceData={resourceData}
-        num={visibleCards[0]}
+        key={instancesIndex[0]}
+        num={0}
         position="side"
+        visibleResourceData={visibleResourceData}
         resourceTitle={resourceTitle}
       />
       <Card
-        key={visibleCards[1]}
-        resourceData={resourceData}
-        num={visibleCards[1]}
+        key={instancesIndex[1]}
+        num={1}
         position="center"
+        visibleResourceData={visibleResourceData}
         resourceTitle={resourceTitle}
       />
       <Card
-        key={visibleCards[2]}
-        resourceData={resourceData}
-        num={visibleCards[2]}
+        key={instancesIndex[2]}
+        num={2}
         position="side"
+        visibleResourceData={visibleResourceData}
         resourceTitle={resourceTitle}
       />
     </div>
