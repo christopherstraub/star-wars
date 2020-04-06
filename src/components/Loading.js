@@ -1,5 +1,5 @@
 import React from 'react';
-import BackgroundAnimation from './BackgroundAnimation';
+import BackgroundAnimation from '../wrappers/BackgroundAnimation';
 
 import './Loading.scss';
 

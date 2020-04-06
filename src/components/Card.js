@@ -1,8 +1,8 @@
 import React from 'react';
-import SideCardWrapper from './SideCardWrapper';
-import CenterCardWrapper from './CenterCardWrapper';
-import People from './People';
-import Planets from './Planets';
+import SideCardWrapper from '../wrappers/SideCardWrapper';
+import CenterCardWrapper from '../wrappers/CenterCardWrapper';
+import People from '../containers/People';
+import Planets from '../containers/Planets';
 import Species from './Species';
 
 const isPeople = (resourceTitle) => {

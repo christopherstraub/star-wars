@@ -1,9 +1,0 @@
-{
-    "version": 3,
-    "mappings": "AAEA,AAAA,SAAS,CAAC;EACR,SAAS,EAAE,0BAA0B;CACtC;;AACD,UAAU,CAAV,YAAU;EACR,EAAE;IACA,KAAK,EAPA,OAAO;;EASd,GAAG;IACD,KAAK,EAVA,OAAO;;EAYd,GAAG;IACD,KAAK,EAbA,OAAO;;EAed,GAAG;IACD,KAAK,EAAE,WAAW;;EAEpB,IAAI;IACF,KAAK,EAnBA,OAAO",
-    "sources": [
-        "Loading.scss"
-    ],
-    "names": [],
-    "file": "Loading.css"
-}

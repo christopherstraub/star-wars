@@ -1,8 +1,8 @@
 import React from 'react';
-import BackgroundAnimation from './BackgroundAnimation';
-import Loading from './Loading';
-import TitleScreen from './TitleScreen';
-import Page from './Page';
+import BackgroundAnimation from '../wrappers/BackgroundAnimation';
+import Loading from '../components/Loading';
+import TitleScreen from '../components/TitleScreen';
+import Page from '../components/Page';
 
 import './App.scss';
 
@@ -95,8 +95,6 @@ class App extends React.Component {
       planetsInstancesIndex,
       speciesInstancesIndex,
     } = this.state;
-
-    console.log(peopleInstances);
 
     // If data has not been fetched, show loading component
     return !dataFetched ? (
