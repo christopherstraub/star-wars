@@ -11,12 +11,15 @@ class App extends React.Component {
     super();
     this.state = {
       dataFetched: false,
-      people: {},
-      planets: {},
-      species: {},
-      peopleVisible: [1, 3, 3],
-      planetsVisible: [1, 5, 3],
-      speciesVisible: [1, 5, 3],
+      peopleCount: null,
+      planetsCount: null,
+      speciesCount: null,
+      people: null,
+      planets: null,
+      species: null,
+      peopleVisible: [1, 2, 3],
+      planetsVisible: [1, 2, 3],
+      speciesVisible: [1, 2, 3],
       urlsToFetch: [
         'https://swapi.co/api/people/',
         'https://swapi.co/api/planets/',
@@ -30,12 +33,17 @@ class App extends React.Component {
       this.state.urlsToFetch.map((url) => {
         return fetch(url).then((response) => response.json());
       })
-    ).then((data) => {
-      this.setState({ people: data[0] });
-      this.setState({ planets: data[1] });
-      this.setState({ species: data[2] });
-      this.setState({ dataFetched: true });
-    });
+    )
+      .then((data) => {
+        this.setState({});
+        this.setState({ peopleCount: data[0].count });
+        this.setState({ planetsCount: data[1].count });
+        this.setState({ speciesCount: data[2].count });
+        this.setState({ dataFetched: false });
+      })
+      .catch((error) => {
+        console.log('Error, ', error);
+      });
   }
 
   handleVisibleChange(event) {}
