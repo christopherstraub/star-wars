@@ -10,7 +10,7 @@ class App extends Component {
       currentPage: 'loading',
       dataFetched: false,
       resourceCount: null,
-      resourceInstances: null,
+      resourceData: null,
       visibleInstancesIndex: [
         [1, 2, 3],
         [1, 2, 3],
@@ -132,9 +132,9 @@ class App extends Component {
           });
 
         Promise.all([peoplePromise, planetsPromise, speciesPromise])
-          .then((arrayResourceInstances) => {
-            this.setState({ resourceInstances: arrayResourceInstances });
-            this.setState({ currentPage: this.state.resourceTitles[0] });
+          .then((arrayresourceData) => {
+            this.setState({ resourceData: arrayresourceData });
+            this.setState({ currentPage: this.state.resourceTitles[1] });
             this.setState({ dataFetched: true });
           })
           .catch((error) => {
@@ -156,7 +156,7 @@ class App extends Component {
       currentPage,
       dataFetched,
       resourceCount,
-      resourceInstances,
+      resourceData,
       visibleInstancesIndex,
       resourceTitles,
     } = this.state;
@@ -164,7 +164,7 @@ class App extends Component {
     console.log('current page', currentPage);
     console.log('datafetched', dataFetched);
     console.log('resource count', resourceCount);
-    console.log('resource instances', resourceInstances);
+    console.log('resource instances', resourceData);
     console.log('visibleinstancesindex', visibleInstancesIndex);
 
     // If data has not been fetched, show loading component
@@ -178,24 +178,24 @@ class App extends Component {
           return (
             <Page
               resourceTitle={resourceTitles[0]}
-              resourceData={resourceInstances}
-              instancesIndex={resourceInstances}
+              resourceData={resourceData}
+              instancesIndex={visibleInstancesIndex[0]}
             />
           );
         case resourceTitles[1]:
           return (
             <Page
               resourceTitle={resourceTitles[1]}
-              resourceData={resourceInstances}
-              instancesIndex={resourceInstances}
+              resourceData={resourceData}
+              instancesIndex={visibleInstancesIndex[1]}
             />
           );
         case resourceTitles[2]:
           return (
             <Page
               resourceTitle={resourceTitles[2]}
-              resourceData={resourceInstances}
-              instancesIndex={resourceInstances}
+              resourceData={resourceData}
+              instancesIndex={visibleInstancesIndex[2]}
             />
           );
         default:
@@ -206,17 +206,17 @@ class App extends Component {
 
     // <Page
     //     resourceTitle="People"
-    //     visibleResourceData={resourceInstances}
+    //     visibleResourceData={resourceData}
     //     instancesIndex={visibleInstancesIndex[0]}
     //   />
     //   <Page
     //     resourceTitle="Planets"
-    //     visibleResourceData={resourceInstances}
+    //     visibleResourceData={resourceData}
     //     instancesIndex={visibleInstancesIndex[1]}
     //   />
     //   <Page
     //     resourceTitle="Species"
-    //     visibleResourceData={resourceInstances}
+    //     visibleResourceData={resourceData}
     //     instancesIndex={visibleInstancesIndex[2]}
     //   />
   }
