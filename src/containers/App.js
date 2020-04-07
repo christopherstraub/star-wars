@@ -12,9 +12,9 @@ class App extends Component {
       resourceCount: null,
       resourceData: null,
       visibleInstancesIndex: [
-        [1, 2, 3],
-        [1, 2, 3],
-        [1, 2, 3],
+        [1, 2, 3, 4],
+        [1, 2, 3, 4],
+        [1, 2, 3, 4],
       ],
       urlsToFetch: [
         'https://swapi.co/api/people/',
@@ -148,21 +148,41 @@ class App extends Component {
       });
   }
 
-  handleGoLeft(event, resourceIndex) {
-    console.log(this.state.resourceData);
-    // const newVisibleInstancesIndex = this.state.visibleInstancesIndex.map(
-    //   (value) => value + 1
-    // );
-    // console.log(newVisibleInstancesIndex);
-    // this.setState({ visibleInstancesIndex[2]: newVisibleInstancesIndex });
+  // Now we just need error checking
+  handleGoLeft(event) {
+    this.state.resourceTitles.forEach((title, index) => {
+      if (
+        this.state.currentPage === title &&
+        this.state.visibleInstancesIndex[index][0] > 1
+      ) {
+        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
+        newVisibleInstancesIndex[index] = this.state.visibleInstancesIndex[
+          index
+        ].map((value) => value - 1);
+        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
+      }
+    });
   }
 
   handleGoRight(event) {
-    console.log(event);
+    this.state.resourceTitles.forEach((title, index) => {
+      if (
+        this.state.currentPage === title &&
+        this.state.visibleInstancesIndex[index][
+          this.state.visibleInstancesIndex[index].length - 1
+        ] < this.state.resourceData[index].length
+      ) {
+        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
+        newVisibleInstancesIndex[index] = this.state.visibleInstancesIndex[
+          index
+        ].map((value) => value + 1);
+        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
+      }
+    });
   }
 
   render() {
-    // Deconstruct state
+    // Deconstruct this.state
     const {
       currentPage,
       dataFetched,
