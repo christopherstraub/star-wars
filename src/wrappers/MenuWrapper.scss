@@ -1,0 +1,26 @@
+$yellow: #ffd700;
+$gap: 5rem;
+
+.material-icons {
+  color: $yellow;
+  z-index: 1;
+  transition: opacity 0.3s ease;
+  font-size: 4rem;
+  margin: 1rem;
+  position: absolute;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.5;
+  }
+}
+
+.people-icon {
+  right: 2 * $gap;
+}
+.planets-icon {
+  right: $gap;
+}
+.species-icon {
+  right: 0;
+}

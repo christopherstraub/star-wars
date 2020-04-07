@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import BackgroundAnimation from '../wrappers/BackgroundAnimation';
 import Loading from '../components/Loading';
 import TitleScreen from '../components/TitleScreen';
 import Page from '../components/Page';
@@ -11,9 +10,11 @@ class App extends Component {
       dataFetched: false,
       resourceCount: null,
       resourceInstances: null,
-      peopleInstancesIndex: [1, 2, 3],
-      planetsInstancesIndex: [1, 2, 3],
-      speciesInstancesIndex: [1, 2, 3],
+      visibleInstancesIndex: [
+        [1, 2, 3],
+        [1, 2, 3],
+        [1, 2, 3],
+      ],
       urlsToFetch: [
         'https://swapi.co/api/people/',
         'https://swapi.co/api/planets/',
@@ -146,36 +147,30 @@ class App extends Component {
     // Deconstruct state
     const {
       dataFetched,
+      resourceCount,
       resourceInstances,
-      peopleInstancesIndex,
-      planetsInstancesIndex,
-      speciesInstancesIndex,
+      visibleInstancesIndex,
     } = this.state;
 
-    console.log(resourceInstances);
     // If data has not been fetched, show loading component
-    return !dataFetched ? (
-      <Loading />
-    ) : (
-      <BackgroundAnimation>
-        <TitleScreen />
-        <Page
+    return !dataFetched ? <Loading /> : <TitleScreen />;
+    {
+      /* <Page
           resourceTitle="People"
           visibleResourceData={resourceInstances}
-          instancesIndex={peopleInstancesIndex}
+          instancesIndex={visibleInstancesIndex[0]}
         />
         <Page
           resourceTitle="Planets"
           visibleResourceData={resourceInstances}
-          instancesIndex={planetsInstancesIndex}
+          instancesIndex={visibleInstancesIndex[1]}
         />
         <Page
           resourceTitle="Species"
           visibleResourceData={resourceInstances}
-          instancesIndex={speciesInstancesIndex}
-        />
-      </BackgroundAnimation>
-    );
+          instancesIndex={visibleInstancesIndex[2]}
+        /> */
+    }
   }
 }
 
