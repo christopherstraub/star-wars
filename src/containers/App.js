@@ -12,9 +12,9 @@ class App extends Component {
       peopleCount: null,
       planetsCount: null,
       speciesCount: null,
-      peopleInstances: null,
-      planetsInstances: null,
-      speciesInstances: null,
+      peopleInstances: [],
+      planetsInstances: [],
+      speciesInstances: [],
       peopleInstancesIndex: [1, 2, 3],
       planetsInstancesIndex: [1, 2, 3],
       speciesInstancesIndex: [1, 2, 3],
@@ -26,60 +26,119 @@ class App extends Component {
     };
   }
 
+  // First fetch the resource root urls to get the count of each resource.
+  // Make an instance index array for each resource going from 1 to count and resolve the promise with an array of those arrays.
+  // Then, for each resource, fetch one url per element in the resource's instance index array.
+  // Two layers of error checking. First, only successful responses (status = 200) are returned.
+  // Also, only add resource objects to their arrays if they are not undefined.
+  // Wait for all resource promises to resolve with Promise.all, and return an array of resource instances. Set dataFetched = true.
   componentDidMount() {
-    // These promises resolve with the resource count values.
-    const countPromise = Promise.all(
+    Promise.all(
       this.state.urlsToFetch.map((url) => {
         return fetch(url).then((response) => response.json());
       })
     )
-      .then((data) => {
+      .then((arrayResources) => {
         this.setState({});
-        this.setState({ peopleCount: data[0].count });
-        this.setState({ planetsCount: data[1].count });
-        this.setState({ speciesCount: data[2].count });
+        this.setState({ peopleCount: arrayResources[0].count });
+        this.setState({ planetsCount: arrayResources[1].count });
+        this.setState({ speciesCount: arrayResources[2].count });
+        let _peopleInstancesIndex = [];
+        let _planetsInstancesIndex = [];
+        let _speciesInstancesIndex = [];
+        for (let i = 1; i <= this.state.peopleCount; i++)
+          _peopleInstancesIndex.push(i);
+        for (let i = 1; i <= this.state.planetsCount; i++)
+          _planetsInstancesIndex.push(i);
+        for (let i = 1; i <= this.state.speciesCount; i++)
+          _speciesInstancesIndex.push(i);
+        return Promise.resolve([
+          _peopleInstancesIndex,
+          _planetsInstancesIndex,
+          _speciesInstancesIndex,
+        ]);
+      })
+      .then((arrayInstancesIndex) => {
+        const peoplePromise = Promise.all(
+          arrayInstancesIndex[0].map((num) => {
+            return fetch(this.state.urlsToFetch[0].concat(num, '/')).then(
+              (response) => {
+                if (response.status === 200) return response.json();
+              }
+            );
+          })
+        )
+          .then((arrayPeople) => {
+            for (const person of arrayPeople) {
+              if (person !== undefined) {
+                this.setState({
+                  peopleInstances: this.state.peopleInstances.concat(person),
+                });
+              }
+            }
+            return this.state.peopleInstances;
+          })
+          .catch((error) => {
+            console.log('Error in peoplePromise.', error);
+          });
+
+        const planetsPromise = Promise.all(
+          arrayInstancesIndex[1].map((num) => {
+            return fetch(this.state.urlsToFetch[1].concat(num, '/')).then(
+              (response) => {
+                if (response.status === 200) return response.json();
+              }
+            );
+          })
+        )
+          .then((arrayPlanets) => {
+            for (const planet of arrayPlanets) {
+              if (planet !== undefined) {
+                this.setState({
+                  planetsInstances: this.state.planetsInstances.concat(planet),
+                });
+              }
+            }
+            return this.state.planetsInstances;
+          })
+          .catch((error) => {
+            console.log('Error in planetsPromise.', error);
+          });
+
+        const speciesPromise = Promise.all(
+          arrayInstancesIndex[2].map((num) => {
+            return fetch(this.state.urlsToFetch[2].concat(num, '/')).then(
+              (response) => {
+                if (response.status === 200) return response.json();
+              }
+            );
+          })
+        )
+          .then((arraySpecies) => {
+            for (const specie of arraySpecies) {
+              if (specie !== undefined) {
+                this.setState({
+                  speciesInstances: this.state.speciesInstances.concat(specie),
+                });
+              }
+            }
+            return this.state.planetsInstances;
+          })
+          .catch((error) => {
+            console.log('Error in speciesPromise.', error);
+          });
+
+        Promise.all([peoplePromise, planetsPromise, speciesPromise])
+          .then((arrayResourceInstances) => {
+            this.setState({ dataFetched: true });
+          })
+          .catch((error) => {
+            console.log('Error in Promise.all.', error);
+          });
       })
       .catch((error) => {
-        console.log('Error, ', error);
+        console.log('Error in countPromise.', error);
       });
-
-    // These promises resolve with the data of the current resource instances
-    const peoplePromise = Promise.all(
-      this.state.peopleInstancesIndex.map((num) => {
-        return fetch(
-          this.state.urlsToFetch[0].concat(num, '/')
-        ).then((response) => response.json());
-      })
-    ).then((data) => {
-      this.setState({ peopleInstances: [].concat(data[0], data[1], data[2]) });
-    });
-
-    const planetsPromise = Promise.all(
-      this.state.planetsInstancesIndex.map((num) => {
-        return fetch(
-          this.state.urlsToFetch[1].concat(num, '/')
-        ).then((response) => response.json());
-      })
-    ).then((data) => {
-      this.setState({ planetsInstances: [].concat(data[0], data[1], data[2]) });
-    });
-
-    const speciesPromise = Promise.all(
-      this.state.speciesInstancesIndex.map((num) => {
-        return fetch(
-          this.state.urlsToFetch[2].concat(num, '/')
-        ).then((response) => response.json());
-      })
-    ).then((data) => {
-      this.setState({ speciesInstances: [].concat(data[0], data[1], data[2]) });
-    });
-
-    Promise.all([
-      countPromise,
-      peoplePromise,
-      planetsPromise,
-      speciesPromise,
-    ]).then(() => this.setState({ dataFetched: true }));
   }
 
   render() {
@@ -94,6 +153,9 @@ class App extends Component {
       speciesInstancesIndex,
     } = this.state;
 
+    console.log(peopleInstances);
+    console.log(planetsInstances);
+    console.log(speciesInstances);
     // If data has not been fetched, show loading component
     return !dataFetched ? (
       <Loading />
