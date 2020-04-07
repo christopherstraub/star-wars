@@ -7,6 +7,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      currentPage: 'loading',
       dataFetched: false,
       resourceCount: null,
       resourceInstances: null,
@@ -20,6 +21,7 @@ class App extends Component {
         'https://swapi.co/api/planets/',
         'https://swapi.co/api/species/',
       ],
+      resourceTitles: ['people', 'planets', 'species'],
     };
   }
 
@@ -132,6 +134,7 @@ class App extends Component {
         Promise.all([peoplePromise, planetsPromise, speciesPromise])
           .then((arrayResourceInstances) => {
             this.setState({ resourceInstances: arrayResourceInstances });
+            this.setState({ currentPage: this.state.resourceTitles[0] });
             this.setState({ dataFetched: true });
           })
           .catch((error) => {
@@ -143,34 +146,79 @@ class App extends Component {
       });
   }
 
+  handlePageChange(event, resourceTitle) {
+    this.setState({});
+  }
+
   render() {
     // Deconstruct state
     const {
+      currentPage,
       dataFetched,
       resourceCount,
       resourceInstances,
       visibleInstancesIndex,
+      resourceTitles,
     } = this.state;
 
+    console.log('current page', currentPage);
+    console.log('datafetched', dataFetched);
+    console.log('resource count', resourceCount);
+    console.log('resource instances', resourceInstances);
+    console.log('visibleinstancesindex', visibleInstancesIndex);
+
     // If data has not been fetched, show loading component
-    return !dataFetched ? <Loading /> : <TitleScreen />;
-    {
-      /* <Page
-          resourceTitle="People"
-          visibleResourceData={resourceInstances}
-          instancesIndex={visibleInstancesIndex[0]}
-        />
-        <Page
-          resourceTitle="Planets"
-          visibleResourceData={resourceInstances}
-          instancesIndex={visibleInstancesIndex[1]}
-        />
-        <Page
-          resourceTitle="Species"
-          visibleResourceData={resourceInstances}
-          instancesIndex={visibleInstancesIndex[2]}
-        /> */
+
+    if (!dataFetched) return <Loading />;
+    else {
+      switch (currentPage) {
+        case 'title':
+          return <TitleScreen />;
+        case resourceTitles[0]:
+          return (
+            <Page
+              resourceTitle={resourceTitles[0]}
+              resourceData={resourceInstances}
+              instancesIndex={resourceInstances}
+            />
+          );
+        case resourceTitles[1]:
+          return (
+            <Page
+              resourceTitle={resourceTitles[1]}
+              resourceData={resourceInstances}
+              instancesIndex={resourceInstances}
+            />
+          );
+        case resourceTitles[2]:
+          return (
+            <Page
+              resourceTitle={resourceTitles[2]}
+              resourceData={resourceInstances}
+              instancesIndex={resourceInstances}
+            />
+          );
+        default:
+      }
     }
+
+    // <TitleScreen />;
+
+    // <Page
+    //     resourceTitle="People"
+    //     visibleResourceData={resourceInstances}
+    //     instancesIndex={visibleInstancesIndex[0]}
+    //   />
+    //   <Page
+    //     resourceTitle="Planets"
+    //     visibleResourceData={resourceInstances}
+    //     instancesIndex={visibleInstancesIndex[1]}
+    //   />
+    //   <Page
+    //     resourceTitle="Species"
+    //     visibleResourceData={resourceInstances}
+    //     instancesIndex={visibleInstancesIndex[2]}
+    //   />
   }
 }
 

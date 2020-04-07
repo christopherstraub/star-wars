@@ -1,10 +1,11 @@
 import React from 'react';
+import BackgroundAnimation from './BackgroundAnimation';
 
 import './MenuWrapper.scss';
 
 const MenuWrapper = (props) => {
   return (
-    <div className="main">
+    <BackgroundAnimation>
       <span className="home-icon material-icons">home</span>
       <span className="people-icon material-icons">account_circle</span>
 
@@ -12,7 +13,7 @@ const MenuWrapper = (props) => {
       <span className="species-icon material-icons">supervisor_account</span>
 
       {props.children}
-    </div>
+    </BackgroundAnimation>
   );
 };
 

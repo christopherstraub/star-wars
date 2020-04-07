@@ -1,6 +1,7 @@
 import React from 'react';
 import Heading from './Heading';
 import CardList from './CardList';
+import MenuWrapper from '../wrappers/MenuWrapper';
 
 const Page = ({
   resourceTitle,
@@ -9,15 +10,17 @@ const Page = ({
   supplementaryResourceData,
 }) => {
   return (
-    <div className="vh-100 ba red">
-      <Heading resourceTitle={resourceTitle} />
-      <CardList
-        visibleResourceData={visibleResourceData}
-        instancesIndex={instancesIndex}
-        supplementaryResourceData={supplementaryResourceData}
-        resourceTitle={resourceTitle}
-      />
-    </div>
+    <MenuWrapper>
+      <div className="vh-100">
+        <Heading resourceTitle={resourceTitle} />
+        <CardList
+          visibleResourceData={visibleResourceData}
+          instancesIndex={instancesIndex}
+          supplementaryResourceData={supplementaryResourceData}
+          resourceTitle={resourceTitle}
+        />
+      </div>
+    </MenuWrapper>
   );
 };
 
