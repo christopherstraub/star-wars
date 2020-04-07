@@ -9,9 +9,7 @@ class App extends Component {
     super();
     this.state = {
       dataFetched: false,
-      peopleCount: null,
-      planetsCount: null,
-      speciesCount: null,
+      resourceCount: null,
       resourceInstances: null,
       peopleInstancesIndex: [1, 2, 3],
       planetsInstancesIndex: [1, 2, 3],
@@ -33,30 +31,35 @@ class App extends Component {
   componentDidMount() {
     Promise.all(
       this.state.urlsToFetch.map((url) => {
-        return fetch(url, { mode: 'no-cors' }).then((response) =>
-          response.json()
-        );
+        return fetch(url).then((response) => response.json());
       })
     )
       .then((arrayResources) => {
-        this.setState({ peopleCount: arrayResources[0].count });
-        this.setState({ planetsCount: arrayResources[1].count });
-        this.setState({ speciesCount: arrayResources[2].count });
+        let _peopleCount = arrayResources[0].count;
+        let _planetsCount = arrayResources[1].count;
+        let _speciesCount = arrayResources[2].count;
+
+        return Promise.all([_peopleCount, _planetsCount, _speciesCount]);
+      })
+      .then((arrayResourceCount) => {
+        this.setState({ resourceCount: arrayResourceCount });
         let _peopleInstancesIndex = [];
         let _planetsInstancesIndex = [];
         let _speciesInstancesIndex = [];
-        for (let i = 1; i <= this.state.peopleCount; i++)
+
+        for (let i = 1; i <= arrayResourceCount[0]; i++)
           _peopleInstancesIndex.push(i);
-        for (let i = 1; i <= this.state.planetsCount; i++)
+        for (let i = 1; i <= arrayResourceCount[1]; i++)
           _planetsInstancesIndex.push(i);
-        for (let i = 1; i <= this.state.speciesCount; i++)
+        for (let i = 1; i <= arrayResourceCount[2]; i++)
           _speciesInstancesIndex.push(i);
-        return Promise.resolve([
+        return Promise.all([
           _peopleInstancesIndex,
           _planetsInstancesIndex,
           _speciesInstancesIndex,
         ]);
       })
+
       .then((arrayInstancesIndex) => {
         let _peopleInstances = [];
         let _planetsInstances = [];
@@ -64,11 +67,11 @@ class App extends Component {
 
         const peoplePromise = Promise.all(
           arrayInstancesIndex[0].map((num) => {
-            return fetch(this.state.urlsToFetch[0].concat(num, '/'), {
-              mode: 'no-cors',
-            }).then((response) => {
-              if (response.status === 200) return response.json();
-            });
+            return fetch(this.state.urlsToFetch[0].concat(num, '/')).then(
+              (response) => {
+                if (response.status === 200) return response.json();
+              }
+            );
           })
         )
           .then((arrayPeople) => {
@@ -85,11 +88,11 @@ class App extends Component {
 
         const planetsPromise = Promise.all(
           arrayInstancesIndex[1].map((num) => {
-            return fetch(this.state.urlsToFetch[1].concat(num, '/'), {
-              mode: 'no-cors',
-            }).then((response) => {
-              if (response.status === 200) return response.json();
-            });
+            return fetch(this.state.urlsToFetch[1].concat(num, '/')).then(
+              (response) => {
+                if (response.status === 200) return response.json();
+              }
+            );
           })
         )
           .then((arrayPlanets) => {
@@ -106,11 +109,11 @@ class App extends Component {
 
         const speciesPromise = Promise.all(
           arrayInstancesIndex[2].map((num) => {
-            return fetch(this.state.urlsToFetch[2].concat(num, '/'), {
-              mode: 'no-cors',
-            }).then((response) => {
-              if (response.status === 200) return response.json();
-            });
+            return fetch(this.state.urlsToFetch[2].concat(num, '/')).then(
+              (response) => {
+                if (response.status === 200) return response.json();
+              }
+            );
           })
         )
           .then((arraySpecies) => {
