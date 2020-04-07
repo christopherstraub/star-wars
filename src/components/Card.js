@@ -1,15 +1,15 @@
 import React from 'react';
 import CenterCardWrapper from '../wrappers/CardWrapper';
-import ResourcePeople from '../containers/ResourcePeople';
+import ResourcePeople from './ResourcePeople';
 import ResourcePlanets from './ResourcePlanets';
-import ResourceSpecies from '../containers/ResourceSpecies';
+import ResourceSpecies from './ResourceSpecies';
 
 const Card = ({ number, resourceTitle, resourceData }) => {
   switch (resourceTitle) {
     case 'people':
       return (
         <CenterCardWrapper>
-          <ResourcePeople />
+          <ResourcePeople number={number} resourceData={resourceData} />
         </CenterCardWrapper>
       );
     case 'planets':
@@ -21,9 +21,10 @@ const Card = ({ number, resourceTitle, resourceData }) => {
     case 'species':
       return (
         <CenterCardWrapper>
-          <ResourceSpecies />
+          <ResourceSpecies number={number} resourceData={resourceData} />
         </CenterCardWrapper>
       );
+    default:
   }
 };
 // if (isPeople(resourceTitle) && getCardPosition(position) === 'side') {

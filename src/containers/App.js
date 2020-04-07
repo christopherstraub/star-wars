@@ -23,6 +23,8 @@ class App extends Component {
       ],
       resourceTitles: ['people', 'planets', 'species'],
     };
+    this.handleGoLeft = this.handleGoLeft.bind(this);
+    this.handleGoRight = this.handleGoRight.bind(this);
   }
 
   // First fetch the resource root urls to get the count of each resource.
@@ -134,7 +136,7 @@ class App extends Component {
         Promise.all([peoplePromise, planetsPromise, speciesPromise])
           .then((arrayresourceData) => {
             this.setState({ resourceData: arrayresourceData });
-            this.setState({ currentPage: this.state.resourceTitles[1] });
+            this.setState({ currentPage: this.state.resourceTitles[2] });
             this.setState({ dataFetched: true });
           })
           .catch((error) => {
@@ -146,8 +148,17 @@ class App extends Component {
       });
   }
 
-  handlePageChange(event, resourceTitle) {
-    this.setState({});
+  handleGoLeft(event, resourceIndex) {
+    console.log(this.state.resourceData);
+    // const newVisibleInstancesIndex = this.state.visibleInstancesIndex.map(
+    //   (value) => value + 1
+    // );
+    // console.log(newVisibleInstancesIndex);
+    // this.setState({ visibleInstancesIndex[2]: newVisibleInstancesIndex });
+  }
+
+  handleGoRight(event) {
+    console.log(event);
   }
 
   render() {
@@ -158,14 +169,18 @@ class App extends Component {
       resourceCount,
       resourceData,
       visibleInstancesIndex,
+      urlsToFetch,
       resourceTitles,
     } = this.state;
 
-    console.log('current page', currentPage);
-    console.log('datafetched', dataFetched);
-    console.log('resource count', resourceCount);
-    console.log('resource instances', resourceData);
-    console.log('visibleinstancesindex', visibleInstancesIndex);
+    // Check values in console
+    console.log('Current page', currentPage);
+    console.log('Data fetched', dataFetched);
+    console.log('Resource count array', resourceCount);
+    console.log('Resource data array', resourceData);
+    console.log('Visible instances index array', visibleInstancesIndex);
+    console.log('URLs to fetch', urlsToFetch);
+    console.log('Resource titles array', resourceTitles);
 
     // If data has not been fetched, show loading component
 
@@ -180,6 +195,7 @@ class App extends Component {
               resourceTitle={resourceTitles[0]}
               resourceData={resourceData}
               instancesIndex={visibleInstancesIndex[0]}
+              handleCardChange={[this.handleGoLeft, this.handleGoRight]}
             />
           );
         case resourceTitles[1]:
@@ -188,6 +204,7 @@ class App extends Component {
               resourceTitle={resourceTitles[1]}
               resourceData={resourceData}
               instancesIndex={visibleInstancesIndex[1]}
+              handleCardChange={[this.handleGoLeft, this.handleGoRight]}
             />
           );
         case resourceTitles[2]:
@@ -196,29 +213,12 @@ class App extends Component {
               resourceTitle={resourceTitles[2]}
               resourceData={resourceData}
               instancesIndex={visibleInstancesIndex[2]}
+              handleCardChange={[this.handleGoLeft, this.handleGoRight]}
             />
           );
         default:
       }
     }
-
-    // <TitleScreen />;
-
-    // <Page
-    //     resourceTitle="People"
-    //     visibleResourceData={resourceData}
-    //     instancesIndex={visibleInstancesIndex[0]}
-    //   />
-    //   <Page
-    //     resourceTitle="Planets"
-    //     visibleResourceData={resourceData}
-    //     instancesIndex={visibleInstancesIndex[1]}
-    //   />
-    //   <Page
-    //     resourceTitle="Species"
-    //     visibleResourceData={resourceData}
-    //     instancesIndex={visibleInstancesIndex[2]}
-    //   />
   }
 }
 
