@@ -12,9 +12,7 @@ class App extends Component {
       peopleCount: null,
       planetsCount: null,
       speciesCount: null,
-      peopleInstances: [],
-      planetsInstances: [],
-      speciesInstances: [],
+      resourceInstances: null,
       peopleInstancesIndex: [1, 2, 3],
       planetsInstancesIndex: [1, 2, 3],
       speciesInstancesIndex: [1, 2, 3],
@@ -35,11 +33,12 @@ class App extends Component {
   componentDidMount() {
     Promise.all(
       this.state.urlsToFetch.map((url) => {
-        return fetch(url).then((response) => response.json());
+        return fetch(url, { mode: 'no-cors' }).then((response) =>
+          response.json()
+        );
       })
     )
       .then((arrayResources) => {
-        this.setState({});
         this.setState({ peopleCount: arrayResources[0].count });
         this.setState({ planetsCount: arrayResources[1].count });
         this.setState({ speciesCount: arrayResources[2].count });
@@ -59,24 +58,26 @@ class App extends Component {
         ]);
       })
       .then((arrayInstancesIndex) => {
+        let _peopleInstances = [];
+        let _planetsInstances = [];
+        let _speciesInstances = [];
+
         const peoplePromise = Promise.all(
           arrayInstancesIndex[0].map((num) => {
-            return fetch(this.state.urlsToFetch[0].concat(num, '/')).then(
-              (response) => {
-                if (response.status === 200) return response.json();
-              }
-            );
+            return fetch(this.state.urlsToFetch[0].concat(num, '/'), {
+              mode: 'no-cors',
+            }).then((response) => {
+              if (response.status === 200) return response.json();
+            });
           })
         )
           .then((arrayPeople) => {
             for (const person of arrayPeople) {
               if (person !== undefined) {
-                this.setState({
-                  peopleInstances: this.state.peopleInstances.concat(person),
-                });
+                _peopleInstances.push(person);
               }
             }
-            return this.state.peopleInstances;
+            return _peopleInstances;
           })
           .catch((error) => {
             console.log('Error in peoplePromise.', error);
@@ -84,22 +85,20 @@ class App extends Component {
 
         const planetsPromise = Promise.all(
           arrayInstancesIndex[1].map((num) => {
-            return fetch(this.state.urlsToFetch[1].concat(num, '/')).then(
-              (response) => {
-                if (response.status === 200) return response.json();
-              }
-            );
+            return fetch(this.state.urlsToFetch[1].concat(num, '/'), {
+              mode: 'no-cors',
+            }).then((response) => {
+              if (response.status === 200) return response.json();
+            });
           })
         )
           .then((arrayPlanets) => {
             for (const planet of arrayPlanets) {
               if (planet !== undefined) {
-                this.setState({
-                  planetsInstances: this.state.planetsInstances.concat(planet),
-                });
+                _planetsInstances.push(planet);
               }
             }
-            return this.state.planetsInstances;
+            return _planetsInstances;
           })
           .catch((error) => {
             console.log('Error in planetsPromise.', error);
@@ -107,22 +106,20 @@ class App extends Component {
 
         const speciesPromise = Promise.all(
           arrayInstancesIndex[2].map((num) => {
-            return fetch(this.state.urlsToFetch[2].concat(num, '/')).then(
-              (response) => {
-                if (response.status === 200) return response.json();
-              }
-            );
+            return fetch(this.state.urlsToFetch[2].concat(num, '/'), {
+              mode: 'no-cors',
+            }).then((response) => {
+              if (response.status === 200) return response.json();
+            });
           })
         )
           .then((arraySpecies) => {
             for (const specie of arraySpecies) {
               if (specie !== undefined) {
-                this.setState({
-                  speciesInstances: this.state.speciesInstances.concat(specie),
-                });
+                _speciesInstances.push(specie);
               }
             }
-            return this.state.planetsInstances;
+            return _speciesInstances;
           })
           .catch((error) => {
             console.log('Error in speciesPromise.', error);
@@ -130,6 +127,7 @@ class App extends Component {
 
         Promise.all([peoplePromise, planetsPromise, speciesPromise])
           .then((arrayResourceInstances) => {
+            this.setState({ resourceInstances: arrayResourceInstances });
             this.setState({ dataFetched: true });
           })
           .catch((error) => {
@@ -145,17 +143,13 @@ class App extends Component {
     // Deconstruct state
     const {
       dataFetched,
-      peopleInstances,
-      planetsInstances,
-      speciesInstances,
+      resourceInstances,
       peopleInstancesIndex,
       planetsInstancesIndex,
       speciesInstancesIndex,
     } = this.state;
 
-    console.log(peopleInstances);
-    console.log(planetsInstances);
-    console.log(speciesInstances);
+    console.log(resourceInstances);
     // If data has not been fetched, show loading component
     return !dataFetched ? (
       <Loading />
@@ -164,29 +158,17 @@ class App extends Component {
         <TitleScreen />
         <Page
           resourceTitle="People"
-          visibleResourceData={[
-            peopleInstances,
-            planetsInstances,
-            speciesInstances,
-          ]}
+          visibleResourceData={resourceInstances}
           instancesIndex={peopleInstancesIndex}
         />
         <Page
           resourceTitle="Planets"
-          visibleResourceData={[
-            peopleInstances,
-            planetsInstances,
-            speciesInstances,
-          ]}
+          visibleResourceData={resourceInstances}
           instancesIndex={planetsInstancesIndex}
         />
         <Page
           resourceTitle="Species"
-          visibleResourceData={[
-            peopleInstances,
-            planetsInstances,
-            speciesInstances,
-          ]}
+          visibleResourceData={resourceInstances}
           instancesIndex={speciesInstancesIndex}
         />
       </BackgroundAnimation>
