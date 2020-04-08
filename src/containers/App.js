@@ -137,7 +137,7 @@ class App extends Component {
         Promise.all([peoplePromise, planetsPromise, speciesPromise])
           .then((arrayresourceData) => {
             this.setState({ resourceData: arrayresourceData });
-            this.setState({ currentPage: this.state.resourceTitles[2] });
+            this.setState({ currentPage: 'title' });
             this.setState({ dataFetched: true });
           })
           .catch((error) => {
@@ -183,6 +183,10 @@ class App extends Component {
   }
 
   setPage(event) {
+    if (event.target.className.includes('home-icon')) {
+      console.log(event);
+      this.setState({ currentPage: 'title' });
+    }
     if (event.target.className.includes('people-icon'))
       this.setState({ currentPage: this.state.resourceTitles[0] });
     if (event.target.className.includes('planets-icon'))
@@ -218,7 +222,7 @@ class App extends Component {
     else {
       switch (currentPage) {
         case 'title':
-          return <TitleScreen />;
+          return <TitleScreen setPage={this.setPage} />;
         case resourceTitles[0]:
           return (
             <Page

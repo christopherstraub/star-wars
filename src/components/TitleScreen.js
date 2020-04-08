@@ -1,11 +1,11 @@
 import React from 'react';
 import MenuWrapper from '../wrappers/MenuWrapper';
 
-const TitleScreen = () => {
+const TitleScreen = (props) => {
   return (
-    <MenuWrapper>
+    <MenuWrapper setPage={props.setPage}>
       <div className="vh-100 f-6 yellow tc flex justify-center items-center">
-        Star Wars Visual Explorer
+        Star Wars Interactive Explorer
       </div>
     </MenuWrapper>
   );
