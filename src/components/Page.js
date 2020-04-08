@@ -8,9 +8,10 @@ const Page = ({
   resourceData,
   instancesIndex,
   handleCardChange,
+  setPage,
 }) => {
   return (
-    <MenuWrapper>
+    <MenuWrapper setPage={setPage}>
       <div className="vh-100">
         <Heading
           resourceTitle={resourceTitle}

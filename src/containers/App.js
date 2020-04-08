@@ -25,6 +25,7 @@ class App extends Component {
     };
     this.handleGoLeft = this.handleGoLeft.bind(this);
     this.handleGoRight = this.handleGoRight.bind(this);
+    this.setPage = this.setPage.bind(this);
   }
 
   // First fetch the resource root urls to get the count of each resource.
@@ -181,6 +182,15 @@ class App extends Component {
     });
   }
 
+  setPage(event) {
+    if (event.target.className.includes('people-icon'))
+      this.setState({ currentPage: this.state.resourceTitles[0] });
+    if (event.target.className.includes('planets-icon'))
+      this.setState({ currentPage: this.state.resourceTitles[1] });
+    if (event.target.className.includes('species-icon'))
+      this.setState({ currentPage: this.state.resourceTitles[2] });
+  }
+
   render() {
     // Deconstruct this.state
     const {
@@ -216,6 +226,7 @@ class App extends Component {
               resourceData={resourceData}
               instancesIndex={visibleInstancesIndex[0]}
               handleCardChange={[this.handleGoLeft, this.handleGoRight]}
+              setPage={this.setPage}
             />
           );
         case resourceTitles[1]:
@@ -225,6 +236,7 @@ class App extends Component {
               resourceData={resourceData}
               instancesIndex={visibleInstancesIndex[1]}
               handleCardChange={[this.handleGoLeft, this.handleGoRight]}
+              setPage={this.setPage}
             />
           );
         case resourceTitles[2]:
@@ -234,6 +246,7 @@ class App extends Component {
               resourceData={resourceData}
               instancesIndex={visibleInstancesIndex[2]}
               handleCardChange={[this.handleGoLeft, this.handleGoRight]}
+              setPage={this.setPage}
             />
           );
         default:
