@@ -207,7 +207,7 @@ class App extends Component {
       resourceTitles,
     } = this.state;
 
-    // Check values in console
+    // Check values in console. REMOVE IN PRODUCTION
     console.log('Current page', currentPage);
     console.log('Data fetched', dataFetched);
     console.log('Resource count array', resourceCount);

@@ -1,5 +1,21 @@
 import React from 'react';
 
+// Error check in getHomeworld and getSpecies mostly unnecessary
+const getHomeworld = (number, resourceData) => {
+  const homeworldIndex =
+    resourceData[0][number - 1].homeworld.slice(29, -1) - 1;
+  return resourceData[1][homeworldIndex] === undefined
+    ? 'Homeworld unknown'
+    : resourceData[1][homeworldIndex];
+};
+
+const getSpecies = (number, resourceData) => {
+  const speciesIndex = resourceData[0][number - 1].species.slice(29, -1) - 1;
+  return resourceData[2][speciesIndex] === undefined
+    ? 'Homeworld unknown'
+    : resourceData[2][speciesIndex];
+};
+
 const ResourcePeople = ({ number, resourceData }) => {
   return (
     <div>
@@ -10,9 +26,9 @@ const ResourcePeople = ({ number, resourceData }) => {
       <h1>{resourceData[0][number - 1].skin_color} skin</h1>
       <h1>Born {resourceData[0][number - 1].birth_year}</h1>
       <h1>Gender {resourceData[0][number - 1].gender}</h1>
+      <h1>Homeworld {getHomeworld(number, resourceData).name}</h1>
+      <h1>{getSpecies(number, resourceData).name}</h1>
       <h4>{number}</h4>
-      {/* <h4>homeworld {homeworld}</h4>
-      <h4>{species}</h4> */}
     </div>
   );
 };
