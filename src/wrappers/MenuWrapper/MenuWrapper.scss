@@ -5,9 +5,13 @@ $gap: 5rem;
   color: $yellow;
   z-index: 1;
   transition: opacity 0.3s ease;
-  font-size: 4rem;
   margin: 1rem;
   position: absolute;
+
+  font-size: 0;
+  opacity: 0;
+
+  animation: iconsLoad 2.5s ease-out 0.5s forwards;
 
   &:hover {
     cursor: pointer;
@@ -23,4 +27,14 @@ $gap: 5rem;
 }
 .species-icon {
   right: 0;
+}
+
+@keyframes iconsLoad {
+  from {
+  }
+  to {
+    opacity: 1;
+
+    font-size: 4rem;
+  }
 }

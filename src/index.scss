@@ -27,22 +27,26 @@ code {
 .title {
   font-family: star-wars-font;
   letter-spacing: 1rem;
-  font-size: 9vw;
   font-weight: bold;
 }
 
-@media all and (max-width: 600px) {
+.title {
+  font-size: 0;
+  opacity: 0;
+  animation: titleLoad 2.5s ease-out 1s forwards;
+}
+
+@media all and (max-width: 550px) {
   .title {
-    font-size: 7vw;
-    font-weight: normal;
+    font-size: 8vw;
   }
 }
 
 @keyframes titleLoad {
   from {
-    font-size: 0;
   }
   to {
+    opacity: 1;
     font-size: 9vw;
   }
 }

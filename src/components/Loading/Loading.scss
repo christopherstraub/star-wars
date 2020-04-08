@@ -1,22 +1,40 @@
 $yellow: #ffd700;
 
-.blinking {
-  animation: blinkingText 1.5s infinite;
+.loading {
+  font-size: 9vw;
 }
+
+.blinking {
+  animation: blinkingText 2.5s infinite;
+}
+
 @keyframes blinkingText {
   0% {
-    color: $yellow;
-  }
-  49% {
-    color: $yellow;
-  }
-  60% {
-    color: $yellow;
-  }
-  99% {
     color: transparent;
   }
-  100% {
+  50% {
     color: $yellow;
   }
+  100% {
+    color: transparent;
+  }
 }
+
+// Previous keyframes backup
+// @keyframes blinkingText {
+//   0% {
+//     color: $yellow;
+//   }
+//   49% {
+//     color: $yellow;
+//   }
+//   60% {
+//     color: $yellow;
+//   }
+//   99% {
+//     color: transparent;
+//   }
+//   100% {
+//     color: $yellow;
+//   }
+// }
