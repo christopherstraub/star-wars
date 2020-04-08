@@ -1,5 +1,15 @@
 import React from 'react';
 
+const getHomeworld = (number, resourceData) => {
+  if (resourceData[2][number - 1].homeworld === null || 'unknown')
+    return { name: 'Homeworld unknown' };
+  else {
+    const homeworldIndex =
+      resourceData[2][number - 1].homeworld.slice(29, -1) - 1;
+    return resourceData[1][homeworldIndex];
+  }
+};
+
 const ResourceSpecies = ({ number, resourceData }) => {
   return (
     <div>
@@ -15,6 +25,7 @@ const ResourceSpecies = ({ number, resourceData }) => {
         Average lifespan {resourceData[2][number - 1].average_lifespan} years
       </h1>
       <h1>Language {resourceData[2][number - 1].language}</h1>
+      <h1>{getHomeworld(number, resourceData).name}</h1>
       <h4>{number}</h4>
     </div>
   );
