@@ -1,8 +1,8 @@
 import React from 'react';
-import CenterCardWrapper from '../wrappers/CardWrapper';
-import ResourcePeople from './ResourcePeople';
-import ResourcePlanets from './ResourcePlanets';
-import ResourceSpecies from './ResourceSpecies';
+import CenterCardWrapper from '../../wrappers/CardWrapper/CardWrapper';
+import ResourcePeople from '../ResourcePeople/ResourcePeople';
+import ResourcePlanets from '../ResourcePlanets/ResourcePlanets';
+import ResourceSpecies from '../ResourceSpecies/ResourceSpecies';
 
 const Card = ({ number, resourceTitle, resourceData }) => {
   switch (resourceTitle) {

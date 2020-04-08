@@ -1,7 +1,7 @@
 import React from 'react';
 import Heading from '../Heading/Heading';
 import CardList from '../CardList/CardList';
-import MenuWrapper from '../../wrappers/MenuWrapper';
+import MenuWrapper from '../../wrappers/MenuWrapper/MenuWrapper';
 
 const ResourcePage = ({
   resourceTitle,

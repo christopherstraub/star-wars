@@ -1,5 +1,5 @@
 import React from 'react';
-import Arrow from './Arrow';
+import Arrow from '../Arrow/Arrow';
 
 const getCurrentCardOutOfTotal = (
   resourceTitle,

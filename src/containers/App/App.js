@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Loading from '../components/Loading';
-import TitleScreen from '../components/TitleScreen';
-import Page from '../components/Page';
+import Loading from '../../components/Loading/Loading';
+import TitlePage from '../../components/TitlePage/TitlePage';
+import ResourcePage from '../../components/ResourcePage/ResourcePage';
 
 class App extends Component {
   constructor() {
@@ -222,10 +222,10 @@ class App extends Component {
     else {
       switch (currentPage) {
         case 'title':
-          return <TitleScreen setPage={this.setPage} />;
+          return <TitlePage setPage={this.setPage} />;
         case resourceTitles[0]:
           return (
-            <Page
+            <ResourcePage
               resourceTitle={resourceTitles[0]}
               resourceData={resourceData}
               instancesIndex={visibleInstancesIndex[0]}
@@ -235,7 +235,7 @@ class App extends Component {
           );
         case resourceTitles[1]:
           return (
-            <Page
+            <ResourcePage
               resourceTitle={resourceTitles[1]}
               resourceData={resourceData}
               instancesIndex={visibleInstancesIndex[1]}
@@ -245,7 +245,7 @@ class App extends Component {
           );
         case resourceTitles[2]:
           return (
-            <Page
+            <ResourcePage
               resourceTitle={resourceTitles[2]}
               resourceData={resourceData}
               instancesIndex={visibleInstancesIndex[2]}

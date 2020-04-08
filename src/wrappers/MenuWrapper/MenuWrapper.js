@@ -1,5 +1,5 @@
 import React from 'react';
-import BackgroundAnimation from './BackgroundAnimation';
+import BackgroundAnimation from '../BackgroundAnimation/BackgroundAnimation';
 
 import './MenuWrapper.scss';
 
