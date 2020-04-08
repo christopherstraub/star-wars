@@ -1,3 +1,8 @@
+@font-face {
+  font-family: star-wars-font;
+  src: url('./fonts/star-wars-font-italic-outline.ttf') format('truetype');
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -16,4 +21,28 @@ code {
 }
 * {
   text-transform: uppercase;
+}
+
+.loading,
+.title {
+  font-family: star-wars-font;
+  letter-spacing: 1rem;
+  font-size: 9vw;
+  font-weight: bold;
+}
+
+@media all and (max-width: 600px) {
+  .title {
+    font-size: 7vw;
+    font-weight: normal;
+  }
+}
+
+@keyframes titleLoad {
+  from {
+    font-size: 0;
+  }
+  to {
+    font-size: 9vw;
+  }
 }

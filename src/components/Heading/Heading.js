@@ -9,12 +9,8 @@ const getCurrentCardOutOfTotal = (
   switch (resourceTitle) {
     case 'people':
       return `${instancesIndex[0]}/${resourceData[0].length}`;
-  }
-  switch (resourceTitle) {
     case 'planets':
       return `${instancesIndex[0]}/${resourceData[1].length}`;
-  }
-  switch (resourceTitle) {
     case 'species':
       return `${instancesIndex[0]}/${resourceData[2].length}`;
     default:

@@ -7,7 +7,7 @@ const getHomeworld = (number, resourceData) => {
 };
 
 const getSpecies = (number, resourceData) => {
-  if (resourceData[0][number - 1].species == false)
+  if (resourceData[0][number - 1].species[0] === undefined)
     return { name: 'Species unknown' };
   else {
     const speciesIndex =
