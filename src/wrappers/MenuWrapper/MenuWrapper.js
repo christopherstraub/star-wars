@@ -19,7 +19,6 @@ const MenuWrapper = (props) => {
       <span onClick={props.setPage} className="species-icon material-icons">
         supervisor_account
       </span>
-
       {props.children}
     </BackgroundAnimation>
   );

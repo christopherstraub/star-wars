@@ -7,8 +7,13 @@ const getHomeworld = (number, resourceData) => {
 };
 
 const getSpecies = (number, resourceData) => {
-  const speciesIndex = resourceData[0][number - 1].species[0].slice(29, -1) - 1;
-  return resourceData[2][speciesIndex];
+  if (resourceData[0][number - 1].species == false)
+    return { name: 'Species unknown' };
+  else {
+    const speciesIndex =
+      resourceData[0][number - 1].species[0].slice(29, -1) - 1;
+    return resourceData[2][speciesIndex];
+  }
 };
 
 const ResourcePeople = ({ number, resourceData }) => {

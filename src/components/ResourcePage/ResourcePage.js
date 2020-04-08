@@ -1,9 +1,9 @@
 import React from 'react';
-import Heading from './Heading';
-import CardList from './CardList';
-import MenuWrapper from '../wrappers/MenuWrapper';
+import Heading from '../Heading/Heading';
+import CardList from '../CardList/CardList';
+import MenuWrapper from '../../wrappers/MenuWrapper';
 
-const Page = ({
+const ResourcePage = ({
   resourceTitle,
   resourceData,
   instancesIndex,
@@ -15,6 +15,8 @@ const Page = ({
       <div className="vh-100">
         <Heading
           resourceTitle={resourceTitle}
+          resourceData={resourceData}
+          instancesIndex={instancesIndex}
           handleCardChange={handleCardChange}
         />
         <CardList
@@ -27,4 +29,4 @@ const Page = ({
   );
 };
 
-export default Page;
+export default ResourcePage;
