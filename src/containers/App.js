@@ -12,9 +12,9 @@ class App extends Component {
       resourceCount: null,
       resourceData: null,
       visibleInstancesIndex: [
-        [1, 2, 3, 4],
-        [1, 2, 3, 4],
-        [1, 2, 3, 4],
+        [1, 2, 3],
+        [1, 2, 3],
+        [1, 2, 3],
       ],
       urlsToFetch: [
         'https://swapi.co/api/people/',
