@@ -1,6 +1,12 @@
 @font-face {
+  font-family: title-star-wars-font-italic;
+  src: url('./fonts/title-star-wars-font-italic-outline.ttf') format('truetype');
+}
+
+@font-face {
   font-family: star-wars-font;
-  src: url('./fonts/star-wars-font-italic-outline.ttf') format('truetype');
+  src: url('./fonts/star-wars-font.woff') format('woff'),
+    url('./fonts/star-wars-font.ttf') format('truetype');
 }
 
 body {
@@ -25,12 +31,12 @@ code {
 
 .loading,
 .title {
-  font-family: star-wars-font;
   letter-spacing: 1rem;
   font-weight: bold;
 }
 
 .title {
+  font-family: title-star-wars-font-italic;
   font-size: 0;
   opacity: 0;
   animation: titleLoad 2.5s ease-out 1s forwards;
@@ -38,7 +44,6 @@ code {
 
 @media all and (max-width: 550px) {
   .title {
-    font-size: 8vw;
   }
 }
 
