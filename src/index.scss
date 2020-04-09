@@ -40,14 +40,6 @@ code {
 }
 
 // Media queries
-@media all and (max-width: 1050px) {
-  .title-container {
-    & img {
-      display: none;
-    }
-  }
-}
-
 @media all and (max-width: 450px) {
   .title-container {
     & img {

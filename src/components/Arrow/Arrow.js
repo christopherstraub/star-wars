@@ -6,7 +6,7 @@ const Arrow = ({ direction, handleCardChange }) => {
     return (
       <div
         onClick={handleCardChange[0]}
-        className="dib hover f2 black bg-yellow dib br3 pa3 ma2 ba mr4"
+        className="arrow dib f2 black dib br3 pa3 ma2 ba mr4"
       >
         ←
       </div>
@@ -15,7 +15,7 @@ const Arrow = ({ direction, handleCardChange }) => {
     return (
       <div
         onClick={handleCardChange[1]}
-        className="dib hover f2 black bg-yellow dib br3 pa3 ma2 ba ml4"
+        className="arrow dib f2 black dib br3 pa3 ma2 ba ml4"
       >
         →
       </div>

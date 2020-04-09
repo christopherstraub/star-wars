@@ -1,6 +1,8 @@
 import React from 'react';
 import Arrow from '../Arrow/Arrow';
 
+import './Heading.scss';
+
 const getCurrentCardOutOfTotal = (
   resourceTitle,
   resourceData,
@@ -24,11 +26,11 @@ const Heading = ({
   handleCardChange,
 }) => {
   return (
-    <div className="tc mb4 mt5 flex justify-center items-center">
+    <div className="heading tc mb4 mt5 flex justify-center items-center">
       <Arrow direction="left" handleCardChange={handleCardChange} />
       <div className="flex flex-column">
-        <h1 className="yellow tc dib ma0">{resourceTitle}</h1>
-        <h2 className="yellow tc dib ma0">
+        <h1 className="tc dib ma0">{resourceTitle}</h1>
+        <h2 className="tc dib ma0">
           {getCurrentCardOutOfTotal(
             resourceTitle,
             resourceData,

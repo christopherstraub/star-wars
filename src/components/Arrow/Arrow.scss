@@ -1,6 +1,12 @@
-.hover:hover {
-  color: yellow;
-  background-color: black;
-  transition: color 500ms ease, background-color 500ms ease;
-  cursor: pointer;
+@import '../../base/variables';
+
+.arrow {
+  background-color: $color-blue;
+
+  &:hover {
+    color: $color-blue;
+    background-color: black;
+    transition: color 500ms ease, background-color 500ms ease;
+    cursor: pointer;
+  }
 }
