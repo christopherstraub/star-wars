@@ -1,0 +1,39 @@
+@import '../../base/variables';
+
+.title-container {
+  & .title {
+    color: $color-blue;
+    font-family: title-star-wars-font-bold;
+    opacity: 0;
+    font-size: 0;
+    animation: titleLoad 2.5s ease-out 0.5s forwards;
+  }
+  & .title-mobile {
+    display: none;
+  }
+  & img {
+    opacity: 0;
+    z-index: -1;
+    width: 50%;
+    position: absolute;
+    top: 15vh;
+    right: -180px;
+    animation: imageLoad 1s ease 2.75s forwards;
+  }
+}
+
+@keyframes titleLoad {
+  from {
+  }
+  to {
+    opacity: 1;
+    font-size: 8vw;
+  }
+}
+@keyframes imageLoad {
+  from {
+  }
+  to {
+    opacity: 1;
+  }
+}

@@ -1,4 +1,4 @@
-$yellow: #ffd700;
+@import '../../base/variables';
 
 .loading {
   font-family: star-wars-font;
@@ -14,28 +14,9 @@ $yellow: #ffd700;
     color: transparent;
   }
   50% {
-    color: $yellow;
+    color: $color-blue;
   }
   100% {
     color: transparent;
   }
 }
-
-// Previous keyframes backup
-// @keyframes blinkingText {
-//   0% {
-//     color: $yellow;
-//   }
-//   49% {
-//     color: $yellow;
-//   }
-//   60% {
-//     color: $yellow;
-//   }
-//   99% {
-//     color: transparent;
-//   }
-//   100% {
-//     color: $yellow;
-//   }
-// }
