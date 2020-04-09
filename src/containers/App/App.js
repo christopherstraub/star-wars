@@ -1,13 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Loading from '../../components/Loading/Loading';
 import TitlePage from '../../components/TitlePage/TitlePage';
 import ResourcePage from '../../components/ResourcePage/ResourcePage';
+import MenuWrapper from '../../wrappers/MenuWrapper/MenuWrapper';
+
+import { Link, animateScroll as scroll, Events, scrollSpy } from 'react-scroll';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      currentPage: 'loading',
       dataFetched: false,
       resourceCount: null,
       resourceData: null,
@@ -25,7 +27,6 @@ class App extends Component {
     };
     this.handleGoLeft = this.handleGoLeft.bind(this);
     this.handleGoRight = this.handleGoRight.bind(this);
-    this.setPage = this.setPage.bind(this);
   }
 
   // First fetch the resource root urls to get the count of each resource.
@@ -35,6 +36,7 @@ class App extends Component {
   // Also, only add resource objects to their arrays if they are not undefined.
   // Wait for all resource promises to resolve with Promise.all, and return an array of resource instances. Set dataFetched = true.
   componentDidMount() {
+    // Fetch data
     Promise.all(
       this.state.urlsToFetch.map((url) => {
         return fetch(url).then((response) => {
@@ -59,12 +61,32 @@ class App extends Component {
         this.setState({
           resourceData: [_peopleData, _planetsData, _speciesData],
         });
-        this.setState({ currentPage: 'title' });
         this.setState({ dataFetched: true });
       })
       .catch((error) => {
         console.log(error);
       });
+
+    // Smooth scroll
+    Events.scrollEvent.register('begin', function (to, element) {
+      console.log('begin', arguments);
+    });
+
+    Events.scrollEvent.register('end', function (to, element) {
+      console.log('end', arguments);
+    });
+
+    scrollSpy.update();
+  }
+
+  componentWillUnmount() {
+    // Smooth scroll
+    Events.scrollEvent.remove('begin');
+    Events.scrollEvent.remove('end');
+  }
+
+  scrollToTop() {
+    scroll.scrollToTop();
   }
 
   handleGoLeft(event) {
@@ -98,24 +120,9 @@ class App extends Component {
       }
     });
   }
-
-  setPage(event) {
-    if (event.target.className.includes('home-icon')) {
-      console.log(event);
-      this.setState({ currentPage: 'title' });
-    }
-    if (event.target.className.includes('people-icon'))
-      this.setState({ currentPage: this.state.resourceTitles[0] });
-    if (event.target.className.includes('planets-icon'))
-      this.setState({ currentPage: this.state.resourceTitles[1] });
-    if (event.target.className.includes('species-icon'))
-      this.setState({ currentPage: this.state.resourceTitles[2] });
-  }
-
   render() {
     // Deconstruct this.state
     const {
-      currentPage,
       dataFetched,
       resourceCount,
       resourceData,
@@ -125,7 +132,6 @@ class App extends Component {
     } = this.state;
 
     // Check values in console. REMOVE IN PRODUCTION
-    console.log('Current page', currentPage);
     console.log('Data fetched', dataFetched);
     console.log('Resource count array', resourceCount);
     console.log('Resource data array', resourceData);
@@ -134,53 +140,39 @@ class App extends Component {
     console.log('Resource titles array', resourceTitles);
 
     // If data has not been fetched, show loading component
-    if (!dataFetched) return <Loading />;
-    else {
-      switch (currentPage) {
-        case 'title':
-          return <TitlePage setPage={this.setPage} />;
-        case resourceTitles[0]:
-          return (
-            <div>
-              <ResourcePage
-                resourceTitle={resourceTitles[0]}
-                resourceData={resourceData}
-                instancesIndex={visibleInstancesIndex[0]}
-                handleCardChange={[this.handleGoLeft, this.handleGoRight]}
-                setPage={this.setPage}
-              />
-              <ResourcePage
-                resourceTitle={resourceTitles[2]}
-                resourceData={resourceData}
-                instancesIndex={visibleInstancesIndex[2]}
-                handleCardChange={[this.handleGoLeft, this.handleGoRight]}
-                setPage={this.setPage}
-              />
-            </div>
-          );
-        case resourceTitles[1]:
-          return (
-            <ResourcePage
-              resourceTitle={resourceTitles[1]}
-              resourceData={resourceData}
-              instancesIndex={visibleInstancesIndex[1]}
-              handleCardChange={[this.handleGoLeft, this.handleGoRight]}
-              setPage={this.setPage}
-            />
-          );
-        case resourceTitles[2]:
-          return (
-            <ResourcePage
-              resourceTitle={resourceTitles[2]}
-              resourceData={resourceData}
-              instancesIndex={visibleInstancesIndex[2]}
-              handleCardChange={[this.handleGoLeft, this.handleGoRight]}
-              setPage={this.setPage}
-            />
-          );
-        default:
-      }
-    }
+    return !dataFetched ? (
+      <Loading />
+    ) : (
+      <MenuWrapper scrollToTop={this.scrollToTop}>
+        <TitlePage />
+
+        <div id="people">
+          <ResourcePage
+            resourceTitle={resourceTitles[0]}
+            resourceData={resourceData}
+            instancesIndex={visibleInstancesIndex[0]}
+            handleCardChange={[this.handleGoLeft, this.handleGoRight]}
+          />
+        </div>
+        <div id="planets">
+          <ResourcePage
+            resourceTitle={resourceTitles[1]}
+            resourceData={resourceData}
+            instancesIndex={visibleInstancesIndex[1]}
+            handleCardChange={[this.handleGoLeft, this.handleGoRight]}
+          />
+        </div>
+
+        <div id="species">
+          <ResourcePage
+            resourceTitle={resourceTitles[2]}
+            resourceData={resourceData}
+            instancesIndex={visibleInstancesIndex[2]}
+            handleCardChange={[this.handleGoLeft, this.handleGoRight]}
+          />
+        </div>
+      </MenuWrapper>
+    );
   }
 }
 

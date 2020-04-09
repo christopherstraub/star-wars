@@ -3,7 +3,7 @@ import './star-animation.css';
 
 const BackgroundAnimation = (props) => {
   return (
-    <div>
+    <div className="overflow-y-hidden">
       <div id="stars"></div>
       <div id="stars2"></div>
       <div id="stars3"></div>

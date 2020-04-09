@@ -1,5 +1,5 @@
 import React from 'react';
-import CenterCardWrapper from '../../wrappers/CardWrapper/CardWrapper';
+import MainCardWrapper from '../../wrappers/MainCardWrapper/MainCardWrapper';
 import ResourcePeople from '../ResourcePeople/ResourcePeople';
 import ResourcePlanets from '../ResourcePlanets/ResourcePlanets';
 import ResourceSpecies from '../ResourceSpecies/ResourceSpecies';
@@ -8,81 +8,24 @@ const Card = ({ number, resourceTitle, resourceData }) => {
   switch (resourceTitle) {
     case 'people':
       return (
-        <CenterCardWrapper>
+        <MainCardWrapper>
           <ResourcePeople number={number} resourceData={resourceData} />
-        </CenterCardWrapper>
+        </MainCardWrapper>
       );
     case 'planets':
       return (
-        <CenterCardWrapper>
+        <MainCardWrapper>
           <ResourcePlanets number={number} resourceData={resourceData} />
-        </CenterCardWrapper>
+        </MainCardWrapper>
       );
     case 'species':
       return (
-        <CenterCardWrapper>
+        <MainCardWrapper>
           <ResourceSpecies number={number} resourceData={resourceData} />
-        </CenterCardWrapper>
+        </MainCardWrapper>
       );
     default:
   }
 };
-// if (isPeople(resourceTitle) && getCardPosition(position) === 'side') {
-//   return (
-//     <SideCardWrapper>
-//       <h1>{visibleResourceData[0][visibleIndex].name}</h1>
-//       <h4>{number}</h4>
-//     </SideCardWrapper>
-//   );
-// }
-// if (isPeople(resourceTitle) && getCardPosition(position) === 'center') {
-//   return (
-//     <CenterCardWrapper>
-//       <ResourcePeople
-//         number={number}
-//         visibleIndex={visibleIndex}
-//         visibleResourceData={visibleResourceData}
-//       />
-//     </CenterCardWrapper>
-//   );
-// }
-// if (isPlanets(resourceTitle) && getCardPosition(position) === 'side') {
-//   return (
-//     <SideCardWrapper>
-//       <h1>{visibleResourceData[1][visibleIndex].name}</h1>
-//       <h4>{number}</h4>
-//     </SideCardWrapper>
-//   );
-// }
-// if (isPlanets(resourceTitle) && getCardPosition(position) === 'center') {
-//   return (
-//     <CenterCardWrapper>
-//       <ResourcePlanets
-//         number={number}
-//         visibleIndex={visibleIndex}
-//         visibleResourceData={visibleResourceData}
-//       />
-//     </CenterCardWrapper>
-//   );
-// }
-// if (isSpecies(resourceTitle) && getCardPosition(position) === 'side') {
-//   return (
-//     <SideCardWrapper>
-//       <h1>{visibleResourceData[2][visibleIndex].name}</h1>
-//       <h4>{number}</h4>
-//     </SideCardWrapper>
-//   );
-// }
-// if (isSpecies(resourceTitle) && getCardPosition(position) === 'center') {
-//   return (
-//     <CenterCardWrapper>
-//       <ResourceSpecies
-//         number={number}
-//         visibleIndex={visibleIndex}
-//         visibleResourceData={visibleResourceData}
-//       />
-//     </CenterCardWrapper>
-//   );
-// }
 
 export default Card;
