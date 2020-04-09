@@ -13,11 +13,7 @@ class App extends Component {
       dataFetched: false,
       resourceCount: null,
       resourceData: null,
-      visibleInstancesIndex: [
-        [1, 2, 3],
-        [1, 2, 3],
-        [1, 2, 3],
-      ],
+      visibleInstancesIndex: [[1], [1], [1]],
       urlsToFetch: [
         'https://christopherstraub.github.io/swapi/resources/fixtures/people.json',
         'https://christopherstraub.github.io/swapi/resources/fixtures/planets.json',
@@ -25,8 +21,7 @@ class App extends Component {
       ],
       resourceTitles: ['people', 'planets', 'species'],
     };
-    this.handleGoLeft = this.handleGoLeft.bind(this);
-    this.handleGoRight = this.handleGoRight.bind(this);
+    this.handleCardChange = this.handleCardChange.bind(this);
   }
 
   // First fetch the resource root urls to get the count of each resource.
@@ -89,37 +84,110 @@ class App extends Component {
     scroll.scrollToTop();
   }
 
-  handleGoLeft(event) {
-    this.state.resourceTitles.forEach((title, index) => {
-      if (
-        this.state.currentPage === title &&
-        this.state.visibleInstancesIndex[index][0] > 1
-      ) {
+  handleCardChange(event) {
+    console.log(event.target.dataset.id);
+
+    if (event.target.dataset.id === 'people-left') {
+      if (this.state.visibleInstancesIndex[0][0] > 1) {
         let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
-        newVisibleInstancesIndex[index] = this.state.visibleInstancesIndex[
-          index
-        ].map((value) => value - 1);
+        newVisibleInstancesIndex[0] = this.state.visibleInstancesIndex[0].map(
+          (value) => value - 1
+        );
         this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
       }
-    });
+    }
+    if (event.target.dataset.id === 'planets-left') {
+      if (this.state.visibleInstancesIndex[1][0] > 1) {
+        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
+        newVisibleInstancesIndex[1] = this.state.visibleInstancesIndex[1].map(
+          (value) => value - 1
+        );
+        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
+      }
+    }
+    if (event.target.dataset.id === 'species-left') {
+      if (this.state.visibleInstancesIndex[2][0] > 1) {
+        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
+        newVisibleInstancesIndex[2] = this.state.visibleInstancesIndex[2].map(
+          (value) => value - 1
+        );
+        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
+      }
+    }
+    if (event.target.dataset.id === 'people-right') {
+      if (
+        this.state.visibleInstancesIndex[0][
+          this.state.visibleInstancesIndex[0].length - 1
+        ] < this.state.resourceCount[0]
+      ) {
+        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
+        newVisibleInstancesIndex[0] = this.state.visibleInstancesIndex[0].map(
+          (value) => value + 1
+        );
+        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
+      }
+    }
+    if (event.target.dataset.id === 'planets-right') {
+      if (
+        this.state.visibleInstancesIndex[1][
+          this.state.visibleInstancesIndex[1].length - 1
+        ] < this.state.resourceCount[1]
+      ) {
+        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
+        newVisibleInstancesIndex[1] = this.state.visibleInstancesIndex[1].map(
+          (value) => value + 1
+        );
+        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
+      }
+    }
+    if (event.target.dataset.id === 'species-right') {
+      if (
+        this.state.visibleInstancesIndex[2][
+          this.state.visibleInstancesIndex[2].length - 1
+        ] < this.state.resourceCount[2]
+      ) {
+        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
+        newVisibleInstancesIndex[2] = this.state.visibleInstancesIndex[2].map(
+          (value) => value + 1
+        );
+        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
+      }
+    }
+
+    // switch (event.target.dataset.id) {
+    //   case 'people-left':
+
+    //   case 'planets-left':
+    //     if (this.state.visibleInstancesIndex[1][0] > 1) {
+    //       let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
+    //       newVisibleInstancesIndex[1] = this.state.visibleInstancesIndex[1].map(
+    //         (value) => value - 1
+    //       );
+    //       this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
+    //     }
+    //   case 'species-left':
+    //     if (this.state.visibleInstancesIndex[2][0] > 1) {
+    //       let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
+    //       newVisibleInstancesIndex[2] = this.state.visibleInstancesIndex[2].map(
+    //         (value) => value - 1
+    //       );
+    //       this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
+    //     }
+    //   case 'people-right':
+    //     if (
+    //       this.state.visibleInstancesIndex[0][
+    //         this.state.visibleInstancesIndex[0].length - 1
+    //       ] < this.state.resourceCount[0]
+    //     ) {
+    //       let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
+    //       newVisibleInstancesIndex[0] = this.state.visibleInstancesIndex[0].map(
+    //         (value) => value + 1
+    //       );
+    //       this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
+    //     }
+    // }
   }
 
-  handleGoRight(event) {
-    this.state.resourceTitles.forEach((title, index) => {
-      if (
-        this.state.currentPage === title &&
-        this.state.visibleInstancesIndex[index][
-          this.state.visibleInstancesIndex[index].length - 1
-        ] < this.state.resourceData[index].length
-      ) {
-        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
-        newVisibleInstancesIndex[index] = this.state.visibleInstancesIndex[
-          index
-        ].map((value) => value + 1);
-        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
-      }
-    });
-  }
   render() {
     // Deconstruct this.state
     const {
@@ -132,12 +200,12 @@ class App extends Component {
     } = this.state;
 
     // Check values in console. REMOVE IN PRODUCTION
-    console.log('Data fetched', dataFetched);
-    console.log('Resource count array', resourceCount);
-    console.log('Resource data array', resourceData);
-    console.log('Visible instances index array', visibleInstancesIndex);
-    console.log('URLs to fetch', urlsToFetch);
-    console.log('Resource titles array', resourceTitles);
+    // console.log('Data fetched', dataFetched);
+    // console.log('Resource count array', resourceCount);
+    // console.log('Resource data array', resourceData);
+    // console.log('Visible instances index array', visibleInstancesIndex);
+    // console.log('URLs to fetch', urlsToFetch);
+    // console.log('Resource titles array', resourceTitles);
 
     // If data has not been fetched, show loading component
     return !dataFetched ? (
@@ -151,7 +219,7 @@ class App extends Component {
             resourceTitle={resourceTitles[0]}
             resourceData={resourceData}
             instancesIndex={visibleInstancesIndex[0]}
-            handleCardChange={[this.handleGoLeft, this.handleGoRight]}
+            handleCardChange={this.handleCardChange}
           />
         </div>
         <div id="planets">
@@ -159,7 +227,7 @@ class App extends Component {
             resourceTitle={resourceTitles[1]}
             resourceData={resourceData}
             instancesIndex={visibleInstancesIndex[1]}
-            handleCardChange={[this.handleGoLeft, this.handleGoRight]}
+            handleCardChange={this.handleCardChange}
           />
         </div>
 
@@ -168,7 +236,7 @@ class App extends Component {
             resourceTitle={resourceTitles[2]}
             resourceData={resourceData}
             instancesIndex={visibleInstancesIndex[2]}
-            handleCardChange={[this.handleGoLeft, this.handleGoRight]}
+            handleCardChange={this.handleCardChange}
           />
         </div>
       </MenuWrapper>

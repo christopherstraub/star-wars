@@ -27,7 +27,11 @@ const Heading = ({
 }) => {
   return (
     <div className="heading tc mb4 mt5 flex justify-center items-center">
-      <Arrow direction="left" handleCardChange={handleCardChange} />
+      <Arrow
+        resourceTitle={resourceTitle}
+        direction="left"
+        handleCardChange={handleCardChange}
+      />
       <div className="flex flex-column">
         <h1 className="tc dib ma0">{resourceTitle}</h1>
         <h2 className="tc dib ma0">
@@ -39,7 +43,11 @@ const Heading = ({
         </h2>
       </div>
 
-      <Arrow direction="right" handleCardChange={handleCardChange} />
+      <Arrow
+        resourceTitle={resourceTitle}
+        direction="right"
+        handleCardChange={handleCardChange}
+      />
     </div>
   );
 };
