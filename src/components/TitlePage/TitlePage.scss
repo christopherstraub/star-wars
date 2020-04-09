@@ -11,6 +11,14 @@
   & .title-mobile {
     display: none;
   }
+
+  .title,
+  .title-mobile {
+    &:hover {
+      cursor: default;
+    }
+  }
+
   & img {
     opacity: 0;
     z-index: -1;

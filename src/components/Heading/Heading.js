@@ -33,8 +33,8 @@ const Heading = ({
         handleCardChange={handleCardChange}
       />
       <div className="flex flex-column">
-        <h1 className="tc dib ma0">{resourceTitle}</h1>
-        <h2 className="tc dib ma0">
+        <h1 className="resource-title tc dib ma0">{resourceTitle}</h1>
+        <h2 className="card-count tc dib ma0">
           {getCurrentCardOutOfTotal(
             resourceTitle,
             resourceData,

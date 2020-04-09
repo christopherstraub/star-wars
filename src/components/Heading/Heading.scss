@@ -3,3 +3,10 @@
 .heading {
   color: $color-blue;
 }
+
+.resource-title,
+.card-count {
+  &:hover {
+    cursor: default;
+  }
+}
