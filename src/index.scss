@@ -1,5 +1,10 @@
 @font-face {
-  font-family: title-star-wars-font-italic;
+  font-family: title-star-wars-font-bold;
+  src: url('./fonts/title-star-wars-font-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: title-star-wars-font-italic-outline;
   src: url('./fonts/title-star-wars-font-italic-outline.ttf') format('truetype');
 }
 
@@ -36,7 +41,7 @@ code {
 }
 
 .title {
-  font-family: title-star-wars-font-italic;
+  font-family: title-star-wars-font-italic-outline;
   font-size: 0;
   opacity: 0;
   animation: titleLoad 2.5s ease-out 1s forwards;

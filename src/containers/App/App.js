@@ -17,9 +17,9 @@ class App extends Component {
         [1, 2, 3],
       ],
       urlsToFetch: [
-        'https://swapi.co/api/people/',
-        'https://swapi.co/api/planets/',
-        'https://swapi.co/api/species/',
+        'https://christopherstraub.github.io/swapi/resources/fixtures/people.json',
+        'https://christopherstraub.github.io/swapi/resources/fixtures/planets.json',
+        'https://christopherstraub.github.io/swapi/resources/fixtures/species.json',
       ],
       resourceTitles: ['people', 'planets', 'species'],
     };
@@ -37,119 +37,36 @@ class App extends Component {
   componentDidMount() {
     Promise.all(
       this.state.urlsToFetch.map((url) => {
-        return fetch(url).then((response) => response.json());
+        return fetch(url).then((response) => {
+          if (response.status === 200) return response.json();
+        });
       })
     )
       .then((arrayResources) => {
-        let _peopleCount = arrayResources[0].count;
-        let _planetsCount = arrayResources[1].count;
-        let _speciesCount = arrayResources[2].count;
+        let _peopleCount = arrayResources[0].length;
+        let _planetsCount = arrayResources[1].length;
+        let _speciesCount = arrayResources[2].length;
+        this.setState({
+          resourceCount: [_peopleCount, _planetsCount, _speciesCount],
+        });
+        let _peopleData;
+        let _planetsData;
+        let _speciesData;
 
-        return Promise.all([_peopleCount, _planetsCount, _speciesCount]);
-      })
-      .then((arrayResourceCount) => {
-        this.setState({ resourceCount: arrayResourceCount });
-        let _peopleInstancesIndex = [];
-        let _planetsInstancesIndex = [];
-        let _speciesInstancesIndex = [];
-
-        for (let i = 1; i <= arrayResourceCount[0]; i++)
-          _peopleInstancesIndex.push(i);
-        for (let i = 1; i <= arrayResourceCount[1]; i++)
-          _planetsInstancesIndex.push(i);
-        for (let i = 1; i <= arrayResourceCount[2]; i++)
-          _speciesInstancesIndex.push(i);
-        return Promise.all([
-          _peopleInstancesIndex,
-          _planetsInstancesIndex,
-          _speciesInstancesIndex,
-        ]);
-      })
-
-      .then((arrayInstancesIndex) => {
-        let _peopleInstances = [];
-        let _planetsInstances = [];
-        let _speciesInstances = [];
-
-        const peoplePromise = Promise.all(
-          arrayInstancesIndex[0].map((num) => {
-            return fetch(this.state.urlsToFetch[0].concat(num, '/')).then(
-              (response) => {
-                if (response.status === 200) return response.json();
-              }
-            );
-          })
-        )
-          .then((arrayPeople) => {
-            for (const person of arrayPeople) {
-              if (person !== undefined) {
-                _peopleInstances.push(person);
-              }
-            }
-            return _peopleInstances;
-          })
-          .catch((error) => {
-            console.log('Error in peoplePromise.', error);
-          });
-
-        const planetsPromise = Promise.all(
-          arrayInstancesIndex[1].map((num) => {
-            return fetch(this.state.urlsToFetch[1].concat(num, '/')).then(
-              (response) => {
-                if (response.status === 200) return response.json();
-              }
-            );
-          })
-        )
-          .then((arrayPlanets) => {
-            for (const planet of arrayPlanets) {
-              if (planet !== undefined) {
-                _planetsInstances.push(planet);
-              }
-            }
-            return _planetsInstances;
-          })
-          .catch((error) => {
-            console.log('Error in planetsPromise.', error);
-          });
-
-        const speciesPromise = Promise.all(
-          arrayInstancesIndex[2].map((num) => {
-            return fetch(this.state.urlsToFetch[2].concat(num, '/')).then(
-              (response) => {
-                if (response.status === 200) return response.json();
-              }
-            );
-          })
-        )
-          .then((arraySpecies) => {
-            for (const specie of arraySpecies) {
-              if (specie !== undefined) {
-                _speciesInstances.push(specie);
-              }
-            }
-            return _speciesInstances;
-          })
-          .catch((error) => {
-            console.log('Error in speciesPromise.', error);
-          });
-
-        Promise.all([peoplePromise, planetsPromise, speciesPromise])
-          .then((arrayresourceData) => {
-            this.setState({ resourceData: arrayresourceData });
-            this.setState({ currentPage: 'title' });
-            this.setState({ dataFetched: true });
-          })
-          .catch((error) => {
-            console.log('Error in Promise.all.', error);
-          });
+        _peopleData = arrayResources[0].map((object) => object.fields);
+        _planetsData = arrayResources[1].map((object) => object.fields);
+        _speciesData = arrayResources[2].map((object) => object.fields);
+        this.setState({
+          resourceData: [_peopleData, _planetsData, _speciesData],
+        });
+        this.setState({ currentPage: 'title' });
+        this.setState({ dataFetched: true });
       })
       .catch((error) => {
-        console.log('Error in countPromise.', error);
+        console.log(error);
       });
   }
 
-  // Now we just need error checking
   handleGoLeft(event) {
     this.state.resourceTitles.forEach((title, index) => {
       if (
@@ -217,7 +134,6 @@ class App extends Component {
     console.log('Resource titles array', resourceTitles);
 
     // If data has not been fetched, show loading component
-
     if (!dataFetched) return <Loading />;
     else {
       switch (currentPage) {
