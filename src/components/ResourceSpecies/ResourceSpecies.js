@@ -1,11 +1,13 @@
 import React from 'react';
 
 const getHomeworld = (number, resourceData) => {
-  if (resourceData[2][number - 1].homeworld === null || 'unknown')
+  if (
+    resourceData[2][number - 1].homeworld === null ||
+    resourceData[2][number - 1].homeworld === 'unknown'
+  )
     return { name: 'Homeworld unknown' };
   else {
-    const homeworldIndex =
-      resourceData[2][number - 1].homeworld.slice(29, -1) - 1;
+    const homeworldIndex = resourceData[2][number - 1].homeworld - 1;
     return resourceData[1][homeworldIndex];
   }
 };
