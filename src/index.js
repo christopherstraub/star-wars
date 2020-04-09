@@ -4,8 +4,6 @@ import App from './containers/App/App';
 
 import './index.scss';
 
-import './base/normalize.css';
-
 import 'tachyons';
 import 'animate.css';
 

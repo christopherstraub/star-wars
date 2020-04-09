@@ -4,12 +4,13 @@ $gap: 5rem;
 .menu-icon,
 .menu-text-link {
   color: $color-blue;
+  position: fixed;
 }
 
 .menu-icon {
+  position: fixed;
   z-index: 1;
   margin: 1rem;
-  position: absolute;
   font-size: 4rem;
   transition: color 0.3s ease;
 
@@ -22,7 +23,6 @@ $gap: 5rem;
 .menu-text-link {
   z-index: 1;
   margin: 1rem;
-  position: absolute;
   font-size: 3rem;
   transition: color 0.3s ease;
 

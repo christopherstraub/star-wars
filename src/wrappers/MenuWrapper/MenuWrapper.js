@@ -30,14 +30,17 @@ const MenuWrapper = (props) => {
       >
         supervisor_account
       </span>
-      <a
-        className="api-icon menu-text-link animated fadeInUpBig slower"
-        href="https://github.com/phalt/swapi"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        API
-      </a>
+      <span>
+        <a
+          className="api-icon menu-text-link animated fadeInUpBig slower"
+          href="https://github.com/phalt/swapi"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          API
+        </a>
+      </span>
+
       {props.children}
     </BackgroundAnimation>
   );

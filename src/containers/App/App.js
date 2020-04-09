@@ -141,13 +141,22 @@ class App extends Component {
           return <TitlePage setPage={this.setPage} />;
         case resourceTitles[0]:
           return (
-            <ResourcePage
-              resourceTitle={resourceTitles[0]}
-              resourceData={resourceData}
-              instancesIndex={visibleInstancesIndex[0]}
-              handleCardChange={[this.handleGoLeft, this.handleGoRight]}
-              setPage={this.setPage}
-            />
+            <div>
+              <ResourcePage
+                resourceTitle={resourceTitles[0]}
+                resourceData={resourceData}
+                instancesIndex={visibleInstancesIndex[0]}
+                handleCardChange={[this.handleGoLeft, this.handleGoRight]}
+                setPage={this.setPage}
+              />
+              <ResourcePage
+                resourceTitle={resourceTitles[2]}
+                resourceData={resourceData}
+                instancesIndex={visibleInstancesIndex[2]}
+                handleCardChange={[this.handleGoLeft, this.handleGoRight]}
+                setPage={this.setPage}
+              />
+            </div>
           );
         case resourceTitles[1]:
           return (

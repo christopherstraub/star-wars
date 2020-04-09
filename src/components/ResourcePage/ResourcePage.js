@@ -3,6 +3,8 @@ import Heading from '../Heading/Heading';
 import CardList from '../CardList/CardList';
 import MenuWrapper from '../../wrappers/MenuWrapper/MenuWrapper';
 
+import './ResourcePage.scss';
+
 const ResourcePage = ({
   resourceTitle,
   resourceData,
@@ -12,7 +14,7 @@ const ResourcePage = ({
 }) => {
   return (
     <MenuWrapper setPage={setPage}>
-      <div className="vh-100">
+      <div className="resource-page">
         <Heading
           resourceTitle={resourceTitle}
           resourceData={resourceData}

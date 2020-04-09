@@ -26,8 +26,8 @@ const ResourcePeople = ({ number, resourceData }) => {
       <h1>{resourceData[0][number - 1].skin_color} skin</h1>
       <h1>Born {resourceData[0][number - 1].birth_year}</h1>
       <h1>Gender {resourceData[0][number - 1].gender}</h1>
-      <h1>Homeworld {getHomeworld(number, resourceData).name}</h1>
-      <h1>{getSpecies(number, resourceData).name}</h1>
+      {/* <h1>Homeworld {getHomeworld(number, resourceData).name}</h1> */}
+      {/* <h1>{getSpecies(number, resourceData).name}</h1> */}
       <h4>{number}</h4>
     </div>
   );
