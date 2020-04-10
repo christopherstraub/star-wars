@@ -8,25 +8,24 @@ const ResourcePage = ({
   resourceTitle,
   resourceData,
   filteredResourceData,
-  instancesIndex,
-  handleCardChange,
+  resourceCount,
   handleSearchChange,
+  handleOnBlur,
 }) => {
   return (
     <div className="resource-page">
       <Heading
         resourceTitle={resourceTitle}
-        resourceData={resourceData}
         filteredResourceData={filteredResourceData}
-        instancesIndex={instancesIndex}
-        handleCardChange={handleCardChange}
+        resourceCount={resourceCount}
         handleSearchChange={handleSearchChange}
+        handleOnBlur={handleOnBlur}
       />
       <CardList
         resourceTitle={resourceTitle}
         resourceData={resourceData}
         filteredResourceData={filteredResourceData}
-        instancesIndex={instancesIndex}
+        resourceCount={resourceCount}
       />
     </div>
   );

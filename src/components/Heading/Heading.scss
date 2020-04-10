@@ -1,7 +1,7 @@
 @import '../../base/variables';
 
 .heading {
-  color: $color-yellow;
+  color: white;
 }
 
 .resource-title,
@@ -9,4 +9,12 @@
   &:hover {
     cursor: default;
   }
+}
+
+.resource-count {
+  color: $color-yellow;
+}
+
+.resource-info {
+  // background-color: rgba($color: #006f8e, $alpha: 0.5);
 }

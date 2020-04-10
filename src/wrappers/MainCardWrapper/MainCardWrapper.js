@@ -2,7 +2,7 @@ import React from 'react';
 
 const MainCardWrapper = (props) => {
   return (
-    <div className="overflow-hidden tc white dib br3 pa3 ma2 bw1 shadow-5 bw2 b--solid b--white bg-blue">
+    <div className="tc white dib br3 pa3 ma2 bg-gray grow">
       {props.children}
     </div>
   );

@@ -14,7 +14,6 @@ class App extends Component {
       dataFetched: false,
       resourceData: [],
       resourceSearch: ['', '', ''],
-      visibleInstancesIndex: [[1], [1], [1]],
       urlsToFetch: [
         'https://christopherstraub.github.io/swapi/resources/fixtures/people.json',
         'https://christopherstraub.github.io/swapi/resources/fixtures/planets.json',
@@ -22,7 +21,6 @@ class App extends Component {
       ],
       resourceTitles: ['people', 'planets', 'species'],
     };
-    this.handleCardChange = this.handleCardChange.bind(this);
     this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
@@ -42,13 +40,9 @@ class App extends Component {
       })
     )
       .then((arrayResources) => {
-        let _peopleData;
-        let _planetsData;
-        let _speciesData;
-
-        _peopleData = arrayResources[0].map((object) => object.fields);
-        _planetsData = arrayResources[1].map((object) => object.fields);
-        _speciesData = arrayResources[2].map((object) => object.fields);
+        let _peopleData = arrayResources[0].map((object) => object.fields);
+        let _planetsData = arrayResources[1].map((object) => object.fields);
+        let _speciesData = arrayResources[2].map((object) => object.fields);
         this.setState({
           resourceData: [_peopleData, _planetsData, _speciesData],
         });
@@ -63,75 +57,6 @@ class App extends Component {
   scrollToTop() {
     scroll.scrollToTop();
   }
-
-  handleCardChange = (event) => {
-    if (event.target.dataset.id === 'people-left') {
-      if (this.state.visibleInstancesIndex[0][0] > 1) {
-        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
-        newVisibleInstancesIndex[0] = this.state.visibleInstancesIndex[0].map(
-          (value) => value - 1
-        );
-        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
-      }
-    }
-    if (event.target.dataset.id === 'planets-left') {
-      if (this.state.visibleInstancesIndex[1][0] > 1) {
-        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
-        newVisibleInstancesIndex[1] = this.state.visibleInstancesIndex[1].map(
-          (value) => value - 1
-        );
-        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
-      }
-    }
-    if (event.target.dataset.id === 'species-left') {
-      if (this.state.visibleInstancesIndex[2][0] > 1) {
-        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
-        newVisibleInstancesIndex[2] = this.state.visibleInstancesIndex[2].map(
-          (value) => value - 1
-        );
-        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
-      }
-    }
-    if (event.target.dataset.id === 'people-right') {
-      if (
-        this.state.visibleInstancesIndex[0][
-          this.state.visibleInstancesIndex[0].length - 1
-        ] < this.state.resourceCount[0]
-      ) {
-        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
-        newVisibleInstancesIndex[0] = this.state.visibleInstancesIndex[0].map(
-          (value) => value + 1
-        );
-        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
-      }
-    }
-    if (event.target.dataset.id === 'planets-right') {
-      if (
-        this.state.visibleInstancesIndex[1][
-          this.state.visibleInstancesIndex[1].length - 1
-        ] < this.state.resourceCount[1]
-      ) {
-        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
-        newVisibleInstancesIndex[1] = this.state.visibleInstancesIndex[1].map(
-          (value) => value + 1
-        );
-        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
-      }
-    }
-    if (event.target.dataset.id === 'species-right') {
-      if (
-        this.state.visibleInstancesIndex[2][
-          this.state.visibleInstancesIndex[2].length - 1
-        ] < this.state.resourceCount[2]
-      ) {
-        let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
-        newVisibleInstancesIndex[2] = this.state.visibleInstancesIndex[2].map(
-          (value) => value + 1
-        );
-        this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
-      }
-    }
-  };
 
   handleSearchChange = (event) => {
     if (event.target.dataset.id === 'people-search') {
@@ -149,7 +74,6 @@ class App extends Component {
       newResourceSearch[2] = event.target.value;
       this.setState({ resourceSearch: newResourceSearch });
     }
-    console.log(this.state.resourceSearch);
   };
 
   render() {
@@ -158,7 +82,6 @@ class App extends Component {
       dataFetched,
       resourceData,
       resourceSearch,
-      visibleInstancesIndex,
       urlsToFetch,
       resourceTitles,
     } = this.state;
@@ -166,9 +89,10 @@ class App extends Component {
     // Check values in console. REMOVE IN PRODUCTION
     console.log('Data fetched', dataFetched);
     console.log('Resource data array', resourceData);
-    console.log('Visible instances index array', visibleInstancesIndex);
     console.log('URLs to fetch', urlsToFetch);
     console.log('Resource titles array', resourceTitles);
+
+    console.log(resourceSearch);
 
     // Filter resource data according to user search
     const arrayResourceNames = resourceData.map((array) =>
@@ -180,12 +104,12 @@ class App extends Component {
         return array.filter((name) =>
           name
             .toLocaleLowerCase()
-            .includes(this.state.resourceSearch[index].toLocaleLowerCase())
+            .includes(resourceSearch[index].toLocaleLowerCase())
         );
       }
     );
 
-    const filteredResourceData = this.state.resourceData.map((array, index) => {
+    const filteredResourceData = resourceData.map((array, index) => {
       return array.filter((object) => {
         for (const i in filteredArrayResourceNames[index]) {
           if (object.name === filteredArrayResourceNames[index][i]) {
@@ -195,17 +119,7 @@ class App extends Component {
       });
     });
 
-    // If user search finds no results,
-    // the visibleInstancesIndex array corresponding to that resource should be empty.
-    let filteredVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
-
-    for (const index in filteredResourceData) {
-      if (filteredResourceData[index].length === 0) {
-        filteredVisibleInstancesIndex[index] = [0];
-      }
-    }
-
-    console.log(filteredVisibleInstancesIndex);
+    console.log('Filtered resource data array', filteredResourceData);
 
     // If data has not been fetched, show loading component
     return !dataFetched ? (
@@ -222,9 +136,9 @@ class App extends Component {
               resourceTitle={resourceTitles[0]}
               resourceData={resourceData}
               filteredResourceData={filteredResourceData}
-              instancesIndex={filteredVisibleInstancesIndex[0]}
-              handleCardChange={this.handleCardChange}
+              resourceCount={filteredResourceData[0].length}
               handleSearchChange={this.handleSearchChange}
+              handleOnBlur={this.handleOnBlur}
             />
           </div>
         </Reveal>
@@ -234,9 +148,9 @@ class App extends Component {
               resourceTitle={resourceTitles[1]}
               resourceData={resourceData}
               filteredResourceData={filteredResourceData}
-              instancesIndex={filteredVisibleInstancesIndex[1]}
-              handleCardChange={this.handleCardChange}
+              resourceCount={filteredResourceData[1].length}
               handleSearchChange={this.handleSearchChange}
+              handleOnBlur={this.handleOnBlur}
             />
           </div>
         </Reveal>
@@ -247,9 +161,9 @@ class App extends Component {
               resourceTitle={resourceTitles[2]}
               resourceData={resourceData}
               filteredResourceData={filteredResourceData}
-              instancesIndex={filteredVisibleInstancesIndex[2]}
-              handleCardChange={this.handleCardChange}
+              resourceCount={filteredResourceData[2].length}
               handleSearchChange={this.handleSearchChange}
+              handleOnBlur={this.handleOnBlur}
             />
           </div>
         </Reveal>
