@@ -9,7 +9,7 @@ const MenuWrapper = (props) => {
     <BackgroundAnimation>
       <Link
         className="home-icon menu-icon material-icons animated fadeInLeftBig slower"
-        onClick={props.scrollToTop}
+        to="home"
         smooth={true}
         offset={0}
         duration={500}
@@ -44,6 +44,75 @@ const MenuWrapper = (props) => {
       >
         supervisor_account
       </Link>
+
+      {/* remove later */}
+      <ul className="left-nav">
+        <li className="home-link animated fadeInLeftBig slower">
+          <Link
+            className="left-nav-link"
+            to="home"
+            activeClass="active"
+            spy={true}
+            smooth={true}
+            offset={-50}
+            duration={500}
+          >
+            <div className="flex items-center mb2 ml2">
+              <div className="left-nav-indicator"></div>
+              <span className="left-nav-text">Home</span>
+            </div>
+          </Link>
+        </li>
+        <li className="people-link animated fadeInLeftBig slower">
+          <Link
+            className="left-nav-link"
+            to="people"
+            activeClass="active"
+            spy={true}
+            smooth={true}
+            offset={-50}
+            duration={500}
+          >
+            <div className="flex items-center mb2 ml2">
+              <div className="left-nav-indicator"></div>
+              <span className="left-nav-text">people</span>
+            </div>
+          </Link>
+        </li>
+        <li className="planets-link animated fadeInLeftBig slower">
+          <Link
+            className="left-nav-link"
+            to="planets"
+            activeClass="active"
+            spy={true}
+            smooth={true}
+            offset={-50}
+            duration={500}
+          >
+            <div className="flex items-center mb2 ml2">
+              <div className="left-nav-indicator"></div>
+              <span className="left-nav-text">planets</span>
+            </div>
+          </Link>
+        </li>
+        <li className="species-link animated fadeInLeftBig slower">
+          <Link
+            className="left-nav-link"
+            to="species"
+            activeClass="active"
+            spy={true}
+            smooth={true}
+            offset={-50}
+            duration={500}
+          >
+            <div className="flex items-center mb2 ml2">
+              <div className="left-nav-indicator"></div>
+              <span className="left-nav-text">species</span>
+            </div>
+          </Link>
+        </li>
+      </ul>
+
       <a
         className="api-icon menu-text-link animated fadeInUpBig slower"
         href="https://github.com/phalt/swapi"

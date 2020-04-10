@@ -4,13 +4,13 @@ import './TitlePage.scss';
 
 const TitlePage = () => {
   return (
-    <div className="title-container vh-100">
-      <div className="title mt6 tc">
+    <div className="title-container vh-100 tc">
+      <div className="title dib">
         Star Wars
         <br />
         Explorer
       </div>
-      <div className="title-mobile">
+      <div className="title-mobile dib">
         Star Wars
         <br />
         Explorer

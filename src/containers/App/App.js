@@ -153,39 +153,6 @@ class App extends Component {
         this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
       }
     }
-
-    // switch (event.target.dataset.id) {
-    //   case 'people-left':
-
-    //   case 'planets-left':
-    //     if (this.state.visibleInstancesIndex[1][0] > 1) {
-    //       let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
-    //       newVisibleInstancesIndex[1] = this.state.visibleInstancesIndex[1].map(
-    //         (value) => value - 1
-    //       );
-    //       this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
-    //     }
-    //   case 'species-left':
-    //     if (this.state.visibleInstancesIndex[2][0] > 1) {
-    //       let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
-    //       newVisibleInstancesIndex[2] = this.state.visibleInstancesIndex[2].map(
-    //         (value) => value - 1
-    //       );
-    //       this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
-    //     }
-    //   case 'people-right':
-    //     if (
-    //       this.state.visibleInstancesIndex[0][
-    //         this.state.visibleInstancesIndex[0].length - 1
-    //       ] < this.state.resourceCount[0]
-    //     ) {
-    //       let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
-    //       newVisibleInstancesIndex[0] = this.state.visibleInstancesIndex[0].map(
-    //         (value) => value + 1
-    //       );
-    //       this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
-    //     }
-    // }
   }
 
   render() {
@@ -212,7 +179,9 @@ class App extends Component {
       <Loading />
     ) : (
       <MenuWrapper scrollToTop={this.scrollToTop}>
-        <TitlePage />
+        <div id="home">
+          <TitlePage />
+        </div>
 
         <div id="people">
           <ResourcePage

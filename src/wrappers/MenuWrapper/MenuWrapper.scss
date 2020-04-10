@@ -3,7 +3,7 @@ $gap: 5rem;
 
 .menu-icon,
 .menu-text-link {
-  color: $color-blue;
+  color: white;
   position: fixed;
 }
 
@@ -11,24 +11,24 @@ $gap: 5rem;
   position: fixed;
   z-index: 1;
   margin: 1rem;
-  font-size: 4rem;
+  font-size: 3.5rem;
   transition: color 0.3s ease;
 
   &:hover {
     cursor: pointer;
-    color: white;
+    color: $color-yellow;
   }
 }
 
 .menu-text-link {
   z-index: 1;
   margin: 1rem;
-  font-size: 3rem;
+  font-size: 2rem;
   transition: color 0.3s ease;
 
   &:hover {
     cursor: pointer;
-    color: white;
+    color: $color-yellow;
   }
 }
 
@@ -44,4 +44,47 @@ $gap: 5rem;
 .api-icon {
   right: 0;
   bottom: 0;
+}
+
+.left-nav {
+  position: fixed;
+  left: 0;
+  top: 45%;
+  & li {
+    cursor: pointer;
+  }
+}
+
+.left-nav-link {
+  & .left-nav-text {
+    transition: opacity 0.2s ease;
+    opacity: 0;
+  }
+  &:hover {
+    .left-nav-text {
+      opacity: 1;
+    }
+  }
+}
+
+.active {
+  font-weight: bold;
+
+  & .left-nav-text {
+    opacity: 1;
+  }
+
+  & .left-nav-indicator {
+    width: 5px;
+    margin-left: 0;
+  }
+}
+
+.left-nav-indicator {
+  background-color: $color-yellow;
+  height: 1.5rem;
+  width: 1px;
+  margin-right: 0.75rem;
+  margin-left: 2px;
+  border-radius: 1000%;
 }
