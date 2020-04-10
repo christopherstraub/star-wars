@@ -2,7 +2,7 @@ import React from 'react';
 import BackgroundAnimation from '../BackgroundAnimation/BackgroundAnimation';
 import './MenuWrapper.scss';
 
-import { Link, animateScroll as scroll, Events, scrollSpy } from 'react-scroll';
+import { Link } from 'react-scroll';
 
 const MenuWrapper = (props) => {
   return (
@@ -45,7 +45,6 @@ const MenuWrapper = (props) => {
         supervisor_account
       </Link>
 
-      {/* remove later */}
       <ul className="left-nav">
         <li className="home-link animated fadeInLeftBig slower">
           <Link
@@ -112,6 +111,15 @@ const MenuWrapper = (props) => {
           </Link>
         </li>
       </ul>
+
+      <a
+        className="more-icon menu-text-link animated fadeInUpBig slower"
+        href=""
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        More by me
+      </a>
 
       <a
         className="api-icon menu-text-link animated fadeInUpBig slower"

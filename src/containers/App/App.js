@@ -1,10 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Loading from '../../components/Loading/Loading';
 import TitlePage from '../../components/TitlePage/TitlePage';
 import ResourcePage from '../../components/ResourcePage/ResourcePage';
 import MenuWrapper from '../../wrappers/MenuWrapper/MenuWrapper';
 
-import { Link, animateScroll as scroll, Events, scrollSpy } from 'react-scroll';
+import { animateScroll as scroll } from 'react-scroll';
+import Reveal from 'react-reveal/Reveal';
 
 class App extends Component {
   constructor() {
@@ -61,23 +62,6 @@ class App extends Component {
       .catch((error) => {
         console.log(error);
       });
-
-    // Smooth scroll
-    Events.scrollEvent.register('begin', function (to, element) {
-      console.log('begin', arguments);
-    });
-
-    Events.scrollEvent.register('end', function (to, element) {
-      console.log('end', arguments);
-    });
-
-    scrollSpy.update();
-  }
-
-  componentWillUnmount() {
-    // Smooth scroll
-    Events.scrollEvent.remove('begin');
-    Events.scrollEvent.remove('end');
   }
 
   scrollToTop() {
@@ -167,12 +151,12 @@ class App extends Component {
     } = this.state;
 
     // Check values in console. REMOVE IN PRODUCTION
-    // console.log('Data fetched', dataFetched);
-    // console.log('Resource count array', resourceCount);
-    // console.log('Resource data array', resourceData);
-    // console.log('Visible instances index array', visibleInstancesIndex);
-    // console.log('URLs to fetch', urlsToFetch);
-    // console.log('Resource titles array', resourceTitles);
+    console.log('Data fetched', dataFetched);
+    console.log('Resource count array', resourceCount);
+    console.log('Resource data array', resourceData);
+    console.log('Visible instances index array', visibleInstancesIndex);
+    console.log('URLs to fetch', urlsToFetch);
+    console.log('Resource titles array', resourceTitles);
 
     // If data has not been fetched, show loading component
     return !dataFetched ? (
@@ -183,31 +167,37 @@ class App extends Component {
           <TitlePage />
         </div>
 
-        <div id="people">
-          <ResourcePage
-            resourceTitle={resourceTitles[0]}
-            resourceData={resourceData}
-            instancesIndex={visibleInstancesIndex[0]}
-            handleCardChange={this.handleCardChange}
-          />
-        </div>
-        <div id="planets">
-          <ResourcePage
-            resourceTitle={resourceTitles[1]}
-            resourceData={resourceData}
-            instancesIndex={visibleInstancesIndex[1]}
-            handleCardChange={this.handleCardChange}
-          />
-        </div>
+        <Reveal effect="fadeIn">
+          <div id="people">
+            <ResourcePage
+              resourceTitle={resourceTitles[0]}
+              resourceData={resourceData}
+              instancesIndex={visibleInstancesIndex[0]}
+              handleCardChange={this.handleCardChange}
+            />
+          </div>
+        </Reveal>
+        <Reveal effect="fadeIn">
+          <div id="planets">
+            <ResourcePage
+              resourceTitle={resourceTitles[1]}
+              resourceData={resourceData}
+              instancesIndex={visibleInstancesIndex[1]}
+              handleCardChange={this.handleCardChange}
+            />
+          </div>
+        </Reveal>
 
-        <div id="species">
-          <ResourcePage
-            resourceTitle={resourceTitles[2]}
-            resourceData={resourceData}
-            instancesIndex={visibleInstancesIndex[2]}
-            handleCardChange={this.handleCardChange}
-          />
-        </div>
+        <Reveal effect="fadeIn">
+          <div id="species">
+            <ResourcePage
+              resourceTitle={resourceTitles[2]}
+              resourceData={resourceData}
+              instancesIndex={visibleInstancesIndex[2]}
+              handleCardChange={this.handleCardChange}
+            />
+          </div>
+        </Reveal>
       </MenuWrapper>
     );
   }
