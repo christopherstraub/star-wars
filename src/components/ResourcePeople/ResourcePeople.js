@@ -8,15 +8,15 @@ const getHomeworld = (number, resourceData) => {
 const ResourcePeople = ({ number, resourceData, resourceObject }) => {
   return (
     <div>
-      <h1>{resourceObject.name}</h1>
-      <h1>{resourceObject.height / 100}m tall</h1>
-      <h1>{resourceObject.mass}kg</h1>
-      <h1>Hair {resourceObject.hair_color}</h1>
-      <h1>{resourceObject.skin_color} skin</h1>
-      <h1>Born {resourceObject.birth_year}</h1>
-      <h1>Gender {resourceObject.gender}</h1>
-      {/* <h1>{getHomeworld(number, resourceData).name}</h1> */}
-      <h4>{number}</h4>
+      <h2>{resourceObject.name}</h2>
+      <h2>{resourceObject.height / 100}m tall</h2>
+      <h2>{resourceObject.mass}kg</h2>
+      <h2>Hair {resourceObject.hair_color}</h2>
+      <h2>{resourceObject.skin_color} skin</h2>
+      <h2>Born {resourceObject.birth_year}</h2>
+      <h2>Gender {resourceObject.gender}</h2>
+      <h2>{getHomeworld(number, resourceData).name}</h2>
+      <h2>{number}</h2>
     </div>
   );
 };

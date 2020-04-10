@@ -16,11 +16,11 @@ const CardList = ({
   resourceCount,
 }) => {
   return resourceCount === 0 ? (
-    <div className="no-results tc ma0 f2">no results found</div>
+    <div className="no-results tc ma0 f2">{`no ${resourceTitle} found`}</div>
   ) : (
     <Scroll>
       <ErrorBoundary>
-        <div className="flex justify-center items-center content-start flex-wrap pl6 pr6">
+        <div className="flex justify-around content-start flex-wrap pl6 pr6">
           {filteredResourceData[getResourceIndex(resourceTitle)].map(
             (object, index) => {
               return (

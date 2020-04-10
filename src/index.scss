@@ -7,20 +7,34 @@
   font-family: title-star-wars-font-italic-outline;
   src: url('./fonts/title-star-wars-font-italic-outline.ttf') format('truetype');
 }
-
 @font-face {
-  font-family: star-wars-font;
-  src: url('./fonts/star-wars-font.woff') format('woff'),
-    url('./fonts/star-wars-font.ttf') format('truetype');
+  font-family: heading-star-wars-font;
+  src: url('./fonts/heading-star-wars-font.ttf') format('truetype');
+}
+@font-face {
+  font-family: gotu-regular;
+  src: url('./fonts/gotu-regular.ttf') format('truetype');
+}
+.title-star-wars-font-bold {
+  font-family: title-star-wars-font-bold;
+}
+.title-star-wars-font-italic-outline {
+  font-family: title-star-wars-font-italic-outline;
+}
+.heading-star-wars-font {
+  font-family: heading-star-wars-font;
+}
+.gotu-regular {
+  font-family: gotu-regular;
 }
 
 body {
   color: white;
   margin: 0;
-  font-family: star-wars-font, -apple-system, sans-serif, 'Droid Sans';
+  font-family: goto-regular, -apple-system, sans-serif, 'Droid Sans';
+  text-transform: uppercase;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
   background-color: black;
   overflow-x: hidden;
 }
@@ -31,7 +45,6 @@ code {
 }
 * {
   margin: 0;
-  text-transform: uppercase;
   text-decoration: none;
   &::selection {
     background-color: gray;
@@ -61,7 +74,6 @@ ul {
       display: none;
     }
     & .title-mobile {
-      font-family: star-wars-font;
       display: flex;
       height: 100vh;
       justify-content: center;
