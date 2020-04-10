@@ -195,13 +195,17 @@ class App extends Component {
       });
     });
 
-    console.log('arr is', arrayResourceNames);
-    console.log('filtered arr is', filteredArrayResourceNames);
-    console.log('FILTERED RESOURCE DATA', filteredResourceData);
-    // console.log(resourceData.filter(console.log));
-    // const filteredResourceData = resourceData.filter((array) => {
-    //   console.log(array);
-    // });
+    // If user search finds no results,
+    // the visibleInstancesIndex array corresponding to that resource should be empty.
+    let filteredVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
+
+    for (const index in filteredResourceData) {
+      if (filteredResourceData[index].length === 0) {
+        filteredVisibleInstancesIndex[index] = [0];
+      }
+    }
+
+    console.log(filteredVisibleInstancesIndex);
 
     // If data has not been fetched, show loading component
     return !dataFetched ? (
@@ -218,7 +222,7 @@ class App extends Component {
               resourceTitle={resourceTitles[0]}
               resourceData={resourceData}
               filteredResourceData={filteredResourceData}
-              instancesIndex={visibleInstancesIndex[0]}
+              instancesIndex={filteredVisibleInstancesIndex[0]}
               handleCardChange={this.handleCardChange}
               handleSearchChange={this.handleSearchChange}
             />
@@ -230,7 +234,7 @@ class App extends Component {
               resourceTitle={resourceTitles[1]}
               resourceData={resourceData}
               filteredResourceData={filteredResourceData}
-              instancesIndex={visibleInstancesIndex[1]}
+              instancesIndex={filteredVisibleInstancesIndex[1]}
               handleCardChange={this.handleCardChange}
               handleSearchChange={this.handleSearchChange}
             />
@@ -243,7 +247,7 @@ class App extends Component {
               resourceTitle={resourceTitles[2]}
               resourceData={resourceData}
               filteredResourceData={filteredResourceData}
-              instancesIndex={visibleInstancesIndex[2]}
+              instancesIndex={filteredVisibleInstancesIndex[2]}
               handleCardChange={this.handleCardChange}
               handleSearchChange={this.handleSearchChange}
             />

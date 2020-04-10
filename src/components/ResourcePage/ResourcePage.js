@@ -7,6 +7,7 @@ import './ResourcePage.scss';
 const ResourcePage = ({
   resourceTitle,
   resourceData,
+  filteredResourceData,
   instancesIndex,
   handleCardChange,
   handleSearchChange,
@@ -16,6 +17,7 @@ const ResourcePage = ({
       <Heading
         resourceTitle={resourceTitle}
         resourceData={resourceData}
+        filteredResourceData={filteredResourceData}
         instancesIndex={instancesIndex}
         handleCardChange={handleCardChange}
         handleSearchChange={handleSearchChange}
@@ -23,6 +25,7 @@ const ResourcePage = ({
       <CardList
         resourceTitle={resourceTitle}
         resourceData={resourceData}
+        filteredResourceData={filteredResourceData}
         instancesIndex={instancesIndex}
       />
     </div>
