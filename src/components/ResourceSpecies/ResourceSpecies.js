@@ -18,48 +18,13 @@ const ResourceSpecies = ({ number, resourceData, resourceObject }) => {
       <h2>{resourceObject.name}</h2>
       <h2>{resourceObject.classification}</h2>
 
-      <h2>
-        <img
-          src={require('../../images/icons/people/tape-measure.svg')}
-          width="48"
-          height="48"
-        />
-        {resourceObject.average_height / 100}m average_height
-      </h2>
+      <h2>{resourceObject.average_height / 100}m average_height</h2>
       <h2>Skin colors {resourceObject.skin_color}</h2>
       <h2>Hair colors {resourceObject.hair_colors}</h2>
-      <h2>
-        <img
-          src={require('../../images/icons/people/eye.svg')}
-          width="48"
-          height="48"
-        />
-        Eye colors {resourceObject.eye_colors}
-      </h2>
-      <h2>
-        <img
-          src={require('../../images/icons/species/lifespan.svg')}
-          width="48"
-          height="48"
-        />
-        Average lifespan {resourceObject.average_lifespan} years
-      </h2>
-      <h2>
-        <img
-          src={require('../../images/icons/species/language.svg')}
-          width="48"
-          height="48"
-        />
-        Language {resourceObject.language}
-      </h2>
-      <h2>
-        <img
-          src={require('../../images/icons/people/homeworld.svg')}
-          width="48"
-          height="48"
-        />
-        {getHomeworld(number, resourceData).name}
-      </h2>
+      <h2>Eye colors {resourceObject.eye_colors}</h2>
+      <h2>Average lifespan {resourceObject.average_lifespan} years</h2>
+      <h2>Language {resourceObject.language}</h2>
+      <h2>{getHomeworld(number, resourceData).name}</h2>
       <h4>{number}</h4>
     </div>
   );
