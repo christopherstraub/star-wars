@@ -67,9 +67,6 @@ ul {
 // Media queries
 @media all and (max-width: 450px) {
   .title-container {
-    & img {
-      display: none;
-    }
     & .title {
       display: none;
     }
@@ -82,9 +79,5 @@ ul {
       text-align: center;
       line-height: 2;
     }
-  }
-
-  .material-icons {
-    font-size: 3rem;
   }
 }
