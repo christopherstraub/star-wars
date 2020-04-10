@@ -10,6 +10,8 @@ const MenuWrapper = (props) => {
       <Link
         className="home-icon menu-icon material-icons animated fadeInLeftBig slower"
         to="home"
+        activeClass="active"
+        spy={true}
         smooth={true}
         offset={0}
         duration={500}
@@ -17,10 +19,21 @@ const MenuWrapper = (props) => {
         home
       </Link>
       <Link
+        className="info-icon menu-icon material-icons animated fadeInLeftBig slower"
+        onClick={props.scrollToBottom}
+        smooth={true}
+        offset={0}
+        duration={500}
+      >
+        info
+      </Link>
+      <Link
         className="people-icon menu-icon material-icons animated fadeInDownBig slower"
         to="people"
+        activeClass="active"
+        spy={true}
         smooth={true}
-        offset={-50}
+        offset={-70}
         duration={500}
       >
         account_circle
@@ -29,8 +42,10 @@ const MenuWrapper = (props) => {
       <Link
         className="planets-icon menu-icon material-icons animated fadeInDownBig slower"
         to="planets"
+        activeClass="active"
+        spy={true}
         smooth={true}
-        offset={-50}
+        offset={-70}
         duration={500}
       >
         language
@@ -38,8 +53,10 @@ const MenuWrapper = (props) => {
       <Link
         className="species-icon menu-icon material-icons animated fadeInRightBig slower"
         to="species"
+        activeClass="active"
+        spy={true}
         smooth={true}
-        offset={-50}
+        offset={-70}
         duration={500}
       >
         supervisor_account
@@ -53,7 +70,7 @@ const MenuWrapper = (props) => {
             activeClass="active"
             spy={true}
             smooth={true}
-            offset={-50}
+            offset={-70}
             duration={500}
           >
             <div className="flex items-center mb2 ml2">
@@ -69,7 +86,7 @@ const MenuWrapper = (props) => {
             activeClass="active"
             spy={true}
             smooth={true}
-            offset={-50}
+            offset={-70}
             duration={500}
           >
             <div className="flex items-center mb2 ml2">
@@ -85,7 +102,7 @@ const MenuWrapper = (props) => {
             activeClass="active"
             spy={true}
             smooth={true}
-            offset={-50}
+            offset={-70}
             duration={500}
           >
             <div className="flex items-center mb2 ml2">
@@ -101,7 +118,7 @@ const MenuWrapper = (props) => {
             activeClass="active"
             spy={true}
             smooth={true}
-            offset={-50}
+            offset={-70}
             duration={500}
           >
             <div className="flex items-center mb2 ml2">
@@ -111,25 +128,6 @@ const MenuWrapper = (props) => {
           </Link>
         </li>
       </ul>
-
-      <a
-        className="more-icon menu-text-link animated fadeInUpBig slower"
-        href=""
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        More by me
-      </a>
-
-      <a
-        className="api-icon menu-text-link animated fadeInUpBig slower"
-        href="https://github.com/phalt/swapi"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        API
-      </a>
-
       {props.children}
     </BackgroundAnimation>
   );

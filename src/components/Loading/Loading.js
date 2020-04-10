@@ -6,7 +6,7 @@ import './Loading.scss';
 const Loading = () => {
   return (
     <BackgroundAnimation>
-      <div className="loading blinking flex justify-end-ns items-end-ns pa3-ns">
+      <div className="loading heading-star-wars-font blinking flex justify-end items-end pa4">
         Loading...
       </div>
     </BackgroundAnimation>

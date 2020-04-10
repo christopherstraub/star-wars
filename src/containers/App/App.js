@@ -3,9 +3,11 @@ import Loading from '../../components/Loading/Loading';
 import TitlePage from '../../components/TitlePage/TitlePage';
 import ResourcePage from '../../components/ResourcePage/ResourcePage';
 import MenuWrapper from '../../wrappers/MenuWrapper/MenuWrapper';
+import Footer from '../../components/Footer/Footer';
 
 import { animateScroll as scroll } from 'react-scroll';
 import Reveal from 'react-reveal/Reveal';
+import Jump from 'react-reveal/Jump';
 
 class App extends Component {
   constructor() {
@@ -54,8 +56,8 @@ class App extends Component {
   }
 
   // Smooth scroll
-  scrollToTop() {
-    scroll.scrollToTop();
+  scrollToBottom() {
+    scroll.scrollToBottom();
   }
 
   handleSearchChange = (event) => {
@@ -125,7 +127,7 @@ class App extends Component {
     return !dataFetched ? (
       <Loading />
     ) : (
-      <MenuWrapper scrollToTop={this.scrollToTop}>
+      <MenuWrapper scrollToBottom={this.scrollToBottom}>
         <div id="home">
           <TitlePage />
         </div>
@@ -167,6 +169,9 @@ class App extends Component {
             />
           </div>
         </Reveal>
+        <Jump>
+          <Footer />
+        </Jump>
       </MenuWrapper>
     );
   }
