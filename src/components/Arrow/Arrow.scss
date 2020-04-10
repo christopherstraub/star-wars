@@ -1,10 +1,10 @@
 @import '../../base/variables';
 
 .arrow {
-  background-color: $color-blue;
+  background-color: $color-yellow;
 
   &:hover {
-    color: $color-blue;
+    color: $color-yellow;
     background-color: black;
     transition: color 500ms ease, background-color 500ms ease;
     cursor: pointer;

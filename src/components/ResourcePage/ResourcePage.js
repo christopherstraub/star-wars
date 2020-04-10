@@ -9,6 +9,7 @@ const ResourcePage = ({
   resourceData,
   instancesIndex,
   handleCardChange,
+  handleSearchChange,
 }) => {
   return (
     <div className="resource-page">
@@ -17,6 +18,7 @@ const ResourcePage = ({
         resourceData={resourceData}
         instancesIndex={instancesIndex}
         handleCardChange={handleCardChange}
+        handleSearchChange={handleSearchChange}
       />
       <CardList
         resourceTitle={resourceTitle}

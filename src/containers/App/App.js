@@ -12,8 +12,8 @@ class App extends Component {
     super();
     this.state = {
       dataFetched: false,
-      resourceCount: null,
-      resourceData: null,
+      resourceData: [],
+      resourceSearch: ['', '', ''],
       visibleInstancesIndex: [[1], [1], [1]],
       urlsToFetch: [
         'https://christopherstraub.github.io/swapi/resources/fixtures/people.json',
@@ -23,6 +23,7 @@ class App extends Component {
       resourceTitles: ['people', 'planets', 'species'],
     };
     this.handleCardChange = this.handleCardChange.bind(this);
+    this.handleSearchChange = this.handleSearchChange.bind(this);
   }
 
   // First fetch the resource root urls to get the count of each resource.
@@ -41,12 +42,6 @@ class App extends Component {
       })
     )
       .then((arrayResources) => {
-        let _peopleCount = arrayResources[0].length;
-        let _planetsCount = arrayResources[1].length;
-        let _speciesCount = arrayResources[2].length;
-        this.setState({
-          resourceCount: [_peopleCount, _planetsCount, _speciesCount],
-        });
         let _peopleData;
         let _planetsData;
         let _speciesData;
@@ -64,13 +59,12 @@ class App extends Component {
       });
   }
 
+  // Smooth scroll
   scrollToTop() {
     scroll.scrollToTop();
   }
 
-  handleCardChange(event) {
-    console.log(event.target.dataset.id);
-
+  handleCardChange = (event) => {
     if (event.target.dataset.id === 'people-left') {
       if (this.state.visibleInstancesIndex[0][0] > 1) {
         let newVisibleInstancesIndex = [...this.state.visibleInstancesIndex];
@@ -137,14 +131,33 @@ class App extends Component {
         this.setState({ visibleInstancesIndex: newVisibleInstancesIndex });
       }
     }
-  }
+  };
+
+  handleSearchChange = (event) => {
+    if (event.target.dataset.id === 'people-search') {
+      const newResourceSearch = [...this.state.resourceSearch];
+      newResourceSearch[0] = event.target.value;
+      this.setState({ resourceSearch: newResourceSearch });
+    }
+    if (event.target.dataset.id === 'planets-search') {
+      const newResourceSearch = [...this.state.resourceSearch];
+      newResourceSearch[1] = event.target.value;
+      this.setState({ resourceSearch: newResourceSearch });
+    }
+    if (event.target.dataset.id === 'species-search') {
+      const newResourceSearch = [...this.state.resourceSearch];
+      newResourceSearch[2] = event.target.value;
+      this.setState({ resourceSearch: newResourceSearch });
+    }
+    console.log(this.state.resourceSearch);
+  };
 
   render() {
     // Deconstruct this.state
     const {
       dataFetched,
-      resourceCount,
       resourceData,
+      resourceSearch,
       visibleInstancesIndex,
       urlsToFetch,
       resourceTitles,
@@ -152,11 +165,43 @@ class App extends Component {
 
     // Check values in console. REMOVE IN PRODUCTION
     console.log('Data fetched', dataFetched);
-    console.log('Resource count array', resourceCount);
     console.log('Resource data array', resourceData);
     console.log('Visible instances index array', visibleInstancesIndex);
     console.log('URLs to fetch', urlsToFetch);
     console.log('Resource titles array', resourceTitles);
+
+    // Filter resource data according to user search
+    const arrayResourceNames = resourceData.map((array) =>
+      array.map((obj) => obj.name)
+    );
+
+    const filteredArrayResourceNames = arrayResourceNames.map(
+      (array, index) => {
+        return array.filter((name) =>
+          name
+            .toLocaleLowerCase()
+            .includes(this.state.resourceSearch[index].toLocaleLowerCase())
+        );
+      }
+    );
+
+    const filteredResourceData = this.state.resourceData.map((array, index) => {
+      return array.filter((object) => {
+        for (const i in filteredArrayResourceNames[index]) {
+          if (object.name === filteredArrayResourceNames[index][i]) {
+            return object;
+          }
+        }
+      });
+    });
+
+    console.log('arr is', arrayResourceNames);
+    console.log('filtered arr is', filteredArrayResourceNames);
+    console.log('FILTERED RESOURCE DATA', filteredResourceData);
+    // console.log(resourceData.filter(console.log));
+    // const filteredResourceData = resourceData.filter((array) => {
+    //   console.log(array);
+    // });
 
     // If data has not been fetched, show loading component
     return !dataFetched ? (
@@ -172,8 +217,10 @@ class App extends Component {
             <ResourcePage
               resourceTitle={resourceTitles[0]}
               resourceData={resourceData}
+              filteredResourceData={filteredResourceData}
               instancesIndex={visibleInstancesIndex[0]}
               handleCardChange={this.handleCardChange}
+              handleSearchChange={this.handleSearchChange}
             />
           </div>
         </Reveal>
@@ -182,8 +229,10 @@ class App extends Component {
             <ResourcePage
               resourceTitle={resourceTitles[1]}
               resourceData={resourceData}
+              filteredResourceData={filteredResourceData}
               instancesIndex={visibleInstancesIndex[1]}
               handleCardChange={this.handleCardChange}
+              handleSearchChange={this.handleSearchChange}
             />
           </div>
         </Reveal>
@@ -193,8 +242,10 @@ class App extends Component {
             <ResourcePage
               resourceTitle={resourceTitles[2]}
               resourceData={resourceData}
+              filteredResourceData={filteredResourceData}
               instancesIndex={visibleInstancesIndex[2]}
               handleCardChange={this.handleCardChange}
+              handleSearchChange={this.handleSearchChange}
             />
           </div>
         </Reveal>

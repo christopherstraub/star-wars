@@ -24,6 +24,7 @@ const Heading = ({
   resourceData,
   instancesIndex,
   handleCardChange,
+  handleSearchChange,
 }) => {
   return (
     <div className="heading tc mb4 mt5 flex justify-center items-center">
@@ -48,6 +49,13 @@ const Heading = ({
         direction="right"
         handleCardChange={handleCardChange}
       />
+      <input
+        className="pa3 ba b--green bg-lightest-blue"
+        type="search"
+        placholder="Search by name"
+        onChange={handleSearchChange}
+        data-id={`${resourceTitle}-search`}
+      ></input>
     </div>
   );
 };
