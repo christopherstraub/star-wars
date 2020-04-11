@@ -62,7 +62,7 @@ const MenuWrapper = (props) => {
         supervisor_account
       </Link>
 
-      <ul className="left-nav heading-star-wars-font f6">
+      <ul className="left-nav gotu-regular f5">
         <li className="home-link animated fadeInLeftBig slower">
           <Link
             className="left-nav-link"

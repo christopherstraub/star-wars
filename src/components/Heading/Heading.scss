@@ -4,8 +4,12 @@
   color: white;
 }
 
+.resource-info {
+  margin-right: 1rem;
+}
+
 .resource-title,
-.card-count {
+.resource-count {
   &:hover {
     cursor: default;
   }
@@ -15,6 +19,18 @@
   color: $color-yellow;
 }
 
-.resource-info {
-  // background-color: rgba($color: #006f8e, $alpha: 0.5);
+.search-input {
+  color: white;
+  background: transparent;
+  outline: none;
+  width: 200px;
+  border: 0;
+  border-bottom: 1px solid white;
+  transition: border-bottom 0.5s ease;
+  &::selection {
+    background-color: lightblue;
+  }
+  &:focus {
+    border-bottom: 1px solid $color-yellow;
+  }
 }

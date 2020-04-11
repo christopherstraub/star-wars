@@ -1,2 +1,12 @@
+@import '../../base/variables';
+
 .card-wrapper {
+  transition: border-color 0.3s ease, transform 0.3s ease;
+  min-width: 25vw;
+  background-color: #3969a771;
+
+  &:hover {
+    border-color: $color-yellow;
+    transform: scale(1.025);
+  }
 }
