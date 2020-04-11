@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Loading from '../../components/Loading/Loading';
+import LoadingPage from '../../components/LoadingPage/LoadingPage';
 import TitlePage from '../../components/TitlePage/TitlePage';
 import ResourcePage from '../../components/ResourcePage/ResourcePage';
 import MenuWrapper from '../../wrappers/MenuWrapper/MenuWrapper';
@@ -125,7 +125,7 @@ class App extends Component {
 
     // If data has not been fetched, show loading component
     return !dataFetched ? (
-      <Loading />
+      <LoadingPage />
     ) : (
       <MenuWrapper scrollToBottom={this.scrollToBottom}>
         <div id="home">

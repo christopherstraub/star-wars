@@ -12,7 +12,7 @@ const Heading = ({ resourceTitle, resourceCount, handleSearchChange }) => {
         <h2 className="resource-count tc dib ma0">{resourceCount}</h2>
       </div>
       <input
-        className="search-input serif pa2 f4"
+        className="search-input pa2 f4"
         type="search"
         placeholder={`Search ${resourceTitle}`}
         onChange={handleSearchChange}

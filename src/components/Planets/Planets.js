@@ -3,7 +3,7 @@ import React from 'react';
 const Planets = ({ number, resourceObject }) => {
   return (
     <div className="resource relative">
-      <h1 className="name heading-star-wars-font">{resourceObject.name}</h1>
+      <h1 className="name">{resourceObject.name}</h1>
       <div class="attributes flex">
         <div>
           <h1>rotation period</h1>

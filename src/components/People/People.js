@@ -31,7 +31,7 @@ const getGenderImage = (gender) => {
 const People = ({ number, resourceData, resourceObject }) => {
   return (
     <div className="resource relative">
-      <h1 className="name heading-star-wars-font">
+      <h1 className="name">
         {resourceObject.name}
         {resourceObject.gender === 'n/a'
           ? ''

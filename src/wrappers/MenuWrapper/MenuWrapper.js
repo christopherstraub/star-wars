@@ -62,8 +62,8 @@ const MenuWrapper = (props) => {
         supervisor_account
       </Link>
 
-      <ul className="left-nav gotu-regular f5">
-        <li className="home-link animated fadeInLeftBig slower">
+      <ul className="left-nav f5">
+        <li className="home-link">
           <Link
             className="left-nav-link"
             to="home"
