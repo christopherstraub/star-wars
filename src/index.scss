@@ -8,6 +8,11 @@
   src: url('./fonts/title-star-wars-font-italic-outline.ttf') format('truetype');
 }
 @font-face {
+  font-family: title-star-wars-font-italic-outline-regular;
+  src: url('./fonts/title-star-wars-font-italic-outline-regular.ttf')
+    format('truetype');
+}
+@font-face {
   font-family: heading-star-wars-font;
   src: url('./fonts/heading-star-wars-font.ttf') format('truetype');
 }
@@ -19,6 +24,9 @@
   font-family: title-star-wars-font-bold;
 }
 .title-star-wars-font-italic-outline {
+  font-family: title-star-wars-font-italic-outline;
+}
+.title-star-wars-font-italic-outline-regular {
   font-family: title-star-wars-font-italic-outline;
 }
 .heading-star-wars-font {
@@ -43,11 +51,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 * {
   margin: 0;
   text-decoration: none;
   &::selection {
-    background-color: gray;
+    background-color: transparent;
   }
 }
 

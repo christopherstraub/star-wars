@@ -16,7 +16,7 @@
 }
 
 .resource-count {
-  color: $color-yellow;
+  color: $color-silver;
 }
 
 .search-input {
@@ -28,9 +28,15 @@
   border-bottom: 1px solid white;
   transition: border-bottom 0.5s ease;
   &::selection {
-    background-color: lightblue;
+    background-color: gray;
   }
   &:focus {
-    border-bottom: 1px solid $color-yellow;
+    border-bottom: 1px solid maroon;
+  }
+  &:hover {
+    border-bottom: 1px solid maroon;
+  }
+  &::placeholder {
+    color: $color-silver;
   }
 }

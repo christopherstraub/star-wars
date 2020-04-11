@@ -1,13 +1,36 @@
-h1 {
-  font-family: Georgia, 'Times New Roman', Times, serif;
-}
-h2 {
-}
+@import '../../base/variables';
 
+.name {
+  color: maroon;
+  margin-bottom: 1.5rem;
+}
+.gender-icon {
+  margin-left: 1rem;
+}
 .attributes {
-  padding-left: 2rem;
-}
+  padding: 0 2rem;
 
+  & .unit {
+    text-transform: lowercase;
+  }
+  & h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+  }
+  & h2 {
+    margin-bottom: 1rem;
+    color: rgba($color: #ffffff, $alpha: 0.5);
+    font-weight: lighter;
+  }
+}
 .divider {
-  width: 20px;
+  margin: 1rem 2.5rem;
+  width: 4px;
+  border-radius: 1000px;
+  background-color: maroon;
+}
+.number {
+  position: absolute;
+  color: rgba($color: #ffffff, $alpha: 0.5);
+  top: 0;
+  right: 0;
 }

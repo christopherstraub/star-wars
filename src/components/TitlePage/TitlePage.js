@@ -4,7 +4,7 @@ import './TitlePage.scss';
 
 const TitlePage = () => {
   return (
-    <div className="title-container vh-100 tc title-star-wars-font-italic-outline yellow">
+    <div className="title-container vh-100 tc heading-star-wars-font yellow">
       <div className="title dib">
         Star Wars
         <br />

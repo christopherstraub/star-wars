@@ -4,17 +4,6 @@ import './Footer.scss';
 
 import LightSpeed from 'react-reveal/LightSpeed';
 
-const getRandomImage = (getRandomIconUrl, iconUrls) => {
-  return (
-    <img
-      className="footer-icon"
-      src={getRandomIconUrl(iconUrls)}
-      width="60"
-      alt="Random Star Wars character"
-    />
-  );
-};
-
 const Footer = () => {
   return (
     <div className="flex justify-between items-center pa3 pb1">
@@ -43,32 +32,16 @@ const Footer = () => {
   );
 };
 
-const iconUrls = [
-  '../../images/footer/admiral-ackbar.svg',
-  '../../images/footer/boba-fett.svg',
-  '../../images/footer/c3p0.svg',
-  '../../images/footer/chewbacca.svg',
-  '../../images/footer/clone-trooper.svg',
-  '../../images/footer/darth-maul.svg',
-  '../../images/footer/darth-vader.svg',
-  '../../images/footer/emperor-palpatine.svg',
-  '../../images/footer/ewok.svg',
-  '../../images/footer/greedo.svg',
-  '../../images/footer/han-solo.svg',
-  '../../images/footer/jabba-the-hutt.svg',
-  '../../images/footer/jango-fett.svg',
-  '../../images/footer/jawa.svg',
-  '../../images/footer/lando-calrissian.svg',
-  '../../images/footer/luke-skywalker.svg',
-  '../../images/footer/obiwan-kenobi.svg',
-  '../../images/footer/princess-leia.svg',
-  '../../images/footer/qui-gon-jinn.svg',
-  '../../images/footer/r2d2.svg',
-  '../../images/footer/red-five.svg',
-  '../../images/footer/stormtrooper.svg',
-  '../../images/footer/tusken-raider.svg',
-  '../../images/footer/yoda.svg',
-];
+const getRandomImage = (getRandomIconUrl, iconUrls) => {
+  return (
+    <img
+      className="footer-icon"
+      src={getRandomIconUrl(iconUrls)}
+      width="60"
+      alt="Random Star Wars character"
+    />
+  );
+};
 
 const getRandomIconUrl = (urls) => {
   const rand = Math.round(Math.random() * (urls.length - 1));
@@ -125,5 +98,32 @@ const getRandomIconUrl = (urls) => {
       return require('../../images/footer/ewok.svg');
   }
 };
+
+const iconUrls = [
+  '../../images/footer/admiral-ackbar.svg',
+  '../../images/footer/boba-fett.svg',
+  '../../images/footer/c3p0.svg',
+  '../../images/footer/chewbacca.svg',
+  '../../images/footer/clone-trooper.svg',
+  '../../images/footer/darth-maul.svg',
+  '../../images/footer/darth-vader.svg',
+  '../../images/footer/emperor-palpatine.svg',
+  '../../images/footer/ewok.svg',
+  '../../images/footer/greedo.svg',
+  '../../images/footer/han-solo.svg',
+  '../../images/footer/jabba-the-hutt.svg',
+  '../../images/footer/jango-fett.svg',
+  '../../images/footer/jawa.svg',
+  '../../images/footer/lando-calrissian.svg',
+  '../../images/footer/luke-skywalker.svg',
+  '../../images/footer/obiwan-kenobi.svg',
+  '../../images/footer/princess-leia.svg',
+  '../../images/footer/qui-gon-jinn.svg',
+  '../../images/footer/r2d2.svg',
+  '../../images/footer/red-five.svg',
+  '../../images/footer/stormtrooper.svg',
+  '../../images/footer/tusken-raider.svg',
+  '../../images/footer/yoda.svg',
+];
 
 export default Footer;

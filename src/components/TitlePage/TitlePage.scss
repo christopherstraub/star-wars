@@ -26,8 +26,9 @@
     width: 50vw;
     left: 40%;
     bottom: 0;
+    opacity: 0;
     position: absolute;
-    animation: imageLoad 1s ease 2.75s forwards;
+    animation: imageLoad 5s ease 2.75s forwards;
   }
 }
 
@@ -36,7 +37,7 @@
   }
   to {
     opacity: 1;
-    font-size: 7vw;
+    font-size: 6vw;
   }
 }
 @keyframes imageLoad {

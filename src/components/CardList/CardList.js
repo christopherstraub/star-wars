@@ -16,7 +16,7 @@ const CardList = ({
   resourceCount,
 }) => {
   return resourceCount === 0 ? (
-    <div className="no-results tc ma0 f2">{`no ${resourceTitle} found`}</div>
+    <div className="no-results tc ma0 f2 silver serif">{`no ${resourceTitle} found`}</div>
   ) : (
     <Scroll>
       <ErrorBoundary>

@@ -1,12 +1,16 @@
 @import '../../base/variables';
 
 .card-wrapper {
+  border: 0.2rem solid transparent;
   transition: border-color 0.3s ease, transform 0.3s ease;
-  min-width: 25vw;
-  background-color: #3969a771;
-
+  background-color: $color-dark-blue;
+  & * {
+    &::selection {
+      background-color: gray;
+    }
+  }
   &:hover {
-    border-color: $color-yellow;
+    border-color: maroon;
     transform: scale(1.025);
   }
 }
