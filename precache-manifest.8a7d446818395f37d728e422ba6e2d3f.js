@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "3c07db4414a408168bc740eb94b189bd",
+    "revision": "943aa09f1b17a490003ad22c500975f2",
     "url": "/star-wars-explorer/index.html"
   },
   {
-    "revision": "aacfdbd40273fe734429",
-    "url": "/star-wars-explorer/static/css/2.b4d5a309.chunk.css"
+    "revision": "0812a12e3574a5c382a3",
+    "url": "/star-wars-explorer/static/css/2.ea85d7f6.chunk.css"
   },
   {
-    "revision": "8aabbf1745cf4694f304",
-    "url": "/star-wars-explorer/static/css/main.ec59d2a1.chunk.css"
+    "revision": "b3d5afd18de6915ab006",
+    "url": "/star-wars-explorer/static/css/main.b8fee2c8.chunk.css"
   },
   {
-    "revision": "aacfdbd40273fe734429",
-    "url": "/star-wars-explorer/static/js/2.6dec171f.chunk.js"
+    "revision": "0812a12e3574a5c382a3",
+    "url": "/star-wars-explorer/static/js/2.bf802fc3.chunk.js"
   },
   {
     "revision": "e88a3e95b5364d46e95b35ae8c0dc27d",
-    "url": "/star-wars-explorer/static/js/2.6dec171f.chunk.js.LICENSE.txt"
+    "url": "/star-wars-explorer/static/js/2.bf802fc3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8aabbf1745cf4694f304",
-    "url": "/star-wars-explorer/static/js/main.de4a9a5d.chunk.js"
+    "revision": "b3d5afd18de6915ab006",
+    "url": "/star-wars-explorer/static/js/main.3f79ec6e.chunk.js"
   },
   {
     "revision": "ddec0e07ae43becef75b",
@@ -68,6 +68,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/star-wars-explorer/static/media/ewok.7783a166.svg"
   },
   {
+    "revision": "bee40cffd45b6a2e80d14940933d23c2",
+    "url": "/star-wars-explorer/static/media/female.bee40cff.svg"
+  },
+  {
     "revision": "2d159419ec2ee0ed7a6fa470dd7fba92",
     "url": "/star-wars-explorer/static/media/gotu-regular.2d159419.ttf"
   },
@@ -104,6 +108,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/star-wars-explorer/static/media/luke-skywalker.3f170e84.svg"
   },
   {
+    "revision": "a002fca4cada2b9f44ce8fa9366f8cfc",
+    "url": "/star-wars-explorer/static/media/male.a002fca4.svg"
+  },
+  {
     "revision": "ecaabf769674ef1144feef1e700f0a4a",
     "url": "/star-wars-explorer/static/media/obiwan-kenobi.ecaabf76.svg"
   },
@@ -130,6 +138,10 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "c1d313b09705a994232b09de87780555",
     "url": "/star-wars-explorer/static/media/title-star-wars-font-bold.c1d313b0.ttf"
+  },
+  {
+    "revision": "c13d19ebcea9a605421c9f1c67f403b4",
+    "url": "/star-wars-explorer/static/media/title-star-wars-font-italic-outline-regular.c13d19eb.ttf"
   },
   {
     "revision": "1955fa3dbf39803ab301d61fe3db2a5f",
