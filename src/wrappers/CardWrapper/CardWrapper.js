@@ -1,6 +1,7 @@
 import React from 'react';
 
 import './CardWrapper.scss';
+import '../../base/resourceTemplate.scss';
 
 const CardWrapper = (props) => {
   return (

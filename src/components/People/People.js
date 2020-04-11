@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './People.scss';
-
 const getHomeworld = (number, resourceData) => {
   const homeworldIndex = resourceData[0][number - 1].homeworld - 1;
   return resourceData[1][homeworldIndex];
@@ -41,9 +39,9 @@ const People = ({ number, resourceData, resourceObject }) => {
       </h1>
       <div class="attributes flex">
         <div>
-          <h1>Height</h1>
+          <h1>height</h1>
           <h2 className="ttl">{resourceObject.height / 100} m</h2>
-          <h1>Mass</h1>
+          <h1>mass</h1>
           <h2 className="ttn">
             {resourceObject.mass === 'unknown'
               ? 'Unknown'
@@ -54,11 +52,11 @@ const People = ({ number, resourceData, resourceObject }) => {
         </div>
         <div className="divider"></div>
         <div>
-          <h1>Skin</h1>
+          <h1>skin</h1>
           <h2>{resourceObject.skin_color}</h2>
-          <h1>Birth Year</h1>
+          <h1>birth year</h1>
           <h2>{resourceObject.birth_year}</h2>
-          <h1>Homeworld</h1>
+          <h1>homeworld</h1>
           <h2>{getHomeworld(number, resourceData).name}</h2>
         </div>
 
