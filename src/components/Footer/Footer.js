@@ -9,7 +9,7 @@ const Footer = () => {
     <div className="flex justify-between items-center pa3 pb1">
       <LightSpeed left>
         <a
-          className="more-link menu-text-link"
+          className="more-link footer-text-link"
           href=""
           target="_blank"
           rel="noopener noreferrer"
@@ -20,7 +20,7 @@ const Footer = () => {
       {getRandomImage(getRandomIconUrl, iconUrls)}
       <LightSpeed right>
         <a
-          className="api-link menu-text-link"
+          className="api-link footer-text-link"
           href="https://github.com/phalt/swapi"
           target="_blank"
           rel="noopener noreferrer"

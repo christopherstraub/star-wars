@@ -2,8 +2,6 @@ import React from 'react';
 import Heading from '../Heading/Heading';
 import CardList from '../CardList/CardList';
 
-import './ResourcePage.scss';
-
 const ResourcePage = ({
   resourceTitle,
   resourceData,
@@ -13,7 +11,7 @@ const ResourcePage = ({
   handleOnBlur,
 }) => {
   return (
-    <div className="resource-page">
+    <div className="resource-page vh-100">
       <Heading
         resourceTitle={resourceTitle}
         filteredResourceData={filteredResourceData}

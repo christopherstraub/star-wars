@@ -42,9 +42,9 @@ const People = ({ number, resourceData, resourceObject }) => {
       <div class="attributes flex">
         <div>
           <h1>Height</h1>
-          <h2 className="unit ttl">{resourceObject.height / 100} m</h2>
+          <h2 className="ttl">{resourceObject.height / 100} m</h2>
           <h1>Mass</h1>
-          <h2 className="unit ttn">
+          <h2 className="ttn">
             {resourceObject.mass === 'unknown'
               ? 'Unknown'
               : `${resourceObject.mass} kg`}

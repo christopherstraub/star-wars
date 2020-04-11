@@ -3,7 +3,6 @@
 $gap: 5rem;
 
 .menu-icon,
-.menu-text-link,
 .left-nav {
   z-index: 1;
 }
@@ -56,9 +55,8 @@ $gap: 5rem;
 }
 
 .active {
-  font-weight: bold;
-
   & .left-nav-text {
+    font-weight: bold;
     opacity: 1;
   }
 
