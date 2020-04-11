@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/star-wars-explorer/static/css/main.8b7c6193.chunk.css",
-    "main.js": "/star-wars-explorer/static/js/main.fd3a8b8d.chunk.js",
-    "main.js.map": "/star-wars-explorer/static/js/main.fd3a8b8d.chunk.js.map",
+    "main.css": "/star-wars-explorer/static/css/main.a1e11747.chunk.css",
+    "main.js": "/star-wars-explorer/static/js/main.946347b0.chunk.js",
+    "main.js.map": "/star-wars-explorer/static/js/main.946347b0.chunk.js.map",
     "runtime-main.js": "/star-wars-explorer/static/js/runtime-main.2f1b22b9.js",
     "runtime-main.js.map": "/star-wars-explorer/static/js/runtime-main.2f1b22b9.js.map",
     "static/css/2.ea85d7f6.chunk.css": "/star-wars-explorer/static/css/2.ea85d7f6.chunk.css",
     "static/js/2.7970efd9.chunk.js": "/star-wars-explorer/static/js/2.7970efd9.chunk.js",
     "static/js/2.7970efd9.chunk.js.map": "/star-wars-explorer/static/js/2.7970efd9.chunk.js.map",
     "index.html": "/star-wars-explorer/index.html",
-    "precache-manifest.7e754cc276f661943ec429acdbb439ea.js": "/star-wars-explorer/precache-manifest.7e754cc276f661943ec429acdbb439ea.js",
+    "precache-manifest.96f3a9ad557d18ad1b2c11bb8c8445ce.js": "/star-wars-explorer/precache-manifest.96f3a9ad557d18ad1b2c11bb8c8445ce.js",
     "service-worker.js": "/star-wars-explorer/service-worker.js",
     "static/css/2.ea85d7f6.chunk.css.map": "/star-wars-explorer/static/css/2.ea85d7f6.chunk.css.map",
-    "static/css/main.8b7c6193.chunk.css.map": "/star-wars-explorer/static/css/main.8b7c6193.chunk.css.map",
+    "static/css/main.a1e11747.chunk.css.map": "/star-wars-explorer/static/css/main.a1e11747.chunk.css.map",
     "static/js/2.7970efd9.chunk.js.LICENSE.txt": "/star-wars-explorer/static/js/2.7970efd9.chunk.js.LICENSE.txt",
     "static/media/admiral-ackbar.svg": "/star-wars-explorer/static/media/admiral-ackbar.7c490d30.svg",
     "static/media/boba-fett.svg": "/star-wars-explorer/static/media/boba-fett.2f2b2e27.svg",
@@ -20,12 +20,12 @@
     "static/media/chewbacca.svg": "/star-wars-explorer/static/media/chewbacca.92969fb7.svg",
     "static/media/clone-trooper.svg": "/star-wars-explorer/static/media/clone-trooper.8dd121d2.svg",
     "static/media/darth-maul.svg": "/star-wars-explorer/static/media/darth-maul.e5c6747c.svg",
-    "static/media/darth-vader.png": "/star-wars-explorer/static/media/darth-vader.2b2c3fb8.png",
+    "static/media/darth-vader.png": "/star-wars-explorer/static/media/darth-vader.416eea40.png",
     "static/media/darth-vader.svg": "/star-wars-explorer/static/media/darth-vader.62fd30a9.svg",
     "static/media/emperor-palpatine.svg": "/star-wars-explorer/static/media/emperor-palpatine.4d0bec89.svg",
     "static/media/ewok.svg": "/star-wars-explorer/static/media/ewok.7783a166.svg",
     "static/media/female.svg": "/star-wars-explorer/static/media/female.bee40cff.svg",
-    "static/media/index.scss": "/star-wars-explorer/static/media/title-star-wars-font-italic-outline.1955fa3d.ttf",
+    "static/media/index.scss": "/star-wars-explorer/static/media/heading-star-wars-font.c5fb001d.ttf",
     "static/media/greedo.svg": "/star-wars-explorer/static/media/greedo.c91254bc.svg",
     "static/media/han-solo.svg": "/star-wars-explorer/static/media/han-solo.443c155f.svg",
     "static/media/jabba-the-hutt.svg": "/star-wars-explorer/static/media/jabba-the-hutt.54bd5058.svg",
@@ -47,7 +47,7 @@
     "static/js/runtime-main.2f1b22b9.js",
     "static/css/2.ea85d7f6.chunk.css",
     "static/js/2.7970efd9.chunk.js",
-    "static/css/main.8b7c6193.chunk.css",
-    "static/js/main.fd3a8b8d.chunk.js"
+    "static/css/main.a1e11747.chunk.css",
+    "static/js/main.946347b0.chunk.js"
   ]
 }

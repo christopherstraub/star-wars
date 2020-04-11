@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "b3b2cce6dceaed129655e15f58782d95",
+    "revision": "ca95d9d2b6d0cb44175da03418d623d1",
     "url": "/star-wars-explorer/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/star-wars-explorer/static/css/2.ea85d7f6.chunk.css"
   },
   {
-    "revision": "ba5aee616b39c20fad1c",
-    "url": "/star-wars-explorer/static/css/main.8b7c6193.chunk.css"
+    "revision": "6b0ed7ddcf1495867798",
+    "url": "/star-wars-explorer/static/css/main.a1e11747.chunk.css"
   },
   {
     "revision": "53e2e5147cc39900dd1f",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/star-wars-explorer/static/js/2.7970efd9.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ba5aee616b39c20fad1c",
-    "url": "/star-wars-explorer/static/js/main.fd3a8b8d.chunk.js"
+    "revision": "6b0ed7ddcf1495867798",
+    "url": "/star-wars-explorer/static/js/main.946347b0.chunk.js"
   },
   {
     "revision": "ddec0e07ae43becef75b",
@@ -52,8 +52,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/star-wars-explorer/static/media/darth-maul.e5c6747c.svg"
   },
   {
-    "revision": "2b2c3fb8778f73b053049ba899dceeb1",
-    "url": "/star-wars-explorer/static/media/darth-vader.2b2c3fb8.png"
+    "revision": "416eea405fd638fed4072119c9bbc050",
+    "url": "/star-wars-explorer/static/media/darth-vader.416eea40.png"
   },
   {
     "revision": "62fd30a9ec915b8d79cd2cc7ab3686b6",
@@ -134,18 +134,6 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "76b51338974853d86250dab5307b2190",
     "url": "/star-wars-explorer/static/media/stormtrooper.76b51338.svg"
-  },
-  {
-    "revision": "c1d313b09705a994232b09de87780555",
-    "url": "/star-wars-explorer/static/media/title-star-wars-font-bold.c1d313b0.ttf"
-  },
-  {
-    "revision": "c13d19ebcea9a605421c9f1c67f403b4",
-    "url": "/star-wars-explorer/static/media/title-star-wars-font-italic-outline-regular.c13d19eb.ttf"
-  },
-  {
-    "revision": "1955fa3dbf39803ab301d61fe3db2a5f",
-    "url": "/star-wars-explorer/static/media/title-star-wars-font-italic-outline.1955fa3d.ttf"
   },
   {
     "revision": "b738872d628bcd87877156696ce77979",
