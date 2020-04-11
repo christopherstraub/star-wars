@@ -25,6 +25,7 @@ const getGenderImage = (gender) => {
           alt="Female"
         />
       );
+    default:
   }
 };
 

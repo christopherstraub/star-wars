@@ -60,6 +60,8 @@ class App extends Component {
     scroll.scrollToBottom();
   }
 
+  // Update resourceSearch state with user input based on
+  // which resource input was changed.
   handleSearchChange = (event) => {
     if (event.target.dataset.id === 'people-search') {
       const newResourceSearch = [...this.state.resourceSearch];
@@ -84,44 +86,41 @@ class App extends Component {
       dataFetched,
       resourceData,
       resourceSearch,
-      urlsToFetch,
       resourceTitles,
     } = this.state;
 
-    // Check values in console. REMOVE IN PRODUCTION
-    console.log('Data fetched', dataFetched);
-    console.log('Resource data array', resourceData);
-    console.log('URLs to fetch', urlsToFetch);
-    console.log('Resource titles array', resourceTitles);
-
-    console.log(resourceSearch);
-
-    // Filter resource data according to user search
-    const arrayResourceNames = resourceData.map((array) =>
-      array.map((obj) => obj.name)
+    // We want to remove whitespace from the resourceSearch Array so that,
+    // for example, if the user enters "77 kg", they will still see objects with mass = "77kg".
+    // We also want to convert it to lower case.
+    // We also want to replace any periods entered by the user with whitespace,
+    // so that, for example, the user may enter "2.02" and still find objects with height = "202".
+    const lowerNoWhiteSpaceResourceSearch = resourceSearch.map((string) =>
+      string.toLocaleLowerCase().replace(/\s/g, '').replace(/\./, '')
     );
 
-    const filteredArrayResourceNames = arrayResourceNames.map(
-      (array, index) => {
-        return array.filter((name) =>
-          name
-            .toLocaleLowerCase()
-            .includes(resourceSearch[index].toLocaleLowerCase())
-        );
-      }
-    );
-
-    const filteredResourceData = resourceData.map((array, index) => {
-      return array.filter((object) => {
-        for (const i in filteredArrayResourceNames[index]) {
-          if (object.name === filteredArrayResourceNames[index][i]) {
-            return object;
-          }
-        }
+    // We want to filter out the date edited, date created, homeworld,
+    // and people so that they dont interfere with the user search results.
+    // Also, we want to append units where necessary, so that a user search including units
+    // will still show an object whose original data does not include the units.
+    const filteredResourceValues = resourceData.map((array) => {
+      return array.map((object) => {
+        const { edited, created, homeworld, people, ...rest } = object;
+        // rest.height;
+        return Object.values(rest);
       });
     });
 
-    console.log('Filtered resource data array', filteredResourceData);
+    // After converting each values array to a string, similarly to with the user search,
+    // we want to convert it to lower case and remove whitespace.
+    const filteredResourceData = resourceData.map((array, arrayIndex) => {
+      return array.filter((object, objectIndex) => {
+        return filteredResourceValues[arrayIndex][objectIndex]
+          .toString()
+          .toLocaleLowerCase()
+          .replace(/\s/g, '')
+          .includes(lowerNoWhiteSpaceResourceSearch[arrayIndex]);
+      });
+    });
 
     // If data has not been fetched, show loading component
     return !dataFetched ? (
