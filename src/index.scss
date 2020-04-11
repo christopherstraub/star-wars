@@ -22,6 +22,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: black;
   overflow-x: hidden;
+
+  background: rgb(24, 28, 57);
+  background: radial-gradient(
+    circle,
+    rgba(24, 28, 57, 1) 0%,
+    rgba(0, 0, 0, 1) 95%,
+    rgba(0, 0, 0, 1) 100%
+  );
+
+  -webkit-box-shadow: 0 0 30px #241d20;
+  box-shadow: 0 0 30px #241d20;
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
 }
 
 code {
