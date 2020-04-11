@@ -24,3 +24,6 @@ yarn-error.log*
 
 #editing
 /gimp
+
+#screenshots
+/screenshots
