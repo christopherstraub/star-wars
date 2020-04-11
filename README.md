@@ -15,12 +15,13 @@ Open Star Wars Explorer in a new tab <a href="https://christopherstraub.github.i
 - Find out more and view the API by clicking on the *info* button in the top left corner or scrolling to the bottom of the page.
 
 ## Features
-- **Browse** through **82** people, **60** planets, and **37** species.
-- **View** the height, mass, hair, birth year, and homeworld each person.
-- **View** the rotation period, orbital period, diameter, climate, gravity, terrain, surface water, and population of each planet.
-- **View** the classification, average height, hair colors, eye colors, average lifespan, language, and homeworld of each species.
-- **Filter your results** entering your search next to the title of each section. You may search by any attribute.
-- **Click** on the *info* button in the top left corner or scroll to the bottom of the page for an Easter Egg!
+- Browse through **82** people, **60** planets, and **37** species.
+- View the height, mass, hair, birth year, and homeworld each person.
+- View the rotation period, orbital period, diameter, climate, gravity, terrain, surface water, and population of each planet.
+- View the classification, average height, hair colors, eye colors, average lifespan, language, and homeworld of each species.
+- **Filter your results** entering your search next to the title of each section.
+- Search by **any** attribute. Search by name, height, mass, eye color, rotation period, orbital period, language, and much more.
+- Click on the *info* button in the top left corner or scroll to the bottom of the page for an Easter Egg!
 
 ## Future Features
 - Implement films, starships, transport, and vehicles.
