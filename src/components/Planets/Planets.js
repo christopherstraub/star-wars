@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ResourcePlanets = ({ number, resourceObject }) => {
+const Planets = ({ number, resourceObject }) => {
   return (
-    <div>
-      <h2>{resourceObject.name}</h2>
+    <div className="resource relative">
+      <h1 className="name heading-star-wars-font">{resourceObject.name}</h1>
       <h2>
         Rotation period {resourceObject.rotation_period}
         hrs
@@ -20,4 +20,4 @@ const ResourcePlanets = ({ number, resourceObject }) => {
   );
 };
 
-export default ResourcePlanets;
+export default Planets;

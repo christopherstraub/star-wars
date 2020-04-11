@@ -12,7 +12,7 @@ const getHomeworld = (number, resourceData) => {
   }
 };
 
-const ResourceSpecies = ({ number, resourceData, resourceObject }) => {
+const Species = ({ number, resourceData, resourceObject }) => {
   return (
     <div>
       <h2>{resourceObject.name}</h2>
@@ -30,4 +30,4 @@ const ResourceSpecies = ({ number, resourceData, resourceObject }) => {
   );
 };
 
-export default ResourceSpecies;
+export default Species;

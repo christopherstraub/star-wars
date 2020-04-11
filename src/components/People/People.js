@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './ResourcePeople.scss';
+import './People.scss';
 
 const getHomeworld = (number, resourceData) => {
   const homeworldIndex = resourceData[0][number - 1].homeworld - 1;
@@ -30,7 +30,7 @@ const getGenderImage = (gender) => {
   }
 };
 
-const ResourcePeople = ({ number, resourceData, resourceObject }) => {
+const People = ({ number, resourceData, resourceObject }) => {
   return (
     <div className="resource relative">
       <h1 className="name heading-star-wars-font">
@@ -42,9 +42,13 @@ const ResourcePeople = ({ number, resourceData, resourceObject }) => {
       <div class="attributes flex">
         <div>
           <h1>Height</h1>
-          <h2 className="unit">{resourceObject.height / 100} m</h2>
+          <h2 className="unit ttl">{resourceObject.height / 100} m</h2>
           <h1>Mass</h1>
-          <h2 className="unit">{resourceObject.mass} kg</h2>
+          <h2 className="unit ttn">
+            {resourceObject.mass === 'unknown'
+              ? 'Unknown'
+              : `${resourceObject.mass} kg`}
+          </h2>
           <h1>Hair</h1>
           <h2>{resourceObject.hair_color}</h2>
         </div>
@@ -64,4 +68,4 @@ const ResourcePeople = ({ number, resourceData, resourceObject }) => {
   );
 };
 
-export default ResourcePeople;
+export default People;

@@ -1,15 +1,15 @@
 import React from 'react';
 import CardWrapper from '../../wrappers/CardWrapper/CardWrapper';
-import ResourcePeople from '../ResourcePeople/ResourcePeople';
-import ResourcePlanets from '../ResourcePlanets/ResourcePlanets';
-import ResourceSpecies from '../ResourceSpecies/ResourceSpecies';
+import People from '../People/People';
+import Planets from '../Planets/Planets';
+import Species from '../Species/Species';
 
 const Card = ({ number, resourceTitle, resourceData, resourceObject }) => {
   switch (resourceTitle) {
     case 'people':
       return (
         <CardWrapper>
-          <ResourcePeople
+          <People
             number={number}
             resourceData={resourceData}
             resourceObject={resourceObject}
@@ -19,13 +19,13 @@ const Card = ({ number, resourceTitle, resourceData, resourceObject }) => {
     case 'planets':
       return (
         <CardWrapper>
-          <ResourcePlanets number={number} resourceObject={resourceObject} />
+          <Planets number={number} resourceObject={resourceObject} />
         </CardWrapper>
       );
     case 'species':
       return (
         <CardWrapper>
-          <ResourceSpecies
+          <Species
             number={number}
             resourceData={resourceData}
             resourceObject={resourceObject}
