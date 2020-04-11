@@ -27,7 +27,9 @@ Open Star Wars Explorer in a new tab <a href="https://christopherstraub.github.i
 
 ## What the app looks like
 
-
+![title screen](https://raw.githubusercontent.com/christopherstraub/star-wars-explorer/master/screenshots/1.PNG)
+![search people](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/3.PNG)
+![species](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/5.PNG)
 
 ## Dependencies
 - react
