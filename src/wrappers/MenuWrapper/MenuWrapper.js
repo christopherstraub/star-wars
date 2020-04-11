@@ -63,7 +63,7 @@ const MenuWrapper = (props) => {
       </Link>
 
       <ul className="left-nav f5">
-        <li className="home-link">
+        <li className="home-link animated fadeInLeftBig slower">
           <Link
             className="left-nav-link"
             to="home"

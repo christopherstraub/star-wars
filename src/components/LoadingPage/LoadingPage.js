@@ -7,7 +7,7 @@ const LoadingPage = () => {
   return (
     <BackgroundAnimation>
       <div className="loading heading-star-wars-font blinking flex justify-end items-end pa4">
-        LoadingPage...
+        Loading...
       </div>
     </BackgroundAnimation>
   );

@@ -12,6 +12,7 @@
   .title,
   .title-mobile {
     transition: transform 0.2s ease;
+    letter-spacing: 2rem;
 
     &:hover {
       cursor: default;

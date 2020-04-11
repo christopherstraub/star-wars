@@ -10,5 +10,3 @@ const CardWrapper = (props) => {
 };
 
 export default CardWrapper;
-
-// animated fadeInLeftBig slower
