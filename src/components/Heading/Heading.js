@@ -14,7 +14,7 @@ const Heading = ({ resourceTitle, resourceCount, handleSearchChange }) => {
       <input
         className="search-input pa2 f4"
         type="search"
-        placeholder={`Search ${resourceTitle}`}
+        placeholder={`Find ${resourceTitle}`}
         onChange={handleSearchChange}
         data-id={`${resourceTitle}-search`}
       ></input>
