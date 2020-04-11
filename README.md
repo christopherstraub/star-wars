@@ -1,4 +1,5 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Star Wars Explorer
+Star Wars Explorer is a visually beautiful representation of [The Star Wars API](https://github.com/phalt/swapi). With it, you can explore the hundreds of people, planets, and species in the Star Wars Universe as well as being able to quickly find what you're looking for through a search feature.
 
 ## Available Scripts
 
