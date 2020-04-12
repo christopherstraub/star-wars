@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/star-wars-explorer/static/css/main.516b1e9f.chunk.css",
-    "main.js": "/star-wars-explorer/static/js/main.d5050b92.chunk.js",
-    "main.js.map": "/star-wars-explorer/static/js/main.d5050b92.chunk.js.map",
+    "main.css": "/star-wars-explorer/static/css/main.d7a1ea9a.chunk.css",
+    "main.js": "/star-wars-explorer/static/js/main.100398ad.chunk.js",
+    "main.js.map": "/star-wars-explorer/static/js/main.100398ad.chunk.js.map",
     "runtime-main.js": "/star-wars-explorer/static/js/runtime-main.2f1b22b9.js",
     "runtime-main.js.map": "/star-wars-explorer/static/js/runtime-main.2f1b22b9.js.map",
     "static/css/2.ea85d7f6.chunk.css": "/star-wars-explorer/static/css/2.ea85d7f6.chunk.css",
     "static/js/2.674cfd6c.chunk.js": "/star-wars-explorer/static/js/2.674cfd6c.chunk.js",
     "static/js/2.674cfd6c.chunk.js.map": "/star-wars-explorer/static/js/2.674cfd6c.chunk.js.map",
     "index.html": "/star-wars-explorer/index.html",
-    "precache-manifest.cb3e821bada659a18443ee89658a03c9.js": "/star-wars-explorer/precache-manifest.cb3e821bada659a18443ee89658a03c9.js",
+    "precache-manifest.39eed9319cbca0ef8ec51a4a92421df2.js": "/star-wars-explorer/precache-manifest.39eed9319cbca0ef8ec51a4a92421df2.js",
     "service-worker.js": "/star-wars-explorer/service-worker.js",
     "static/css/2.ea85d7f6.chunk.css.map": "/star-wars-explorer/static/css/2.ea85d7f6.chunk.css.map",
-    "static/css/main.516b1e9f.chunk.css.map": "/star-wars-explorer/static/css/main.516b1e9f.chunk.css.map",
+    "static/css/main.d7a1ea9a.chunk.css.map": "/star-wars-explorer/static/css/main.d7a1ea9a.chunk.css.map",
     "static/js/2.674cfd6c.chunk.js.LICENSE.txt": "/star-wars-explorer/static/js/2.674cfd6c.chunk.js.LICENSE.txt",
     "static/media/admiral-ackbar.svg": "/star-wars-explorer/static/media/admiral-ackbar.7c490d30.svg",
     "static/media/boba-fett.svg": "/star-wars-explorer/static/media/boba-fett.2f2b2e27.svg",
@@ -47,7 +47,7 @@
     "static/js/runtime-main.2f1b22b9.js",
     "static/css/2.ea85d7f6.chunk.css",
     "static/js/2.674cfd6c.chunk.js",
-    "static/css/main.516b1e9f.chunk.css",
-    "static/js/main.d5050b92.chunk.js"
+    "static/css/main.d7a1ea9a.chunk.css",
+    "static/js/main.100398ad.chunk.js"
   ]
 }
