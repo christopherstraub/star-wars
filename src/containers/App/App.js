@@ -165,43 +165,22 @@ class App extends Component {
           <TitlePage />
         </div>
 
-        <Reveal effect="fadeIn">
-          <div id="people">
-            <ResourcePage
-              resourceTitle={resourceTitles[0]}
-              resourceData={resourceData}
-              filteredResourceData={filteredResourceData}
-              resourceCount={filteredResourceData[0].length}
-              handleSearchChange={this.handleSearchChange}
-              handleOnBlur={this.handleOnBlur}
-            />
-          </div>
-        </Reveal>
-        <Reveal effect="fadeIn">
-          <div id="planets">
-            <ResourcePage
-              resourceTitle={resourceTitles[1]}
-              resourceData={resourceData}
-              filteredResourceData={filteredResourceData}
-              resourceCount={filteredResourceData[1].length}
-              handleSearchChange={this.handleSearchChange}
-              handleOnBlur={this.handleOnBlur}
-            />
-          </div>
-        </Reveal>
+        {resourceTitles.map((title, index) => {
+          return (
+            <Reveal effect="fadeIn">
+              <div id={title}>
+                <ResourcePage
+                  resourceTitle={title}
+                  resourceData={resourceData}
+                  filteredResourceData={filteredResourceData}
+                  resourceCount={filteredResourceData[index].length}
+                  handleSearchChange={this.handleSearchChange}
+                />
+              </div>
+            </Reveal>
+          );
+        })}
 
-        <Reveal effect="fadeIn">
-          <div id="species">
-            <ResourcePage
-              resourceTitle={resourceTitles[2]}
-              resourceData={resourceData}
-              filteredResourceData={filteredResourceData}
-              resourceCount={filteredResourceData[2].length}
-              handleSearchChange={this.handleSearchChange}
-              handleOnBlur={this.handleOnBlur}
-            />
-          </div>
-        </Reveal>
         <Jump>
           <Footer />
         </Jump>

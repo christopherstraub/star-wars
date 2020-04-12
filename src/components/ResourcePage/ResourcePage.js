@@ -8,7 +8,6 @@ const ResourcePage = ({
   filteredResourceData,
   resourceCount,
   handleSearchChange,
-  handleOnBlur,
 }) => {
   return (
     <div className="resource-page vh-100">
@@ -17,7 +16,6 @@ const ResourcePage = ({
         filteredResourceData={filteredResourceData}
         resourceCount={resourceCount}
         handleSearchChange={handleSearchChange}
-        handleOnBlur={handleOnBlur}
       />
       <CardList
         resourceTitle={resourceTitle}
