@@ -151,4 +151,14 @@ ul {
   .divider {
     margin: 1rem 1rem;
   }
+
+  // Responsive left-nav
+  .active {
+    & .left-nav-text {
+      opacity: 0;
+    }
+  }
+  .left-nav-indicator {
+    margin-right: 0.5rem;
+  }
 }
