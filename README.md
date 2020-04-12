@@ -28,9 +28,9 @@ You may visit Star Wars Explorer [here](http://starwarsexplorer.xyz/) (Ctrl + cl
 
 ## What the app looks like
 
-![title screen](https://raw.githubusercontent.com/christopherstraub/star-wars-explorer/master/screenshots/1.PNG)
+![title screen](https://raw.githubusercontent.com/christopherstraub/star-wars-explorer/blob/master/screenshots/1.PNG)
 ![search people](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/3.PNG)
-![species](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/5.PNG)
+![species](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/4.PNG?raw=true)
 
 ## Dependencies
 - react
