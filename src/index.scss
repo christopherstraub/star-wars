@@ -60,7 +60,18 @@ ul {
 
 // Media queries
 
-@media all and (max-width: 450px) {
+// Responsive title page image
+@media all and (max-width: 1000px) {
+  .title-container {
+    & .darth-vader-image {
+      left: 25%;
+    }
+  }
+}
+
+// Small devices
+@media all and (max-width: 768px) {
+  // Responsive title
   .title-container {
     & .title {
       display: none;
@@ -72,20 +83,16 @@ ul {
       line-height: 2;
       letter-spacing: 1.25rem;
     }
-    & img {
-      width: 600px;
-      bottom: 0;
-    }
   }
+
+  // Responsive menu icons
   .menu-icon {
     margin: 0.25rem;
     font-size: 3rem;
   }
-
   .info-icon {
     left: $menu-icon-gap-mobile;
   }
-
   .people-icon {
     right: 2 * $menu-icon-gap-mobile;
   }
@@ -98,6 +105,17 @@ ul {
     }
   }
 
+  // Responsive left-nav
+  .active {
+    & .left-nav-text {
+      opacity: 0;
+    }
+  }
+  .left-nav-indicator {
+    margin-right: 0.5rem;
+  }
+
+  // Responsive heading
   .heading {
     & .resource-info {
       margin-right: 0;
@@ -112,25 +130,7 @@ ul {
       width: 175px;
     }
   }
-}
 
-@media all and (max-width: 1000px) {
-  .title-container {
-    & .darth-vader-image {
-      left: 25%;
-    }
-  }
-}
-
-@media all and (max-width: 750px) {
-  .title-container {
-    & .darth-vader-image {
-      bottom: 5%;
-    }
-  }
-}
-
-@media all and (max-width: 550px) {
   // Responsive resourceTemplate.scss
   .name {
     font-size: $font-size-name-mobile;
@@ -150,15 +150,5 @@ ul {
   }
   .divider {
     margin: 1rem 1rem;
-  }
-
-  // Responsive left-nav
-  .active {
-    & .left-nav-text {
-      opacity: 0;
-    }
-  }
-  .left-nav-indicator {
-    margin-right: 0.5rem;
   }
 }
