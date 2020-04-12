@@ -25,6 +25,7 @@ You may visit Star Wars Explorer [here](http://starwarsexplorer.xyz/) (Ctrl + cl
 
 ## Future Features
 - Implement films, starships, transport, and vehicles.
+- Introduce a button that allows you to alphabetize results.
 
 ## What the app looks like
 
