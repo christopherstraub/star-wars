@@ -66,13 +66,25 @@ ul {
       display: none;
     }
     & .title-mobile {
-      display: flex;
-      height: 100vh;
-      justify-content: center;
-      padding-top: 8rem;
-      font-size: 6vw;
-      text-align: center;
+      display: inline-block;
+      margin-top: 8rem;
+      font-size: 5vw;
       line-height: 2;
+      letter-spacing: 1.25rem;
     }
+  }
+  .menu-icon {
+    margin: 0.25rem;
+  }
+
+  .info-icon {
+    left: $menu-icon-gap-mobile;
+  }
+
+  .people-icon {
+    right: 2 * $menu-icon-gap-mobile;
+  }
+  .planets-icon {
+    right: $menu-icon-gap-mobile;
   }
 }

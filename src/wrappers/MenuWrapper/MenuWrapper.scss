@@ -1,7 +1,5 @@
 @import '../../base/variables';
 
-$gap: 5rem;
-
 .menu-icon,
 .left-nav {
   z-index: 1;
@@ -20,14 +18,14 @@ $gap: 5rem;
 }
 
 .info-icon {
-  left: $gap;
+  left: $menu-icon-gap;
 }
 
 .people-icon {
-  right: 2 * $gap;
+  right: 2 * $menu-icon-gap;
 }
 .planets-icon {
-  right: $gap;
+  right: $menu-icon-gap;
 }
 .species-icon {
   right: 0;

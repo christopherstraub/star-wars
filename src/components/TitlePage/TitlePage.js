@@ -10,7 +10,7 @@ const TitlePage = () => {
         <br />
         Explorer
       </div>
-      <div className="title-mobile dib">
+      <div className="title-mobile">
         Star Wars
         <br />
         Explorer

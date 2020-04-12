@@ -4,6 +4,7 @@
     font-size: 0;
     margin: 8rem auto;
     animation: titleLoad 2.5s ease-out 0.5s forwards;
+    letter-spacing: 2rem;
   }
   & .title-mobile {
     display: none;
@@ -12,7 +13,6 @@
   .title,
   .title-mobile {
     transition: transform 0.2s ease;
-    letter-spacing: 2rem;
 
     &:hover {
       cursor: default;
