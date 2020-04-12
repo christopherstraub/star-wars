@@ -1,17 +1,5 @@
 import React from 'react';
 
-const getHomeworld = (index, resourceData) => {
-  if (
-    resourceData[2][index].homeworld === null ||
-    resourceData[2][index].homeworld === 'unknown'
-  )
-    return { name: 'unknown' };
-  else {
-    const homeworldIndex = resourceData[2][index].homeworld - 1;
-    return resourceData[1][homeworldIndex];
-  }
-};
-
 const Species = ({ index, resourceData, resourceObject }) => {
   return (
     <div className="reosurce relative">
@@ -46,7 +34,11 @@ const Species = ({ index, resourceData, resourceObject }) => {
           <h1>Language</h1>
           <h2>{resourceObject.language}</h2>
           <h1>Homeworld</h1>
-          <h2>{getHomeworld(index, resourceData).name}</h2>
+          <h2>
+            {typeof resourceObject.homeworld === 'number'
+              ? resourceData[1][resourceObject.homeworld - 1].name
+              : resourceObject.homeworld}
+          </h2>
         </div>
       </div>
       <h3 className="number">{index + 1}</h3>

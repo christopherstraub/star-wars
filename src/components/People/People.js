@@ -1,10 +1,5 @@
 import React from 'react';
 
-const getHomeworld = (index, resourceData) => {
-  const homeworldIndex = resourceData[0][index].homeworld - 1;
-  return resourceData[1][homeworldIndex];
-};
-
 const getGenderImage = (gender) => {
   switch (gender) {
     case 'male':
@@ -57,7 +52,7 @@ const People = ({ index, resourceData, resourceObject }) => {
           <h1>birth year</h1>
           <h2>{resourceObject.birth_year}</h2>
           <h1>homeworld</h1>
-          <h2>{getHomeworld(index, resourceData).name}</h2>
+          <h2>{resourceData[1][resourceObject.homeworld - 1].name}</h2>
         </div>
 
         <h3 className="number">{index + 1}</h3>
