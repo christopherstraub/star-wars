@@ -105,7 +105,41 @@ class App extends Component {
     const filteredResourceValues = resourceData.map((array) => {
       return array.map((object) => {
         const { edited, created, homeworld, people, ...rest } = object;
-        // rest.height;
+        // Only modify the rest object if the object has the property we're changing
+        // and the property is not "unknown".
+        if (rest.height !== undefined && rest.height !== 'unknown')
+          rest.height = `${rest.height}m`;
+        if (rest.mass !== undefined && rest.mass !== 'unknown')
+          rest.mass = `${rest.mass}kg`;
+        if (
+          rest.surface_water !== undefined &&
+          rest.surface_water !== 'unknown'
+        )
+          rest.surface_water = `${rest.surface_water}%`;
+        if (rest.diameter !== undefined && rest.diameter !== 'unknown')
+          rest.diameter = `${rest.diameter}m`;
+        if (
+          rest.rotation_period !== undefined &&
+          rest.rotation_period !== 'unknown'
+        )
+          rest.rotation_period = `${rest.rotation_period}hrs`;
+        if (
+          rest.orbital_period !== undefined &&
+          rest.orbital_period !== 'unknown'
+        )
+          rest.orbital_period = `${rest.orbital_period}days`;
+        if (
+          rest.average_lifespan !== undefined &&
+          rest.average_lifespan !== 'unknown'
+        )
+          rest.average_lifespan = `${rest.average_lifespan}years`;
+        if (
+          rest.average_height !== undefined &&
+          rest.average_height !== 'unknown'
+        )
+          rest.average_height = `${rest.average_height}m`;
+
+        console.log(rest.average_height);
         return Object.values(rest);
       });
     });
