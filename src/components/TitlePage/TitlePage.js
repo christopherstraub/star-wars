@@ -16,7 +16,7 @@ const TitlePage = () => {
         Explorer
       </div>
       <img
-        className="relative"
+        className="darth-vader-image relative"
         src={require('../../images/darth-vader.png')}
         alt="Darth Vader"
       />

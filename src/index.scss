@@ -92,4 +92,63 @@ ul {
   .planets-icon {
     right: $menu-icon-gap-mobile;
   }
+  .title-container {
+    & .darth-vader-image {
+      bottom: 5%;
+    }
+  }
+
+  .heading {
+    & .resource-info {
+      margin-right: 0;
+      & .resource-title {
+        font-size: 2rem;
+      }
+      & .resource-count {
+        font-size: 2rem;
+      }
+    }
+    & .search-input {
+      width: 175px;
+    }
+  }
+}
+
+@media all and (max-width: 1000px) {
+  .title-container {
+    & .darth-vader-image {
+      left: 25%;
+    }
+  }
+}
+
+@media all and (max-width: 750px) {
+  .title-container {
+    & .darth-vader-image {
+      bottom: 5%;
+    }
+  }
+}
+
+@media all and (max-width: 550px) {
+  // Responsive resourceTemplate.scss
+  .name {
+    font-size: $font-size-name-mobile;
+  }
+  .species-name {
+    margin-left: 8px;
+  }
+  .gender-icon {
+    margin-left: 0.5rem;
+    margin-top: 5px;
+  }
+  .attributes {
+    padding-left: 0.75rem;
+    & h1 {
+      font-size: $font-size-attribute-mobile;
+    }
+  }
+  .divider {
+    margin: 1rem 1rem;
+  }
 }

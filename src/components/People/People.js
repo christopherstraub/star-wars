@@ -12,7 +12,6 @@ const getGenderImage = (gender) => {
         <img
           className="gender-icon male"
           src={require('../../images/people/male.svg')}
-          width="30"
           alt="Male"
         />
       );
@@ -21,7 +20,6 @@ const getGenderImage = (gender) => {
         <img
           className="gender-icon female"
           src={require('../../images/people/female.svg')}
-          width="30"
           alt="Female"
         />
       );
@@ -32,12 +30,13 @@ const getGenderImage = (gender) => {
 const People = ({ index, resourceData, resourceObject }) => {
   return (
     <div className="resource relative">
-      <h1 className="name">
-        {resourceObject.name}
+      <div className="mb3">
+        <h1 className="name di">{resourceObject.name}</h1>
         {resourceObject.gender === 'n/a'
           ? ''
           : getGenderImage(resourceObject.gender)}
-      </h1>
+      </div>
+
       <div className="attributes flex">
         <div>
           <h1>height</h1>

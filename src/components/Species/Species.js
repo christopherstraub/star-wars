@@ -15,7 +15,7 @@ const getHomeworld = (index, resourceData) => {
 const Species = ({ index, resourceData, resourceObject }) => {
   return (
     <div className="reosurce relative">
-      <h1 className="name">{resourceObject.name}</h1>
+      <h1 className="name species-name">{resourceObject.name}</h1>
       <div className="attributes flex">
         <div>
           <h1>classification</h1>
