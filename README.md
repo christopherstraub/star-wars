@@ -7,7 +7,7 @@ You may visit Star Wars Explorer [here](https://christopherstraub.github.io/star
 ### Run locally
 1. Fork or download the project and open the project directory in the CLI.
 2. Install dependencies using command `npm i`
-3. Run the app in development mode using script `npm start` in the project directory. The apple will be served at [http://localhost:3000](http://localhost:3000).
+3. Run the app in development mode using script `npm start` in the project directory. The app will be served at [http://localhost:3000](http://localhost:3000).
 
 ## Using the app
 - Quickly navigate to the desired section using the buttons in the top right corner or the left navigation.
