@@ -4,7 +4,7 @@ const Planets = ({ number, resourceObject }) => {
   return (
     <div className="resource relative">
       <h1 className="name">{resourceObject.name}</h1>
-      <div class="attributes flex">
+      <div className="attributes flex">
         <div>
           <h1>rotation period</h1>
           <h2 className="ttl">{resourceObject.rotation_period} hrs</h2>

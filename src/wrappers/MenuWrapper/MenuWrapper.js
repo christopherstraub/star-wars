@@ -21,6 +21,7 @@ const MenuWrapper = (props) => {
       <Link
         className="info-icon menu-icon material-icons animated fadeInLeftBig slower"
         onClick={props.scrollToBottom}
+        to="footer"
         smooth={true}
         offset={0}
         duration={500}

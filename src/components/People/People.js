@@ -38,7 +38,7 @@ const People = ({ number, resourceData, resourceObject }) => {
           ? ''
           : getGenderImage(resourceObject.gender)}
       </h1>
-      <div class="attributes flex">
+      <div className="attributes flex">
         <div>
           <h1>height</h1>
           <h2 className="ttl">{resourceObject.height / 100} m</h2>
