@@ -5,12 +5,12 @@ import './TitlePage.scss';
 const TitlePage = () => {
   return (
     <div className="title-container vh-100 tc heading-star-wars-font yellow relative">
-      <div className="title dib">
+      <div className="title dib animated zoomIn slower">
         Star Wars
         <br />
         Explorer
       </div>
-      <div className="title-mobile">
+      <div className="title-mobile animated fadeInDownBig slow">
         Star Wars
         <br />
         Explorer

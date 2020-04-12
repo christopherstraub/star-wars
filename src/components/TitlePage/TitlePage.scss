@@ -1,9 +1,9 @@
 .title-container {
   & .title {
-    opacity: 0;
-    font-size: 0;
+    opacity: 1;
+    font-size: 6vw;
     margin: 8rem auto;
-    animation: titleLoad 2.5s ease-out 0.5s forwards;
+    animation-delay: 0.5s;
     letter-spacing: 2rem;
   }
   & .title-mobile {
@@ -31,14 +31,6 @@
   }
 }
 
-@keyframes titleLoad {
-  from {
-  }
-  to {
-    opacity: 1;
-    font-size: 6vw;
-  }
-}
 @keyframes imageLoad {
   from {
   }
