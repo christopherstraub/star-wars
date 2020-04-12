@@ -25,8 +25,8 @@ const CardList = ({
             (object, index) => {
               return (
                 <Card
-                  key={index + 1}
-                  number={index + 1}
+                  key={index}
+                  index={index}
                   resourceTitle={resourceTitle}
                   resourceData={resourceData}
                   resourceObject={object}

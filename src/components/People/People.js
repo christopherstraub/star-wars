@@ -1,7 +1,7 @@
 import React from 'react';
 
-const getHomeworld = (number, resourceData) => {
-  const homeworldIndex = resourceData[0][number - 1].homeworld - 1;
+const getHomeworld = (index, resourceData) => {
+  const homeworldIndex = resourceData[0][index].homeworld - 1;
   return resourceData[1][homeworldIndex];
 };
 
@@ -29,7 +29,7 @@ const getGenderImage = (gender) => {
   }
 };
 
-const People = ({ number, resourceData, resourceObject }) => {
+const People = ({ index, resourceData, resourceObject }) => {
   return (
     <div className="resource relative">
       <h1 className="name">
@@ -58,10 +58,10 @@ const People = ({ number, resourceData, resourceObject }) => {
           <h1>birth year</h1>
           <h2>{resourceObject.birth_year}</h2>
           <h1>homeworld</h1>
-          <h2>{getHomeworld(number, resourceData).name}</h2>
+          <h2>{getHomeworld(index, resourceData).name}</h2>
         </div>
 
-        <h3 className="number">{number}</h3>
+        <h3 className="number">{index + 1}</h3>
       </div>
     </div>
   );

@@ -139,7 +139,6 @@ class App extends Component {
         )
           rest.average_height = `${rest.average_height}m`;
 
-        console.log(rest.average_height);
         return Object.values(rest);
       });
     });
@@ -167,9 +166,10 @@ class App extends Component {
 
         {resourceTitles.map((title, index) => {
           return (
-            <Reveal effect="fadeIn">
+            <Reveal key={index} effect="fadeIn">
               <div id={title}>
                 <ResourcePage
+                  key={index}
                   resourceTitle={title}
                   resourceData={resourceData}
                   filteredResourceData={filteredResourceData}

@@ -68,17 +68,18 @@ ul {
     & .title-mobile {
       display: inline-block;
       margin-top: 8rem;
-      font-size: 5vw;
+      font-size: 7vw;
       line-height: 2;
       letter-spacing: 1.25rem;
     }
     & img {
       width: 600px;
-      top: 20vh;
+      bottom: 0;
     }
   }
   .menu-icon {
     margin: 0.25rem;
+    font-size: 3rem;
   }
 
   .info-icon {

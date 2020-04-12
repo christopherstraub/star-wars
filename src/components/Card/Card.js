@@ -4,13 +4,13 @@ import People from '../People/People';
 import Planets from '../Planets/Planets';
 import Species from '../Species/Species';
 
-const Card = ({ number, resourceTitle, resourceData, resourceObject }) => {
+const Card = ({ index, resourceTitle, resourceData, resourceObject }) => {
   switch (resourceTitle) {
     case 'people':
       return (
         <CardWrapper>
           <People
-            number={number}
+            index={index}
             resourceData={resourceData}
             resourceObject={resourceObject}
           />
@@ -19,14 +19,14 @@ const Card = ({ number, resourceTitle, resourceData, resourceObject }) => {
     case 'planets':
       return (
         <CardWrapper>
-          <Planets number={number} resourceObject={resourceObject} />
+          <Planets index={index} resourceObject={resourceObject} />
         </CardWrapper>
       );
     case 'species':
       return (
         <CardWrapper>
           <Species
-            number={number}
+            index={index}
             resourceData={resourceData}
             resourceObject={resourceObject}
           />

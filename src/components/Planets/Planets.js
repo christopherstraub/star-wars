@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Planets = ({ number, resourceObject }) => {
+const Planets = ({ index, resourceObject }) => {
   return (
     <div className="resource relative">
       <h1 className="name">{resourceObject.name}</h1>
@@ -28,7 +28,7 @@ const Planets = ({ number, resourceObject }) => {
         </div>
       </div>
 
-      <h3 className="number">{number}</h3>
+      <h3 className="number">{index + 1}</h3>
     </div>
   );
 };
