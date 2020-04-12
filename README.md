@@ -2,12 +2,12 @@
 Star Wars Explorer is a stunning graphical user interface that visualizes and makes easily accessible the [Star Wars API](https://github.com/phalt/swapi). With it, you can venture through the hundreds of people, planets, and species of the Star Wars Universe as well as being able to quickly find what you're looking for using the search feature.
 
 ## View
-You may visit Star Wars Explorer [here](https://christopherstraub.github.io/star-wars-explorer/) (Ctrl + click to open in new tab).
+You may visit Star Wars Explorer [here](http://starwarsexplorer.xyz/) (Ctrl + click to open in new tab).
 
 ### Run locally
 1. Fork or download the project and open the project directory in the CLI.
 2. Install dependencies using command `npm i`
-3. Run the app in development mode using script `npm start` in the project directory. The apple will be served at [http://localhost:3000](http://localhost:3000).
+3. Run the app in development mode using script `npm start` in the project directory. The app will be served at [http://localhost:3000](http://localhost:3000).
 
 ## Using the app
 - Quickly navigate to the desired section using the buttons in the top right corner or the left navigation.
