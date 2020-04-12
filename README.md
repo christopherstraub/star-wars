@@ -1,5 +1,5 @@
 # Star Wars Explorer
-Star Wars Explorer is a visually beautiful representation of the [Star Wars API](https://github.com/phalt/swapi). With it, you can venture through the hundreds of people, planets, and species of the Star Wars Universe as well as being able to quickly find what you're looking for using the search feature.
+Star Wars Explorer is a stunning graphical user interface that visualizes and makes easily accessible the [Star Wars API](https://github.com/phalt/swapi). With it, you can venture through the hundreds of people, planets, and species of the Star Wars Universe as well as being able to quickly find what you're looking for using the search feature.
 
 ## View
 You may visit Star Wars Explorer [here](https://christopherstraub.github.io/star-wars-explorer/) (Ctrl + click to open in new tab).
