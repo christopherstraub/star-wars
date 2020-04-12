@@ -14,14 +14,14 @@ const Species = ({ index, resourceData, resourceObject }) => {
               ? 'N/A'
               : `${resourceObject.average_height / 100} m`}
           </h2>
-          <h1>skin colors</h1>
-          <h2>{resourceObject.skin_colors}</h2>
-          <h1>hair colors</h1>
+          <h1>hair</h1>
           <h2>{resourceObject.hair_colors}</h2>
+          <h1>skin</h1>
+          <h2>{resourceObject.skin_colors}</h2>
         </div>
         <div className="divider"></div>
         <div>
-          <h1>eye colors</h1>
+          <h1>eyes</h1>
           <h2>{resourceObject.eye_colors}</h2>
           <h1>Average lifespan</h1>
           <h2 className="ttn">

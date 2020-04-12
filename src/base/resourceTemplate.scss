@@ -15,6 +15,7 @@
     font-family: $font-subtitle;
   }
   & h2 {
+    max-width: 300px;
     margin-bottom: 1rem;
     color: rgba($color: #ffffff, $alpha: 0.5);
     font-weight: lighter;

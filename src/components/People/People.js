@@ -42,13 +42,13 @@ const People = ({ index, resourceData, resourceObject }) => {
               ? 'Unknown'
               : `${resourceObject.mass} kg`}
           </h2>
-          <h1>Hair</h1>
-          <h2>{resourceObject.hair_color}</h2>
+          <h1>skin</h1>
+          <h2>{resourceObject.skin_color}</h2>
         </div>
         <div className="divider"></div>
         <div>
-          <h1>skin</h1>
-          <h2>{resourceObject.skin_color}</h2>
+          <h1>eyes; hair</h1>
+          <h2>{`${resourceObject.eye_color}; ${resourceObject.hair_color}`}</h2>
           <h1>birth year</h1>
           <h2>{resourceObject.birth_year}</h2>
           <h1>homeworld</h1>

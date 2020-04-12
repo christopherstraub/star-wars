@@ -152,7 +152,6 @@ class App extends Component {
           )
             rest.average_height = `${rest.average_height}m`;
 
-          console.log(rest.homeworld);
           return Object.values(rest);
         });
       }
