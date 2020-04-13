@@ -31,8 +31,11 @@ Star Wars Explorer is served live at [starwarsexplorer.xyz](http://starwarsexplo
 
 ![title screen](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/title-screen.PNG?raw=true)
 ![search planets](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/planets-search.PNG?raw=true)
-![search people](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/people-search.PNG?raw=true)
+![people](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/people.PNG?raw=true)
 ![species and footer](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/species-footer.PNG?raw=true)
+
+## Looks great on mobile, as well
+![planets mobile](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/planets-mobile.png?raw=true)
 
 ## Dependencies
 - react
