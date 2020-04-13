@@ -10,10 +10,7 @@
     display: none;
   }
 
-  .title,
-  .title-mobile {
-    transition: transform 0.2s ease;
-
+  .title {
     &:hover {
       cursor: default;
       transform: scale(1.025);

@@ -71,7 +71,7 @@ ul {
 
 // Small devices
 @media all and (max-width: 768px) {
-  // Responsive title
+  // Responsive title page
   .title-container {
     & .title {
       display: none;
@@ -82,6 +82,9 @@ ul {
       font-size: 7vw;
       line-height: 2;
       letter-spacing: 1.25rem;
+    }
+    & .darth-vader-image {
+      bottom: 5%;
     }
   }
 
@@ -98,11 +101,6 @@ ul {
   }
   .planets-icon {
     right: $menu-icon-gap-mobile;
-  }
-  .title-container {
-    & .darth-vader-image {
-      bottom: 5%;
-    }
   }
 
   // Responsive left-nav
