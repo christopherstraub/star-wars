@@ -5,7 +5,7 @@ const Species = ({ index, resourceData, resourceObject }) => {
     <div className="reosurce relative">
       <h1 className="name species-name">{resourceObject.name}</h1>
       <div className="attributes flex">
-        <div>
+        <div className="flex flex-column justify-around">
           <h1>classification</h1>
           <h2>{resourceObject.classification}</h2>
           <h1>average height</h1>
@@ -20,7 +20,7 @@ const Species = ({ index, resourceData, resourceObject }) => {
           <h2>{resourceObject.skin_colors}</h2>
         </div>
         <div className="divider"></div>
-        <div>
+        <div className="flex flex-column justify-around">
           <h1>eyes</h1>
           <h2>{resourceObject.eye_colors}</h2>
           <h1>Average lifespan</h1>

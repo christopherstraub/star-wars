@@ -119,6 +119,7 @@ ul {
   .heading {
     & .resource-info {
       margin-right: 0;
+      padding-bottom: 0;
       & .resource-title {
         font-size: 2rem;
       }
@@ -127,7 +128,17 @@ ul {
       }
     }
     & .search-input {
-      width: 175px;
+      width: 150px;
+      padding-left: 0;
+    }
+  }
+
+  // Responsive card wrapper
+  .card-wrapper {
+    border: 0;
+    padding: 0.75rem;
+    &:hover {
+      transform: unset;
     }
   }
 
@@ -143,7 +154,7 @@ ul {
     margin-top: 5px;
   }
   .attributes {
-    padding-left: 0.75rem;
+    padding: 0 1rem;
     & h1 {
       font-size: $font-size-attribute-mobile;
     }

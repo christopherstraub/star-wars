@@ -33,7 +33,7 @@ const People = ({ index, resourceData, resourceObject }) => {
       </div>
 
       <div className="attributes flex">
-        <div>
+        <div className="flex flex-column justify-around">
           <h1>height</h1>
           <h2 className="ttl">{resourceObject.height / 100} m</h2>
           <h1>mass</h1>
@@ -46,7 +46,7 @@ const People = ({ index, resourceData, resourceObject }) => {
           <h2>{resourceObject.skin_color}</h2>
         </div>
         <div className="divider"></div>
-        <div>
+        <div className="flex flex-column justify-around">
           <h1>eyes; hair</h1>
           <h2>{`${resourceObject.eye_color}; ${resourceObject.hair_color}`}</h2>
           <h1>birth year</h1>

@@ -5,7 +5,7 @@ import './Heading.scss';
 const Heading = ({ resourceTitle, resourceCount, handleSearchChange }) => {
   return (
     <div className="heading dib tc mb3 mt5 flex justify-center items-center">
-      <div className="resource-info flex flex-column pa3 br4">
+      <div className="resource-info flex flex-column pa3">
         <h1 className="resource-title tc dib ma0 mb2 heading-star-wars-font f1">
           {resourceTitle}
         </h1>

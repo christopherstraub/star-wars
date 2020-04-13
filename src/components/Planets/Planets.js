@@ -5,7 +5,7 @@ const Planets = ({ index, resourceObject }) => {
     <div className="resource relative">
       <h1 className="name">{resourceObject.name}</h1>
       <div className="attributes flex">
-        <div>
+        <div className="flex flex-column justify-around">
           <h1>rotation period</h1>
           <h2 className="ttl">{resourceObject.rotation_period} hrs</h2>
           <h1>orbital period</h1>
@@ -16,7 +16,7 @@ const Planets = ({ index, resourceObject }) => {
           <h2>{resourceObject.climate}</h2>
         </div>
         <div className="divider"></div>
-        <div>
+        <div className="flex flex-column justify-around">
           <h1>gravity</h1>
           <h2 className="ttl">{resourceObject.gravity}</h2>
           <h1>terrain</h1>
