@@ -28,7 +28,6 @@ Star Wars Explorer is served live [here](https://christopherstraub.github.io/sta
 - Introduce a button that allows you to alphabetize results.
 
 ## What the app looks like
-
 ![title screen](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/title-screen.PNG?raw=true)
 ![search planets](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/planets-search.PNG?raw=true)
 ![people](https://github.com/christopherstraub/star-wars-explorer/blob/master/screenshots/people.PNG?raw=true)
