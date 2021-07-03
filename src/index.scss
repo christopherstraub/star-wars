@@ -140,6 +140,11 @@ ul {
     }
   }
 
+  // Responsive footer
+  .footer-text-link{
+    font-size: $font-size-footer-text-link-mobile
+  }
+
   // Responsive resourceTemplate.scss
   .name {
     font-size: $font-size-name-mobile;
@@ -153,8 +158,12 @@ ul {
   }
   .attributes {
     padding: 0 1rem;
-    & h1 {
-      font-size: $font-size-attribute-mobile;
+
+    & .attribute-name {
+      font-size: $font-size-attribute-name-mobile;
+    }
+    & .attribute-value {
+      font-size: $font-size-attribute-value-mobile;
     }
   }
   .divider {
