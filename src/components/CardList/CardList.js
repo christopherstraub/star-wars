@@ -20,7 +20,7 @@ const CardList = ({
   ) : (
     <Scroll>
       <ErrorBoundary>
-        <div className="flex justify-center content-start flex-wrap pl6 pr6">
+        <div className="flex justify-center content-start flex-wrap pl5 pr5">
           {filteredResourceData[getResourceIndex(resourceTitle)].map(
             (object, index) => {
               return (

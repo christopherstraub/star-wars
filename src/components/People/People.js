@@ -25,34 +25,31 @@ const getGenderImage = (gender) => {
 const People = ({ index, resourceData, resourceObject }) => {
   return (
     <div className="resource relative">
-      <div className="mb3">
-        <h1 className="name di">{resourceObject.name}</h1>
+      <h1 className="name dib">{resourceObject.name}</h1>
         {resourceObject.gender === 'n/a'
           ? ''
           : getGenderImage(resourceObject.gender)}
-      </div>
-
       <div className="attributes flex">
         <div className="flex flex-column justify-around">
-          <h1>height</h1>
-          <h2 className="ttl">{resourceObject.height / 100} m</h2>
-          <h1>mass</h1>
-          <h2 className="ttn">
+          <h2 className="attribute-name">height</h2>
+          <h3 className="attribute-value ttl mb3">{resourceObject.height / 100} m</h3>
+          <h2 className="attribute-name">mass</h2>
+          <h3 className="attribute-value ttn mb3">
             {resourceObject.mass === 'unknown'
               ? 'Unknown'
               : `${resourceObject.mass} kg`}
-          </h2>
-          <h1>skin</h1>
-          <h2>{resourceObject.skin_color}</h2>
+          </h3>
+          <h2 className="attribute-name">skin</h2>
+          <h3 className="attribute-value">{resourceObject.skin_color}</h3>
         </div>
         <div className="divider"></div>
         <div className="flex flex-column justify-around">
-          <h1>eyes; hair</h1>
-          <h2>{`${resourceObject.eye_color}; ${resourceObject.hair_color}`}</h2>
-          <h1>birth year</h1>
-          <h2>{resourceObject.birth_year}</h2>
-          <h1>homeworld</h1>
-          <h2>{resourceData[1][resourceObject.homeworld - 1].name}</h2>
+          <h2 className="attribute-name">eyes; hair</h2>
+          <h3 className="attribute-value mb3">{`${resourceObject.eye_color}; ${resourceObject.hair_color}`}</h3>
+          <h2 className="attribute-name">birth year</h2>
+          <h3 className="attribute-value mb3">{resourceObject.birth_year}</h3>
+          <h2 className="attribute-name">homeworld</h2>
+          <h3 className="attribute-value">{resourceData[1][resourceObject.homeworld - 1].name}</h3>
         </div>
 
         <h3 className="number">{index + 1}</h3>
