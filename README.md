@@ -23,7 +23,7 @@ Star Wars Explorer is served live [here](https://christopherstraub.github.io/sta
 - Search by **any** attribute. Search by name, height, mass, eye color, rotation period, orbital period, language, and much more.
 - Click on the *info* button in the top left corner or scroll to the bottom of the page for an Easter Egg!
 
-## Future Features
+## Future features
 - Implement films, starships, transport, and vehicles.
 - Introduce a button that allows you to alphabetize results.
 
