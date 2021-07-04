@@ -144,6 +144,9 @@ ul {
   .footer-text-link{
     font-size: $font-size-footer-text-link-mobile
   }
+  .footer-icon{
+    width: $footer-icon-width-mobile;
+  }
 
   // Responsive resourceTemplate.scss
   .name {

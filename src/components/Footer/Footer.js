@@ -37,7 +37,6 @@ const getRandomImage = (getRandomIconUrl, iconUrls) => {
     <img
       className="footer-icon"
       src={getRandomIconUrl(iconUrls)}
-      width="60"
       alt="Random Star Wars character"
     />
   );
