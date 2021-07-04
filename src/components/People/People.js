@@ -25,10 +25,12 @@ const getGenderImage = (gender) => {
 const People = ({ index, resourceData, resourceObject }) => {
   return (
     <div className="resource relative">
-      <h1 className="name dib">{resourceObject.name}</h1>
+      <div className="pr4">
+        <h1 className="name dib">{resourceObject.name}</h1>
         {resourceObject.gender === 'n/a'
           ? ''
           : getGenderImage(resourceObject.gender)}
+      </div>
       <div className="attributes flex">
         <div className="flex flex-column justify-around">
           <h2 className="attribute-name">height</h2>

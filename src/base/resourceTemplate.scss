@@ -8,14 +8,16 @@
   margin-block-end: 30px;
 }
 .gender-icon {
-  margin-left: 1rem;
+  position: absolute;
+  right: 0;
 }
 .attributes {
-  padding: 0 2rem;
+  padding: 0 1rem;
 
-  & .attribute-name{
+  & .attribute-name {
     font-family: $font-subtitle;
     font-size: 28px;
+    font-weight: normal;
     margin-bottom: 8px;
     max-width: 250px;
   }
@@ -39,4 +41,5 @@
   color: rgba($color: #ffffff, $alpha: 0.5);
   bottom: 0;
   right: 0;
+  font-weight: normal;
 }
