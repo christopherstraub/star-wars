@@ -17,9 +17,9 @@ class App extends Component {
       resourceData: [],
       resourceSearch: ['', '', ''],
       urlsToFetch: [
-        'https://christopherstraub.github.io/swapi/resources/fixtures/people.json',
-        'https://christopherstraub.github.io/swapi/resources/fixtures/planets.json',
-        'https://christopherstraub.github.io/swapi/resources/fixtures/species.json',
+        'https://christopherstraub.me/swapi/resources/fixtures/people.json',
+        'https://christopherstraub.me/swapi/resources/fixtures/planets.json',
+        'https://christopherstraub.me/swapi/resources/fixtures/species.json',
       ],
       resourceTitles: ['people', 'planets', 'species'],
     };
@@ -82,12 +82,8 @@ class App extends Component {
 
   render() {
     // Deconstruct this.state
-    const {
-      dataFetched,
-      resourceData,
-      resourceSearch,
-      resourceTitles,
-    } = this.state;
+    const { dataFetched, resourceData, resourceSearch, resourceTitles } =
+      this.state;
 
     // We want to remove whitespace from the resourceSearch Array so that,
     // for example, if the user enters "77 kg", they will still see objects with mass = "77kg".
