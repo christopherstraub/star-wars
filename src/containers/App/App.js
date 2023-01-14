@@ -17,9 +17,9 @@ class App extends Component {
       resourceData: [],
       resourceSearch: ['', '', ''],
       urlsToFetch: [
-        'https://christopherstraub.me/swapi/resources/fixtures/people.json',
-        'https://christopherstraub.me/swapi/resources/fixtures/planets.json',
-        'https://christopherstraub.me/swapi/resources/fixtures/species.json',
+        'https://chrisstraub.com/swapi/resources/fixtures/people.json',
+        'https://chrisstraub.com/swapi/resources/fixtures/planets.json',
+        'https://chrisstraub.com/swapi/resources/fixtures/species.json',
       ],
       resourceTitles: ['people', 'planets', 'species'],
     };

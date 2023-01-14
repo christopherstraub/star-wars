@@ -10,7 +10,7 @@ const Footer = () => {
       <LightSpeed left>
         <a
           className="more-link footer-text-link"
-          href="https://christopherstraub.me/"
+          href="https://chrisstraub.com/"
           target="_blank"
           rel="noopener noreferrer"
         >
